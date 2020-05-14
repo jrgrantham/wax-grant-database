@@ -14,7 +14,7 @@ server.use(cors());
 server.use(express.json());
 
 server.get("/", (req, res) => {
-  res.json("server running");
+  res.json("risk server running");
 });
 
 server.use("/api/auth", authRouter);
