@@ -10,11 +10,14 @@ router.post("/login", (req, res) => {
     .then((user) => {
       if (user && bcrypt.compareSync(password, user.password)) {
         const token = generateToken(user);
+        // await db request for risks and templates, if allowed
         res.status(200).json({
           user: user.email,
           message: `Welcome back ${user.email}!!`,
           token: token,
-          userObject: user,
+          settings: user,
+          templates: [],
+          risks: [],
         });
       } else {
         res.status(401).json({ message: "incorrect username or password" });

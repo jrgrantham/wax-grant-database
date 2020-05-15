@@ -14,6 +14,20 @@ exports.seed = function (knex) {
           useTemplates: true,
           exportSpreadsheet: false
         },
+        {
+          email: "admin@gmail.com",
+          password: bcrypt.hashSync("1234", 10),
+          admin: true,
+          useTemplates: true,
+          exportSpreadsheet: false
+        },
+        {
+          email: "example@gmail.com",
+          password: bcrypt.hashSync("1234", 10),
+          admin: false,
+          useTemplates: false,
+          exportSpreadsheet: false
+        },
       ]);
     });
 };
