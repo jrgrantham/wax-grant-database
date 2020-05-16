@@ -3,7 +3,7 @@ const db = require("../database/dbConfig");
 module.exports = {
   findRisksByUserId,
   getTemplates,
-  getClients
+  getClients,
 };
 
 function findRisksByUserId(id) {
@@ -15,17 +15,18 @@ function findRisksByUserId(id) {
       "r.description",
       "r.probability",
       "r.consequence",
-      'r.risk',
-      'r.mitigation',
+      "r.risk",
+      "r.mitigation",
+      "r.owner",
+      "r.id"
     )
     .where("u.id", id);
 }
 
 function getTemplates() {
-  return db('templates')
+  return db("templates");
 }
 
 function getClients() {
-  return db('users')
-    .select('users.company', 'users.email')
+  return db("users").select("users.company", "users.email");
 }
