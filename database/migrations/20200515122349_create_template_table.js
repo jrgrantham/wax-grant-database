@@ -2,6 +2,7 @@
 exports.up = function(knex) {
   return knex.schema.createTable('templates', templates => {
     templates.increments();
+    templates.string('type');
     templates.text('description');
     templates.integer('probability');
     templates.integer('consequence');

@@ -22,7 +22,28 @@ exports.seed = function (knex) {
           exportSpreadsheet: false
         },
         {
-          email: "example@gmail.com",
+          email: "example1@gmail.com",
+          password: bcrypt.hashSync("1234", 10),
+          admin: false,
+          useTemplates: false,
+          exportSpreadsheet: false
+        },
+        {
+          email: "example2@gmail.com",
+          password: bcrypt.hashSync("1234", 10),
+          admin: false,
+          useTemplates: false,
+          exportSpreadsheet: false
+        },
+        {
+          email: "example3@gmail.com",
+          password: bcrypt.hashSync("1234", 10),
+          admin: false,
+          useTemplates: false,
+          exportSpreadsheet: false
+        },
+        {
+          email: "example4@gmail.com",
           password: bcrypt.hashSync("1234", 10),
           admin: false,
           useTemplates: false,

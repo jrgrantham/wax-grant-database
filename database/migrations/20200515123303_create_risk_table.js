@@ -6,6 +6,7 @@ exports.up = function (knex) {
       .references("id")
       .inTable("users")
       .onDelete("CASCADE");
+    risks.string("type");
     risks.text("description");
     risks.integer("probability");
     risks.integer("consequence");

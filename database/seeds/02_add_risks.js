@@ -7,6 +7,7 @@ exports.seed = function (knex) {
       return knex("risks").insert([
         {
           projectId: 1,
+          type: 'managerial',
           description: "description1",
           probability: 1,
           consequence: 1,
@@ -15,6 +16,7 @@ exports.seed = function (knex) {
         },
         {
           projectId: 1,
+          type: 'commercial',
           description: "description2",
           probability: 1,
           consequence: 1,
@@ -23,11 +25,30 @@ exports.seed = function (knex) {
         },
         {
           projectId: 1,
+          type: 'commercial',
           description: "description3",
           probability: 1,
           consequence: 1,
           owner: "JG",
           mitigation: "mitigation3",
+        },
+        {
+          projectId: 1,
+          type: 'commercial',
+          description: "description4",
+          probability: 1,
+          consequence: 1,
+          owner: "JG",
+          mitigation: "mitigation4",
+        },
+        {
+          projectId: 1,
+          type: 'commercial',
+          description: "description5",
+          probability: 1,
+          consequence: 1,
+          owner: "JG",
+          mitigation: "mitigation5",
         },
       ]);
     });

@@ -1,11 +1,12 @@
-
-exports.seed = function(knex) {
+exports.seed = function (knex) {
   // Deletes ALL existing entries
-  return knex('templates').del()
+  return knex("templates")
+    .del()
     .then(function () {
       // Inserts seed entries
-      return knex('templates').insert([
+      return knex("templates").insert([
         {
+          type: "managerial",
           description: "temp description1",
           probability: 1,
           consequence: 1,
@@ -15,6 +16,7 @@ exports.seed = function(knex) {
           man: true,
         },
         {
+          type: "commercial",
           description: "temp description2",
           probability: 1,
           consequence: 1,
@@ -24,6 +26,7 @@ exports.seed = function(knex) {
           man: true,
         },
         {
+          type: "commercial",
           description: "temp description3",
           probability: 1,
           consequence: 1,
