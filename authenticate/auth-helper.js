@@ -1,19 +1,14 @@
-const db = require("../database/dbConfig");
+// const db = require("../database/dbConfig");
 
-module.exports = {
-  findUserById,
-  findUserBy
-};
+// module.exports = {
+//   findUserById,
+//   findUserBy,
+// };
 
-function findUserBy(filter) {
-  return db('users')
-    .where(filter)
-    .first()
-}
+// function findUserBy(filter) {
+//   return db("users").where(filter).first();
+// }
 
-function findUserById(id) {
-  return db("users")
-    .select("id", "email")
-    .where({ id })
-    .first();
-}
+// function findUserById(id) {
+//   return db("users").where({ id }).first();
+// }
