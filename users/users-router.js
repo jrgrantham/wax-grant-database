@@ -1,6 +1,8 @@
 const router = require("express").Router();
 const Users = require("./users-models");
 
+// ----- USER ----- //
+
 router.get("/user", (req, res) => {
   Users.findUserById(req.decodedToken.id)
     .then((settings) => {
@@ -13,6 +15,30 @@ router.get("/user", (req, res) => {
         .json({ message: "could not get user data. " + error.message });
     });
 });
+
+router.put("/user", (req, res) => {
+  const id = req.body.id;
+  const changes = {
+    projectId: req.decodedToken.id,
+    type: req.body.type,
+    description: req.body.description,
+    probability: req.body.probability,
+    risk: req.body.risk,
+    consequence: req.body.consequence,
+    owner: req.body.owner,
+    mitigation: req.body.mitigation,
+  };
+
+  Users.updateUser(id, changes)
+    .then((risks) => {
+      res.json(risks);
+    })
+    .catch((error) => {
+      res.status(500).json({ message: "could not get risks " + error.message });
+    });
+})
+
+// ----- RISKS ----- //
 
 router.get("/risks", (req, res) => {
   Users.findRisksByUserId(req.decodedToken.id)
@@ -27,7 +53,6 @@ router.get("/risks", (req, res) => {
 });
 
 router.delete("/risks", (req, res) => {
-  console.log(req);
   const id = req.body.id;
   Users.delRisk(id)
     .then(() => {
@@ -47,10 +72,10 @@ router.post("/risks", (req, res) => {
     description: req.body.description,
     probability: req.body.probability,
     consequence: req.body.consequence,
+    risk: req.body.risk,
     owner: req.body.owner,
     mitigation: req.body.mitigation,
   };
-  // console.log(newRow);
   Users.addRisk(newRow)
     .then((risks) => {
       res.json(risks);
@@ -59,6 +84,29 @@ router.post("/risks", (req, res) => {
       res.status(500).json({ message: "could not get risks " + error.message });
     });
 });
+router.put("/risks", (req, res) => {
+  const id = req.body.id;
+  const changes = {
+    projectId: req.decodedToken.id,
+    type: req.body.type,
+    description: req.body.description,
+    probability: req.body.probability,
+    risk: req.body.risk,
+    consequence: req.body.consequence,
+    owner: req.body.owner,
+    mitigation: req.body.mitigation,
+  };
+
+  Users.updateRisk(id, changes)
+    .then((risks) => {
+      res.json(risks);
+    })
+    .catch((error) => {
+      res.status(500).json({ message: "could not get risks " + error.message });
+    });
+})
+
+// ----- TEMPLATES ----- //
 
 router.get("/templates", (req, res) => {
   if (req.decodedToken.useTemplates) {

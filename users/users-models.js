@@ -1,14 +1,18 @@
 const db = require("../database/dbConfig");
 
 module.exports = {
+  findUserBy,
+  findUserById,
+  updateUser,
   findRisksByUserId,
   addRisk,
+  updateRisk,
   delRisk,
   getTemplates,
   getClients,
-  findUserBy,
-  findUserById,
 };
+
+// ----- USER ----- //
 
 function findUserBy(filter) {
   return db("users").where(filter).first();
@@ -17,6 +21,14 @@ function findUserBy(filter) {
 function findUserById(id) {
   return db("users").where({ id }).first();
 }
+
+function updateUser(id, changes) {
+  return db('risks')
+    .where({id})
+    .update(changes, '*')
+}
+
+// ----- RISKS ----- //
 
 function findRisksByUserId(id) {
   return db("risks as r")
@@ -42,11 +54,19 @@ async function addRisk(risk) {
   return findRisksByUserId(projectId)
 }
 
+function updateRisk(id, changes) {
+  return db('risks')
+    .where({id})
+    .update(changes, '*')
+}
+
 function delRisk(id) {
   return db('risks')
     .where({id})
     .del()
 }
+
+// ----- TEMPLATES ----- //
 
 function getTemplates() {
   return db("templates");
