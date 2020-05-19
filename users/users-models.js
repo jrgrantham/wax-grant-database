@@ -32,7 +32,7 @@ function updateUserSettings(id, changes) {
 }
 
 function getClients() {
-  return db("users").select("users.company", "users.email");
+  return db("users").select("users.id", "users.company", "users.email");
 }
 function editClients() {
   return db("users").select("users.company", "users.email");
@@ -43,7 +43,6 @@ function addClients() {
 function delClients() {
   return db("users").select("users.company", "users.email");
 }
-
 
 // ----- RISKS ----- //
 

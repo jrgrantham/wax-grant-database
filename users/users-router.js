@@ -42,7 +42,9 @@ router.put("/user", (req, res) => {
   }
 });
 
-router.get("/admin", (req, res) => {
+// ----- ADMIN ----- //
+
+router.get("/clients", (req, res) => {
   if (req.decodedToken.admin) {
     Users.getClients()
       .then((clients) => {
@@ -52,6 +54,24 @@ router.get("/admin", (req, res) => {
         res
           .status(500)
           .json({ message: "could not get clients. " + error.message });
+      });
+  } else {
+    res.json({ message: "access denied" });
+  }
+});
+
+// use params here for admin.
+// check if admin first.
+router.get("/client/:id", (req, res) => {
+  if (req.decodedToken.admin) {
+    Users.findRisksByUserId(req.decodedToken.id)
+      .then((risks) => {
+        res.json(risks);
+      })
+      .catch((error) => {
+        res
+          .status(500)
+          .json({ message: "could not get risks. " + error.message });
       });
   } else {
     res.json({ message: "access denied" });
