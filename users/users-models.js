@@ -3,7 +3,7 @@ const db = require("../database/dbConfig");
 module.exports = {
   findUserBy,
   findUserById,
-  updateUser,
+  updateUserSettings,
   findRisksByUserId,
   addRisk,
   updateRisk,
@@ -22,10 +22,12 @@ function findUserById(id) {
   return db("users").where({ id }).first();
 }
 
-function updateUser(id, changes) {
-  return db('risks')
+function updateUserSettings(id, changes) {
+  console.log('updated:' + changes);
+  
+  return db('users')
     .where({id})
-    .update(changes, '*')
+    .update(changes)
 }
 
 // ----- RISKS ----- //
@@ -57,7 +59,7 @@ async function addRisk(risk) {
 function updateRisk(id, changes) {
   return db('risks')
     .where({id})
-    .update(changes, '*')
+    .update(changes)
 }
 
 function delRisk(id) {

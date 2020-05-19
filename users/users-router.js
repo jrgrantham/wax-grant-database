@@ -17,26 +17,30 @@ router.get("/user", (req, res) => {
 });
 
 router.put("/user", (req, res) => {
-  const id = req.body.id;
-  const changes = {
-    projectId: req.decodedToken.id,
-    type: req.body.type,
-    description: req.body.description,
-    probability: req.body.probability,
-    risk: req.body.risk,
-    consequence: req.body.consequence,
-    owner: req.body.owner,
-    mitigation: req.body.mitigation,
-  };
+  if (req.body.key === "admin") {
+    res.json({ message: "cheeky fucker" });
+  } else if (
+    (req.body.key === "useTemplates" || req.body.key === "exportSpreadsheet") &&
+    !req.body.key === "admin"
+  ) {
+    res.json({ message: "cheeky fucker" });
+  } else {
+    const userID = req.decodedToken.id;
+    const changes = {
+      [req.body.key]: req.body.value,
+    };
 
-  Users.updateUser(id, changes)
-    .then((risks) => {
-      res.json(risks);
-    })
-    .catch((error) => {
-      res.status(500).json({ message: "could not get risks " + error.message });
-    });
-})
+    Users.updateUserSettings(userID, changes)
+      .then((user) => {
+        res.json(user);
+      })
+      .catch((error) => {
+        res
+          .status(500)
+          .json({ message: "could not get risks " + error.message });
+      });
+  }
+});
 
 // ----- RISKS ----- //
 
@@ -104,7 +108,7 @@ router.put("/risks", (req, res) => {
     .catch((error) => {
       res.status(500).json({ message: "could not get risks " + error.message });
     });
-})
+});
 
 // ----- TEMPLATES ----- //
 
