@@ -14,6 +14,7 @@ router.post("/login", (req, res) => {
         delete user.password;
         res.status(200).json({
           user: user.email,
+          admin: user.admin,
           message: `Welcome back ${user.email}!!`,
           token: token,
           settings: user

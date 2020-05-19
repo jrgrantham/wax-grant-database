@@ -42,11 +42,29 @@ router.put("/user", (req, res) => {
   }
 });
 
+router.get("/admin", (req, res) => {
+  if (req.decodedToken.admin) {
+    Users.getClients()
+      .then((clients) => {
+        res.json(clients);
+      })
+      .catch((error) => {
+        res
+          .status(500)
+          .json({ message: "could not get clients. " + error.message });
+      });
+  } else {
+    res.json({ message: "access denied" });
+  }
+});
+
 // ----- RISKS ----- //
 
 router.get("/risks", (req, res) => {
   Users.findRisksByUserId(req.decodedToken.id)
     .then((risks) => {
+      console.log(risks);
+
       res.json(risks);
     })
     .catch((error) => {
@@ -113,7 +131,9 @@ router.put("/risks", (req, res) => {
 // ----- TEMPLATES ----- //
 
 router.get("/templates", (req, res) => {
-  if (req.decodedToken.useTemplates) {
+  console.log(req.decodedToken.useTemplates);
+
+  if (req.decodedToken.useTemplates || req.decodedToken.admin) {
     Users.getTemplates()
       .then((templates) => {
         res.json(templates);
@@ -128,20 +148,58 @@ router.get("/templates", (req, res) => {
   }
 });
 
-router.get("/admin", (req, res) => {
-  if (req.decodedToken.admin) {
-    Users.getClients()
-      .then((clients) => {
-        res.json(clients);
-      })
-      .catch((error) => {
-        res
-          .status(500)
-          .json({ message: "could not get clients. " + error.message });
+router.delete("/templates", (req, res) => {
+  const id = req.body.id;
+  Users.delTemplate(id)
+    .then(() => {
+      res.status(200).json({ message: "deleted" });
+    })
+    .catch((error) => {
+      res.status(500).json({
+        message: `error deleting ${error.message}`,
       });
-  } else {
-    res.json({ message: "access denied" });
-  }
+    });
+});
+
+router.post("/templates", (req, res) => {
+  const newRow = {
+    type: req.body.type,
+    description: req.body.description,
+    probability: req.body.probability,
+    consequence: req.body.consequence,
+    risk: req.body.risk,
+    mitigation: req.body.mitigation,
+  };
+  Users.addTemplate(newRow)
+    .then((risks) => {
+      res.json(risks);
+    })
+    .catch((error) => {
+      res.status(500).json({ message: "could not get risks " + error.message });
+    });
+});
+
+router.put("/templates", (req, res) => {
+  const id = req.body.id;
+  const changes = {
+    type: req.body.type,
+    description: req.body.description,
+    probability: req.body.probability,
+    consequence: req.body.consequence,
+    risk: req.body.risk,
+    mitigation: req.body.mitigation,
+    ai: req.body.ai,
+    dlt: req.body.dlt,
+    man: req.body.man,
+  };
+
+  Users.updateTemplate(id, changes)
+    .then((risks) => {
+      res.json(risks);
+    })
+    .catch((error) => {
+      res.status(500).json({ message: "could not get risks " + error.message });
+    });
 });
 
 module.exports = router;
