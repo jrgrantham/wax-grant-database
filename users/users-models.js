@@ -34,15 +34,15 @@ function updateUserSettings(id, changes) {
 function getClients() {
   return db("users").select("users.id", "users.company", "users.email");
 }
-function editClients() {
-  return db("users").select("users.company", "users.email");
-}
-function addClients() {
-  return db("users").select("users.company", "users.email");
-}
-function delClients() {
-  return db("users").select("users.company", "users.email");
-}
+// function editClients() {
+//   return db("users").select("users.company", "users.email");
+// }
+// function addClients() {
+//   return db("users").select("users.company", "users.email");
+// }
+// function delClients() {
+//   return db("users").select("users.company", "users.email");
+// }
 
 // ----- RISKS ----- //
 
@@ -50,6 +50,7 @@ function findRisksByUserId(id) {
   return db("risks as r")
     .join("users as u", "r.projectId", "u.id")
     .select(
+      "u.id as userId",
       "u.email",
       "r.type",
       "r.description",
@@ -64,6 +65,8 @@ function findRisksByUserId(id) {
 }
 
 async function addRisk(risk) {
+  console.log(risk);
+  
   await db("risks").insert(risk);
   const projectId = risk.projectId;
   console.log(projectId);

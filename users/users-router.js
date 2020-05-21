@@ -64,14 +64,16 @@ router.get("/clients", (req, res) => {
 // check if admin first.
 router.get("/client/:id", (req, res) => {
   if (req.decodedToken.admin) {
-    Users.findRisksByUserId(req.decodedToken.id)
-      .then((risks) => {
-        res.json(risks);
+    Users.findUserById(req.params.id)
+      .then((settings) => {
+        delete settings.password;
+        settings.admin = true;
+        res.json(settings);
       })
       .catch((error) => {
         res
           .status(500)
-          .json({ message: "could not get risks. " + error.message });
+          .json({ message: "could not get user data. " + error.message });
       });
   } else {
     res.json({ message: "access denied" });
@@ -80,11 +82,9 @@ router.get("/client/:id", (req, res) => {
 
 // ----- RISKS ----- //
 
-router.get("/risks", (req, res) => {
-  Users.findRisksByUserId(req.decodedToken.id)
+router.get("/risks/:id", (req, res) => {
+  Users.findRisksByUserId(req.params.id)
     .then((risks) => {
-      console.log(risks);
-
       res.json(risks);
     })
     .catch((error) => {
@@ -107,9 +107,11 @@ router.delete("/risks", (req, res) => {
     });
 });
 
-router.post("/risks", (req, res) => {
+router.post("/risks/:id", (req, res) => {
+  
+  const id = parseInt(req.params.id)
   const newRow = {
-    projectId: req.decodedToken.id,
+    projectId: id,
     type: req.body.type,
     description: req.body.description,
     probability: req.body.probability,
@@ -129,7 +131,7 @@ router.post("/risks", (req, res) => {
 router.put("/risks", (req, res) => {
   const id = req.body.id;
   const changes = {
-    projectId: req.decodedToken.id,
+    // projectId: req.decodedToken.id,
     type: req.body.type,
     description: req.body.description,
     probability: req.body.probability,
@@ -156,6 +158,7 @@ router.get("/templates", (req, res) => {
   if (req.decodedToken.useTemplates || req.decodedToken.admin) {
     Users.getTemplates()
       .then((templates) => {
+        console.log(templates);
         res.json(templates);
       })
       .catch((error) => {

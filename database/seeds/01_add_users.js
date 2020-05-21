@@ -175,30 +175,6 @@ exports.seed = function (knex) {
       envMaxLength: 100, // admin
       envMaxRisks: 5, // admin
     },
-    {
-      email: "example2@gmail.com",
-      password: bcrypt.hashSync("1234", 10),
-      company: "Company",
-      admin: false,
-      useTemplates: false,
-      exportSpreadsheet: false,
-    },
-    {
-      email: "example3@gmail.com",
-      password: bcrypt.hashSync("1234", 10),
-      company: "Company",
-      admin: false,
-      useTemplates: false,
-      exportSpreadsheet: false,
-    },
-    {
-      email: "example4@gmail.com",
-      password: bcrypt.hashSync("1234", 10),
-      company: "Company",
-      admin: false,
-      useTemplates: false,
-      exportSpreadsheet: false,
-    },
   ]);
   // });
 };

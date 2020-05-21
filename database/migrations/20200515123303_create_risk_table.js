@@ -3,9 +3,12 @@ exports.up = function (knex) {
     risks.increments();
     risks
       .integer("projectId")
+      .unsigned()
+      .notNullable()
       .references("id")
       .inTable("users")
-      .onDelete("CASCADE");
+      .onDelete("CASCADE")
+      .index();
     risks.string("type");
     risks.text("description");
     risks.integer("probability");
