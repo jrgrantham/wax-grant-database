@@ -25,7 +25,7 @@ router.put("/user", (req, res) => {
   ) {
     res.json({ message: "cheeky fucker" });
   } else {
-    const userID = req.decodedToken.id;
+    const userID = req.body.id;
     const changes = {
       [req.body.key]: req.body.value,
     };
