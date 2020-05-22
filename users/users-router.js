@@ -1,12 +1,13 @@
 const router = require("express").Router();
 const Users = require("./users-models");
+const bcrypt = require("bcryptjs");
 
 // ----- USER ----- //
 
 router.get("/user", (req, res) => {
   Users.findUserById(req.decodedToken.id)
     .then((settings) => {
-      delete settings.password;
+      settings.password = "";
       res.json(settings);
     })
     .catch((error) => {
@@ -26,6 +27,10 @@ router.put("/user", (req, res) => {
     res.json({ message: "cheeky fucker" });
   } else {
     const userID = req.body.id;
+    if (req.body.key === "password") {
+      const newPassword = bcrypt.hashSync(req.body.value, 10);
+      req.body.value = newPassword;
+    }
     const changes = {
       [req.body.key]: req.body.value,
     };
@@ -79,6 +84,70 @@ router.get("/client/:id", (req, res) => {
     res.json({ message: "access denied" });
   }
 });
+router.post("/client", (req, res) => {
+  const newClient = {
+    email: req.body.email,
+    password: req.body.password,
+    admin: req.body.admin,
+    company: req.body.company,
+    nature: req.body.nature,
+    type: req.body.type,
+    project: req.body.project,
+    application: req.body.application,
+    selected: req.body.selected,
+
+    ai: req.body.ai,
+    dlt: req.body.dlt,
+    man: req.body.man,
+    useTemplates: req.body.useTemplates,
+    exportSpreadsheet: req.body.exportSpreadsheet,
+    flavour: req.body.flavour,
+    appendixRef: req.body.appendixRef,
+    maxCharacters: req.body.maxCharacters,
+
+    manDisplay: req.body.manDisplay,
+    manDisplayChangeable: req.body.manDisplayChangeable,
+    manDefaultOwner: req.body.manDefaultOwner,
+    manColor: req.body.manColor,
+    manMaxLength: req.body.manMaxLength,
+    manMaxRisks: req.body.manMaxRisks,
+
+    tecDisplay: req.body.tecDisplay,
+    tecDisplayChangeable: req.body.tecDisplayChangeable,
+    tecDefaultOwner: req.body.tecDefaultOwner,
+    tecColor: req.body.tecColor,
+    tecMaxLength: req.body.tecMaxLength,
+    tecMaxRisks: req.body.tecMaxRisks,
+
+    comDisplay: req.body.comDisplay,
+    comDisplayChangeable: req.body.comDisplayChangeable,
+    comDefaultOwner: req.body.comDefaultOwner,
+    comColor: req.body.comColor,
+    comMaxLength: req.body.comMaxLength,
+    comMaxRisks: req.body.comMaxRisks,
+
+    legDisplay: req.body.legDisplay,
+    legDisplayChangeable: req.body.legDisplayChangeable,
+    legDefaultOwner: req.body.legDefaultOwner,
+    legColor: req.body.legColor,
+    legMaxLength: req.body.legMaxLength,
+    legMaxRisks: req.body.legMaxRisks,
+
+    envDisplay: req.body.envDisplay,
+    envDisplayChangeable: req.body.envDisplayChangeable,
+    envDefaultOwner: req.body.envDefaultOwner,
+    envColor: req.body.envColor,
+    envMaxLength: req.body.envMaxLength,
+    envMaxRisks: req.body.envMaxRisks,
+  };
+  Users.addClient(newClient)
+    .then((client) => {
+      res.json(client);
+    })
+    .catch((error) => {
+      res.status(500).json({ message: "could not get cleint " + error.message });
+    });
+});
 
 // ----- RISKS ----- //
 
@@ -108,8 +177,7 @@ router.delete("/risks", (req, res) => {
 });
 
 router.post("/risks/:id", (req, res) => {
-  
-  const id = parseInt(req.params.id)
+  const id = parseInt(req.params.id);
   const newRow = {
     projectId: id,
     type: req.body.type,

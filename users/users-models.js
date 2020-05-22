@@ -13,6 +13,7 @@ module.exports = {
   updateTemplate,
   delTemplate,
   getClients,
+  addClient,
 };
 
 // ----- USER ----- //
@@ -33,6 +34,12 @@ function updateUserSettings(id, changes) {
 
 function getClients() {
   return db("users").select("users.id", "users.company", "users.email");
+}
+async function addClient(client) {
+  console.log(client);
+  const [id] = await db('users').insert(client, 'id');
+  console.log(id);
+  return findUserById(id);
 }
 // function editClients() {
 //   return db("users").select("users.company", "users.email");
