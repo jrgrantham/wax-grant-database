@@ -71,7 +71,7 @@ router.get("/client/:id", (req, res) => {
   if (req.decodedToken.admin) {
     Users.findUserById(req.params.id)
       .then((settings) => {
-        delete settings.password;
+        settings.password = "";
         settings.admin = true;
         res.json(settings);
       })
@@ -145,7 +145,21 @@ router.post("/client", (req, res) => {
       res.json(client);
     })
     .catch((error) => {
-      res.status(500).json({ message: "could not get cleint " + error.message });
+      res
+        .status(500)
+        .json({ message: "could not get cleint " + error.message });
+    });
+});
+router.delete("/client", (req, res) => {
+  const id = req.body.id;
+  Users.delClient(id)
+    .then(() => {
+      res.status(200).json({ message: "deleted" });
+    })
+    .catch((error) => {
+      res.status(500).json({
+        message: `error deleting ${error.message}`,
+      });
     });
 });
 

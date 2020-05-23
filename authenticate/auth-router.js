@@ -11,7 +11,7 @@ router.post("/login", (req, res) => {
       if (user && bcrypt.compareSync(password, user.password)) {
         const token = generateToken(user);
         // await db request for risks and templates, if allowed
-        delete user.password;
+        user.password = '';
         res.status(200).json({
           user: user.email,
           admin: user.admin,

@@ -14,6 +14,7 @@ module.exports = {
   delTemplate,
   getClients,
   addClient,
+  delClient,
 };
 
 // ----- USER ----- //
@@ -36,20 +37,15 @@ function getClients() {
   return db("users").select("users.id", "users.company", "users.email");
 }
 async function addClient(client) {
-  console.log(client);
-  const [id] = await db('users').insert(client, 'id');
-  console.log(id);
+  // console.log(client);
+  const [id] = await db("users").insert(client, "id");
+  // console.log(id);
   return findUserById(id);
 }
-// function editClients() {
-//   return db("users").select("users.company", "users.email");
-// }
-// function addClients() {
-//   return db("users").select("users.company", "users.email");
-// }
-// function delClients() {
-//   return db("users").select("users.company", "users.email");
-// }
+function delClient(id) {
+  console.log(id);
+  return db("users").where({id}).del();
+}
 
 // ----- RISKS ----- //
 
@@ -73,7 +69,7 @@ function findRisksByUserId(id) {
 
 async function addRisk(risk) {
   console.log(risk);
-  
+
   await db("risks").insert(risk);
   const projectId = risk.projectId;
   console.log(projectId);
