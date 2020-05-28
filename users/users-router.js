@@ -235,12 +235,12 @@ router.put("/risks", (req, res) => {
 // ----- TEMPLATES ----- //
 
 router.get("/templates", (req, res) => {
-  console.log(req.decodedToken.useTemplates);
+  // console.log(req.decodedToken.useTemplates);
 
   if (req.decodedToken.useTemplates || req.decodedToken.admin) {
     Users.getTemplates()
       .then((templates) => {
-        console.log(templates);
+        // console.log(templates);
         res.json(templates);
       })
       .catch((error) => {

@@ -28,8 +28,7 @@ function findUserById(id) {
 }
 
 function updateUserSettings(id, changes) {
-  console.log("updated:" + changes);
-
+  // console.log("updated:" + changes);
   return db("users").where({ id }).update(changes);
 }
 
@@ -43,7 +42,7 @@ async function addClient(client) {
   return findUserById(id);
 }
 function delClient(id) {
-  console.log(id);
+  // console.log(id);
   return db("users").where({id}).del();
 }
 
@@ -68,11 +67,11 @@ function findRisksByUserId(id) {
 }
 
 async function addRisk(risk) {
-  console.log(risk);
+  // console.log(risk);
 
   await db("risks").insert(risk);
   const projectId = risk.projectId;
-  console.log(projectId);
+  // console.log(projectId);
   return findRisksByUserId(projectId);
 }
 
