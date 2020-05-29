@@ -28,7 +28,7 @@ function findUserById(id) {
 }
 
 function updateUserSettings(id, changes) {
-  // console.log("updated:" + changes);
+  console.log(id, changes);
   return db("users").where({ id }).update(changes);
 }
 

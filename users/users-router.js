@@ -34,6 +34,8 @@ router.put("/user", (req, res) => {
     const changes = {
       [req.body.key]: req.body.value,
     };
+    // console.log(userID, changes);
+    
 
     Users.updateUserSettings(userID, changes)
       .then((user) => {
@@ -42,7 +44,7 @@ router.put("/user", (req, res) => {
       .catch((error) => {
         res
           .status(500)
-          .json({ message: "could not get risks " + error.message });
+          .json({ message: "could not update user " + error.message });
       });
   }
 });
@@ -95,6 +97,7 @@ router.post("/client", (req, res) => {
     project: req.body.project,
     application: req.body.application,
     selected: req.body.selected,
+    fontSize: req.body.fontSize,
 
     ai: req.body.ai,
     dlt: req.body.dlt,
@@ -109,35 +112,30 @@ router.post("/client", (req, res) => {
     manDisplayChangeable: req.body.manDisplayChangeable,
     manDefaultOwner: req.body.manDefaultOwner,
     manColor: req.body.manColor,
-    manMaxLength: req.body.manMaxLength,
     manMaxRisks: req.body.manMaxRisks,
 
     tecDisplay: req.body.tecDisplay,
     tecDisplayChangeable: req.body.tecDisplayChangeable,
     tecDefaultOwner: req.body.tecDefaultOwner,
     tecColor: req.body.tecColor,
-    tecMaxLength: req.body.tecMaxLength,
     tecMaxRisks: req.body.tecMaxRisks,
 
     comDisplay: req.body.comDisplay,
     comDisplayChangeable: req.body.comDisplayChangeable,
     comDefaultOwner: req.body.comDefaultOwner,
     comColor: req.body.comColor,
-    comMaxLength: req.body.comMaxLength,
     comMaxRisks: req.body.comMaxRisks,
 
     legDisplay: req.body.legDisplay,
     legDisplayChangeable: req.body.legDisplayChangeable,
     legDefaultOwner: req.body.legDefaultOwner,
     legColor: req.body.legColor,
-    legMaxLength: req.body.legMaxLength,
     legMaxRisks: req.body.legMaxRisks,
 
     envDisplay: req.body.envDisplay,
     envDisplayChangeable: req.body.envDisplayChangeable,
     envDefaultOwner: req.body.envDefaultOwner,
     envColor: req.body.envColor,
-    envMaxLength: req.body.envMaxLength,
     envMaxRisks: req.body.envMaxRisks,
   };
   Users.addClient(newClient)

@@ -19,6 +19,7 @@ exports.up = function (knex) {
     users.boolean("man");
     users.boolean("useTemplates");
     users.boolean("exportSpreadsheet");
+    users.decimal("fontSize");
     users.string("flavour");
     users.string("appendixRef");
     users.string("maxCharacters");
@@ -28,7 +29,6 @@ exports.up = function (knex) {
     users.boolean("manDisplayChangeable");
     users.string("manDefaultOwner");
     users.string("manColor");
-    users.integer("manMaxLength");
     users.integer("manMaxRisks");
 
     // Technical Risk Options
@@ -36,7 +36,6 @@ exports.up = function (knex) {
     users.boolean("tecDisplayChangeable");
     users.string("tecDefaultOwner");
     users.string("tecColor");
-    users.integer("tecMaxLength");
     users.integer("tecMaxRisks");
 
     // Commercial Risk Options
@@ -44,7 +43,6 @@ exports.up = function (knex) {
     users.boolean("comDisplayChangeable");
     users.string("comDefaultOwner");
     users.string("comColor");
-    users.integer("comMaxLength");
     users.integer("comMaxRisks");
 
     // Legal Risk Options
@@ -52,7 +50,6 @@ exports.up = function (knex) {
     users.boolean("legDisplayChangeable");
     users.string("legDefaultOwner");
     users.string("legColor");
-    users.integer("legMaxLength");
     users.integer("legMaxRisks");
 
     // Environmental Risk Options
@@ -60,7 +57,6 @@ exports.up = function (knex) {
     users.boolean("envDisplayChangeable");
     users.string("envDefaultOwner");
     users.string("envColor");
-    users.integer("envMaxLength");
     users.integer("envMaxRisks");
   });
 };

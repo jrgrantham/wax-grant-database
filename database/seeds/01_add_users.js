@@ -10,170 +10,158 @@ exports.seed = function (knex) {
     {
       email: "james.r.grantham@gmail.com",
       password: bcrypt.hashSync("1234", 10),
-      company: "Company",
+      company: "Developer",
+      admin: true,
+      exportSpreadsheet: true,
+      useTemplates: true,
+      fontSize: 8,
+
+      nature: "nature 1",
+      type: "projectType 1",
+      project: "enter project...",
+      application: "enter application...",
+      selected: "managerial",
+
+      ai: true,
+      dlt: false,
+      man: true,
+      flavour: "flavour 3",
+      appendixRef: "enter appendix ref",
+      maxCharacters: 350,
+
+      manDisplay: true,
+      manDisplayChangeable: false,
+      manDefaultOwner: "JG",
+      manColor: "orange",
+      manMaxRisks: 5,
+
+      tecDisplay: true,
+      tecDisplayChangeable: false,
+      tecDefaultOwner: "JG",
+      tecColor: "red",
+      tecMaxRisks: 5,
+
+      comDisplay: true,
+      comDisplayChangeable: false,
+      comDefaultOwner: "JG",
+      comColor: "green",
+      comMaxRisks: 5,
+
+      legDisplay: true,
+      legDisplayChangeable: true,
+      legDefaultOwner: "JG",
+      legColor: "blue",
+      legMaxRisks: 5,
+
+      envDisplay: true,
+      envDisplayChangeable: true,
+      envDefaultOwner: "JG",
+      envColor: "yellow",
+      envMaxRisks: 5,
+    },
+    {
+      email: "damien@wax-rdc.com",
+      password: bcrypt.hashSync("1234", 10),
+      company: "Wax-RCD",
       admin: true,
       useTemplates: true,
       exportSpreadsheet: false,
+      fontSize: 8,
 
-      nature: "nature 3",
-      type: "projectType 4",
-      project: "Reacher",
+      nature: "",
+      type: "",
+      project: "",
       application: "",
-      selected: "managerial", // project risk
+      selected: "managerial",
 
-      ai: true, // admin
-      dlt: false, // admin
-      man: true, // admin
-      flavour: "flavour 3", // admin
-      appendixRef: "reference", // admin
-      maxCharacters: 350, // admin
+      ai: true,
+      dlt: true,
+      man: true,
+      flavour: "",
+      appendixRef: "",
+      maxCharacters: 350,
 
-      manDisplay: true, // admin
+      manDisplay: true,
       manDisplayChangeable: false,
-      manDefaultOwner: "JG",
+      manDefaultOwner: "",
       manColor: "orange",
-      manMaxLength: 100, // admin
-      manMaxRisks: 5, // admin
+      manMaxRisks: 5,
 
-      tecDisplay: true, // admin
+      tecDisplay: true,
       tecDisplayChangeable: false,
-      tecDefaultOwner: "JG",
+      tecDefaultOwner: "",
       tecColor: "red",
-      tecMaxLength: 100, // admin
-      tecMaxRisks: 5, // admin
+      tecMaxRisks: 5,
 
-      comDisplay: true, // admin
+      comDisplay: true,
       comDisplayChangeable: false,
-      comDefaultOwner: "JG",
+      comDefaultOwner: "",
       comColor: "green",
-      comMaxLength: 100, // admin
-      comMaxRisks: 5, // admin
+      comMaxRisks: 5,
 
-      legDisplay: true, // admin
+      legDisplay: true,
       legDisplayChangeable: true,
-      legDefaultOwner: "JG",
+      legDefaultOwner: "",
       legColor: "blue",
-      legMaxLength: 100, // admin
-      legMaxRisks: 5, // admin
+      legMaxRisks: 5,
 
-      envDisplay: true, // admin
+      envDisplay: true,
       envDisplayChangeable: true,
-      envDefaultOwner: "JG",
+      envDefaultOwner: "",
       envColor: "yellow",
-      envMaxLength: 100, // admin
-      envMaxRisks: 5, // admin
+      envMaxRisks: 5,
     },
     {
-      email: "admin@gmail.com",
+      email: "casper@wax-rdc.com",
       password: bcrypt.hashSync("1234", 10),
-      company: "Company",
+      company: "Wax-RCD",
       admin: true,
       useTemplates: true,
-      exportSpreadsheet: false,
+      exportSpreadsheet: true,
+      fontSize: 8,
 
-      nature: "nature 3",
-      type: "projectType 4",
-      project: "Reacher",
+      nature: "",
+      type: "",
+      project: "",
       application: "",
-      selected: "managerial", // project risk
+      selected: "",
 
-      ai: true, // admin
-      dlt: false, // admin
-      man: true, // admin
-      flavour: "flavour 3", // admin
-      appendixRef: "reference", // admin
-      maxCharacters: 350, // admin
+      ai: true,
+      dlt: true,
+      man: true,
+      flavour: "",
+      appendixRef: "",
+      maxCharacters: 350,
 
-      manDisplay: true, // admin
+      manDisplay: true,
       manDisplayChangeable: false,
-      manDefaultOwner: "JG",
+      manDefaultOwner: "",
       manColor: "orange",
-      manMaxLength: 100, // admin
-      manMaxRisks: 5, // admin
+      manMaxRisks: 5,
 
-      tecDisplay: true, // admin
+      tecDisplay: true,
       tecDisplayChangeable: false,
-      tecDefaultOwner: "JG",
+      tecDefaultOwner: "",
       tecColor: "red",
-      tecMaxLength: 100, // admin
-      tecMaxRisks: 5, // admin
+      tecMaxRisks: 5,
 
-      comDisplay: true, // admin
+      comDisplay: true,
       comDisplayChangeable: false,
-      comDefaultOwner: "JG",
+      comDefaultOwner: "",
       comColor: "green",
-      comMaxLength: 100, // admin
-      comMaxRisks: 5, // admin
+      comMaxRisks: 5,
 
-      legDisplay: true, // admin
+      legDisplay: true,
       legDisplayChangeable: true,
-      legDefaultOwner: "JG",
+      legDefaultOwner: "",
       legColor: "blue",
-      legMaxLength: 100, // admin
-      legMaxRisks: 5, // admin
+      legMaxRisks: 5,
 
-      envDisplay: true, // admin
+      envDisplay: true,
       envDisplayChangeable: true,
-      envDefaultOwner: "JG",
+      envDefaultOwner: "",
       envColor: "yellow",
-      envMaxLength: 100, // admin
-      envMaxRisks: 5, // admin
-    },
-    {
-      email: "example1@gmail.com",
-      password: bcrypt.hashSync("1234", 10),
-      company: "Company",
-      admin: false,
-      useTemplates: false,
-      exportSpreadsheet: false,
-
-      nature: "nature 3",
-      type: "projectType 4",
-      project: "Reacher",
-      application: "",
-      selected: "managerial", // project risk
-
-      ai: true, // admin
-      dlt: false, // admin
-      man: true, // admin
-      flavour: "flavour 3", // admin
-      appendixRef: "reference", // admin
-      maxCharacters: 350, // admin
-
-      manDisplay: true, // admin
-      manDisplayChangeable: false,
-      manDefaultOwner: "JG",
-      manColor: "orange",
-      manMaxLength: 100, // admin
-      manMaxRisks: 5, // admin
-
-      tecDisplay: true, // admin
-      tecDisplayChangeable: false,
-      tecDefaultOwner: "JG",
-      tecColor: "red",
-      tecMaxLength: 100, // admin
-      tecMaxRisks: 5, // admin
-
-      comDisplay: true, // admin
-      comDisplayChangeable: false,
-      comDefaultOwner: "JG",
-      comColor: "green",
-      comMaxLength: 100, // admin
-      comMaxRisks: 5, // admin
-
-      legDisplay: true, // admin
-      legDisplayChangeable: true,
-      legDefaultOwner: "JG",
-      legColor: "blue",
-      legMaxLength: 100, // admin
-      legMaxRisks: 5, // admin
-
-      envDisplay: true, // admin
-      envDisplayChangeable: true,
-      envDefaultOwner: "JG",
-      envColor: "yellow",
-      envMaxLength: 100, // admin
-      envMaxRisks: 5, // admin
+      envMaxRisks: 5,
     },
   ]);
   // });
