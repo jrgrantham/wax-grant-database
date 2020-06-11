@@ -61,7 +61,8 @@ function findRisksByUserId(id) {
       "r.risk",
       "r.mitigation",
       "r.owner",
-      "r.id"
+      "r.id",
+      "r.templateId"
     )
     .where("u.id", id);
 }

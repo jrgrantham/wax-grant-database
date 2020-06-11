@@ -14,6 +14,7 @@ exports.seed = function (knex) {
       risk: 1,
       owner: "JG",
       mitigation: "mitigation1",
+      templateId: 0,
     },
     {
       projectId: 1,
@@ -24,6 +25,7 @@ exports.seed = function (knex) {
       risk: 1,
       owner: "JG",
       mitigation: "mitigation2",
+      templateId: 0,
     },
     {
       projectId: 1,
@@ -34,6 +36,7 @@ exports.seed = function (knex) {
       risk: 1,
       owner: "JG",
       mitigation: "mitigation3",
+      templateId: 0,
     },
     {
       projectId: 1,
@@ -44,6 +47,7 @@ exports.seed = function (knex) {
       risk: 1,
       owner: "JG",
       mitigation: "mitigation4",
+      templateId: 0,
     },
     {
       projectId: 1,
@@ -54,6 +58,7 @@ exports.seed = function (knex) {
       risk: 1,
       owner: "JG",
       mitigation: "mitigation5",
+      templateId: 0,
     },
     {
       projectId: 1,
@@ -64,6 +69,7 @@ exports.seed = function (knex) {
       risk: 1,
       owner: "JG",
       mitigation: "mitigation6",
+      templateId: 0,
     },
     {
       projectId: 1,
@@ -74,6 +80,7 @@ exports.seed = function (knex) {
       risk: 1,
       owner: "JG",
       mitigation: "mitigation7",
+      templateId: 0,
     },
     {
       projectId: 1,
@@ -84,6 +91,7 @@ exports.seed = function (knex) {
       risk: 1,
       owner: "JG",
       mitigation: "mitigation8",
+      templateId: 0,
     },
     {
       projectId: 2,
@@ -94,6 +102,7 @@ exports.seed = function (knex) {
       risk: 1,
       owner: "JG",
       mitigation: "mitigation8",
+      templateId: 0,
     },
     {
       projectId: 2,
@@ -104,6 +113,7 @@ exports.seed = function (knex) {
       risk: 1,
       owner: "JG",
       mitigation: "mitigation8",
+      templateId: 0,
     },
     {
       projectId: 2,
@@ -114,6 +124,7 @@ exports.seed = function (knex) {
       risk: 1,
       owner: "JG",
       mitigation: "mitigation1",
+      templateId: 0,
     },
     {
       projectId: 2,
@@ -124,6 +135,7 @@ exports.seed = function (knex) {
       risk: 1,
       owner: "JG",
       mitigation: "mitigation1",
+      templateId: 0,
     },
   ]);
   // });

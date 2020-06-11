@@ -16,6 +16,7 @@ exports.up = function (knex) {
     risks.integer("risk");
     risks.string("owner");
     risks.text("mitigation");
+    risks.integer("templateId");
   });
 };
 

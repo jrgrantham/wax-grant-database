@@ -190,7 +190,7 @@ router.delete("/risks", (req, res) => {
 
 router.post("/risks/:id", (req, res) => {
   const id = parseInt(req.params.id);
-  const newRow = {
+  const newRisk = {
     projectId: id,
     type: req.body.type,
     description: req.body.description,
@@ -199,8 +199,9 @@ router.post("/risks/:id", (req, res) => {
     risk: req.body.risk,
     owner: req.body.owner,
     mitigation: req.body.mitigation,
+    templateId: req.body.templateId,
   };
-  Users.addRisk(newRow)
+  Users.addRisk(newRisk)
     .then((risks) => {
       res.json(risks);
     })
@@ -265,7 +266,7 @@ router.delete("/templates", (req, res) => {
 });
 
 router.post("/templates", (req, res) => {
-  const newRow = {
+  const newRisk = {
     type: req.body.type,
     description: req.body.description,
     probability: req.body.probability,
@@ -273,7 +274,7 @@ router.post("/templates", (req, res) => {
     risk: req.body.risk,
     mitigation: req.body.mitigation,
   };
-  Users.addTemplate(newRow)
+  Users.addTemplate(newRisk)
     .then((risks) => {
       res.json(risks);
     })
