@@ -24,7 +24,7 @@ router.post("/login", (req, res) => {
       }
     })
     .catch((error) => {
-      res.status(500).json("verification error" + error.message);
+      res.status(500).json({ message: 'No idea who you are'});
     });
 });
 

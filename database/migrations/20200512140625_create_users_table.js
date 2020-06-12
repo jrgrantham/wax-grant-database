@@ -10,6 +10,7 @@ exports.up = function (knex) {
     users.string("company");
     users.string("nature");
     users.string("type");
+    users.string("ipMethod");
     users.string("project");
     users.string("application");
 
