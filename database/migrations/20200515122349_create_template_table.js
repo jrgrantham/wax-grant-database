@@ -11,6 +11,7 @@ exports.up = function(knex) {
     templates.boolean('ai');
     templates.boolean('dlt');
     templates.boolean('man');
+    templates.boolean('all');
   })
 };
 

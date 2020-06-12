@@ -90,6 +90,8 @@ function getTemplates() {
   return db("templates");
 }
 function updateTemplate(id, changes) {
+  console.log('all');
+  
   return db("templates").where({ id }).update(changes);
 }
 async function addTemplate(risk) {

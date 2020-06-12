@@ -15,6 +15,7 @@ exports.seed = function (knex) {
       ai: true,
       dlt: true,
       man: true,
+      all: false,
     },
     {
       type: "commercial",
@@ -26,6 +27,7 @@ exports.seed = function (knex) {
       ai: false,
       dlt: true,
       man: true,
+      all: false,
     },
     {
       type: "commercial",
@@ -37,6 +39,7 @@ exports.seed = function (knex) {
       ai: true,
       dlt: true,
       man: true,
+      all: false,
     },
     {
       type: "technical",
@@ -48,6 +51,7 @@ exports.seed = function (knex) {
       ai: true,
       dlt: true,
       man: true,
+      all: false,
     },
     {
       type: "environmental",
@@ -59,6 +63,7 @@ exports.seed = function (knex) {
       ai: true,
       dlt: true,
       man: true,
+      all: false,
     },
     {
       type: "legal",
@@ -70,6 +75,7 @@ exports.seed = function (knex) {
       ai: true,
       dlt: true,
       man: true,
+      all: false,
     },
   ]);
   // });

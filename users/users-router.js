@@ -284,6 +284,8 @@ router.post("/templates", (req, res) => {
 });
 
 router.put("/templates", (req, res) => {
+  console.log('router');
+  
   const id = req.body.id;
   const changes = {
     type: req.body.type,
@@ -295,6 +297,7 @@ router.put("/templates", (req, res) => {
     ai: req.body.ai,
     dlt: req.body.dlt,
     man: req.body.man,
+    all: req.body.all,
   };
 
   Users.updateTemplate(id, changes)
