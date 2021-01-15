@@ -28,6 +28,7 @@ router.put("/user", (req, res) => {
   } else {
     const userID = req.body.id;
     if (req.body.key === "password") {
+      console.log(`changing ${req.body.key} for user ${userID} to ${req.body.value}`);
       const newPassword = bcrypt.hashSync(req.body.value, 10);
       req.body.value = newPassword;
     }
@@ -165,8 +166,9 @@ router.delete("/client", (req, res) => {
 
 router.get("/risks/:id", (req, res) => {
   Users.findRisksByUserId(req.params.id)
-    .then((risks) => {
-      res.json(risks);
+  .then((risks) => {
+    res.json(risks);
+    console.log('risks by ID');
     })
     .catch((error) => {
       res
@@ -209,6 +211,7 @@ router.post("/risks/:id", (req, res) => {
       res.status(500).json({ message: "could not get risks " + error.message });
     });
 });
+
 router.put("/risks", (req, res) => {
   const id = req.body.id;
   const changes = {

@@ -33,7 +33,7 @@ function updateUserSettings(id, changes) {
 }
 
 function getClients() {
-  return db("users").select("users.id", "users.company", "users.email");
+  return db("users").select("users.id", "users.company", "users.email", "users.admin");
 }
 async function addClient(client) {
   // console.log(client);
