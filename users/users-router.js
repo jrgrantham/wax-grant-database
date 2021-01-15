@@ -28,7 +28,6 @@ router.put("/user", (req, res) => {
   } else {
     const userID = req.body.id;
     if (req.body.key === "password") {
-      console.log(`changing ${req.body.key} for user ${userID} to ${req.body.value}`);
       const newPassword = bcrypt.hashSync(req.body.value, 10);
       req.body.value = newPassword;
     }
@@ -36,7 +35,6 @@ router.put("/user", (req, res) => {
       [req.body.key]: req.body.value,
     };
     // console.log(userID, changes);
-    
 
     Users.updateUserSettings(userID, changes)
       .then((user) => {
@@ -146,7 +144,7 @@ router.post("/client", (req, res) => {
     .catch((error) => {
       res
         .status(500)
-        .json({ message: "could not get cleint " + error.message });
+        .json({ message: "could not get client " + error.message });
     });
 });
 router.delete("/client", (req, res) => {
@@ -166,9 +164,9 @@ router.delete("/client", (req, res) => {
 
 router.get("/risks/:id", (req, res) => {
   Users.findRisksByUserId(req.params.id)
-  .then((risks) => {
-    res.json(risks);
-    console.log('risks by ID');
+    .then((risks) => {
+      res.json(risks);
+      console.log("risks by ID");
     })
     .catch((error) => {
       res
@@ -287,8 +285,8 @@ router.post("/templates", (req, res) => {
 });
 
 router.put("/templates", (req, res) => {
-  console.log('router');
-  
+  console.log("router");
+
   const id = req.body.id;
   const changes = {
     type: req.body.type,

@@ -8,7 +8,6 @@ router.post("/login", (req, res) => {
   const { email, password } = req.body;
   Users.findUserBy({ email })
     .then((user) => {
-      console.log(user);
       if (user && bcrypt.compareSync(password, user.password)) {
         const token = generateToken(user);
         // await db request for risks and templates, if allowed
@@ -24,7 +23,7 @@ router.post("/login", (req, res) => {
         res.status(401).json({ message: "incorrect username or password" });
       }
     })
-    .catch((error) => {
+    .catch(() => {
       res.status(500).json({ message: 'No idea who you are'});
     });
 });
