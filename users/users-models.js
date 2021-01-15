@@ -33,7 +33,12 @@ function updateUserSettings(id, changes) {
 }
 
 function getClients() {
-  return db("users").select("users.id", "users.company", "users.email", "users.admin");
+  return db("users").select(
+    "users.id",
+    "users.company",
+    "users.email",
+    "users.admin"
+  );
 }
 async function addClient(client) {
   // console.log(client);
@@ -43,7 +48,7 @@ async function addClient(client) {
 }
 function delClient(id) {
   // console.log(id);
-  return db("users").where({id}).del();
+  return db("users").where({ id }).del();
 }
 
 // ----- RISKS ----- //
@@ -90,8 +95,8 @@ function getTemplates() {
   return db("templates");
 }
 function updateTemplate(id, changes) {
-  console.log('all');
-  
+  console.log("all");
+
   return db("templates").where({ id }).update(changes);
 }
 async function addTemplate(risk) {
