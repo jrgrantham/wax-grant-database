@@ -3,6 +3,7 @@ const jwt = require("jsonwebtoken");
 module.exports = (req, res, next) => {
   const token = req.headers.authorization;
   const secret = process.env.SECRET;
+  console.log('auth middleware');
   if (token) {
     jwt.verify(token, secret, (error, decodedToken) => {
       if (error) {
