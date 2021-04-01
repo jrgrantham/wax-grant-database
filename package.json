@@ -1,10 +1,7 @@
 {
-  "name": "risk-db",
+  "name": "wax-grant-database",
   "version": "1.0.0",
   "description": "",
-  "engines": {
-    "node": "12.16.3"
-  },
   "main": "index.js",
   "scripts": {
     "server": "nodemon index.js",
@@ -15,19 +12,29 @@
   "license": "ISC",
   "dependencies": {
     "bcryptjs": "^2.4.3",
+    "config": "^3.3.6",
     "cors": "^2.8.5",
+    "debug": "^2.6.9",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "helmet": "^3.22.0",
     "httpie": "^1.1.2",
+    "joi": "^17.4.0",
     "jsonwebtoken": "^8.5.1",
-    "knex": "^0.21.1",
-    "pg": "^8.1.0",
-    "sqlite3": "^4.2.0"
+    "morgan": "^1.10.0",
+    "winston": "^3.3.3"
   },
   "devDependencies": {
     "cross-env": "^7.0.2",
     "eslint": "^7.0.0",
     "nodemon": "^2.0.3"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jrgrantham/wax-grant-database.git"
+  },
+  "bugs": {
+    "url": "https://github.com/jrgrantham/wax-grant-database/issues"
+  },
+  "homepage": "https://github.com/jrgrantham/wax-grant-database#readme"
 }
