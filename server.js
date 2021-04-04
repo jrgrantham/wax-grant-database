@@ -1,13 +1,13 @@
 require("dotenv").config();
 
-const Joi = require('joi')
+const Joi = require("joi");
 const express = require("express");
 const cors = require("cors");
 const helmet = require("helmet");
 
 const authRouter = require("./authenticate/auth-router");
-const authenticate = require('./authenticate/authenticate-middleware');
-const userRouter = require('./users/users-router')
+const authenticate = require("./authenticate/authenticate-middleware");
+const userRouter = require("./users/users-router");
 
 const server = express();
 
@@ -20,6 +20,6 @@ server.get("/", (req, res) => {
 });
 
 server.use("/api/auth", authRouter);
-server.use('/api/users', authenticate, userRouter)
+server.use("/api/users", authenticate, userRouter);
 
 module.exports = server;
