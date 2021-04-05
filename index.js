@@ -1,4 +1,3 @@
-
 require("dotenv").config();
 
 const startupDebugger = require("debug")("app:startup");
@@ -16,13 +15,20 @@ mongoose
 const config = require("config");
 const morgan = require("morgan");
 const helmet = require("helmet");
+const error = require("./middleware/error");
 const deadline = require("./routes/deadlines");
 const resources = require("./routes/resources");
 const users = require("./routes/users");
 const allocations = require("./routes/allocations");
+const auth = require("./routes/auth");
 const home = require("./routes/home");
 const express = require("express");
 const app = express();
+
+if (!config.get("jwtPrivateKey")) {
+  console.log("FATAL ERROR: jwtPrivateKey is not defined");
+  process.exit(1);
+}
 
 const logger = require("./middleware/logger");
 const authenticate = require("./middleware/auth");
@@ -35,8 +41,11 @@ app.use(helmet());
 app.use("/api/deadline", deadline);
 app.use("/api/resources", resources);
 app.use("/api/users", users);
+app.use("/api/auth", auth);
 app.use("/api/allocations", allocations);
 app.use("/", home);
+
+app.use(error);
 
 console.log("index.js " + config.get("name"));
 console.log("index.js " + config.get("mail.host"));
