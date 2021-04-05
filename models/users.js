@@ -40,7 +40,7 @@ const userSchema = new mongoose.Schema({
 userSchema.methods.generateAuthToken = function () {
   const payload = {
     id: this.id,
-    admin: this.admin,
+    admin: this.isAdmin,
     selectedUser: this, // this sends full user object inc password
   };
 
