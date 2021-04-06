@@ -2,7 +2,7 @@ const bcryptjs = require("bcryptjs");
 const express = require("express");
 const Joi = require("joi");
 const router = express.Router();
-const { User } = require("../models/users");
+const { User } = require("../../endpoints/users/model");
 
 function validate(user) {
   const schema = Joi.object({

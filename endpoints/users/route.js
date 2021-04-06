@@ -1,10 +1,10 @@
 // const asyncMiddleware = require("../middleware/async");
 const _ = require("lodash");
-const auth = require("../middleware/auth");
+const auth = require("../../middleware/auth");
 const bcryptjs = require("bcryptjs");
 const express = require("express");
 const router = express.Router();
-const { User, validate } = require("../models/users");
+const { User, validate } = require("./model");
 
 router.get("/me", auth, async (req, res) => {
   // throw new Error('error test');

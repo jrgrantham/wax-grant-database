@@ -15,6 +15,21 @@ module.exports = function () {
     process.exit(1);
   });
 
+  // const logger = winston.createLogger({
+  //   level: "info",
+  //   format: winston.format.json(),
+  //   transports: [
+  //     new winston.transports.Console(),
+  //     new winston.transports.File({ filename: "logfile.log" }),
+  //     new winston.transports.MongoDB({
+  //       db: "mongodb://localhost/playground",
+  //       level: "error",
+  //     }),
+  //   ],
+  // });
+
+  // logger.info('it works!!');
+
   winston.add(new winston.transports.File({ filename: "logFile.log" }));
   winston.add(
     new winston.transports.MongoDB({

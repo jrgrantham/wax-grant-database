@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-const { Resource, validate } = require("../models/deadlines");
+const { Resource, validate } = require("./model");
 
 router.get("/", async (req, res) => {
   const resources = await Resource.find();

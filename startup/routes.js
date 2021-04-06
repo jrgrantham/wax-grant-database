@@ -1,16 +1,15 @@
 const express = require("express");
 const helmet = require("helmet");
 
-const deadline = require("../routes/deadlines");
-const resources = require("../routes/resources");
-const users = require("../routes/users");
-const allocations = require("../routes/allocations");
-const auth = require("../routes/auth");
-const home = require("../routes/home");
+const deadline = require("../endpoints/deadlines/route");
+const resources = require("../endpoints/resources/route");
+const users = require("../endpoints/users/route");
+const allocations = require("../endpoints/allocations/route");
+const auth = require("../endpoints/auth/route");
+const home = require("../endpoints/home/route");
 
+const authenticate = require("../middleware/auth");
 const error = require("../middleware/error");
-
-const authenticate = require("./middleware/auth");
 
 module.exports = function (app) {
   app.use(express.json());
@@ -18,7 +17,8 @@ module.exports = function (app) {
   app.use(express.static("public"));
   app.use(helmet());
 
-  app.use("/api/deadline", deadline);
+  app.use("/api/deadline", authenticate, deadline);
+  // app.use("/api/tasks", tasks);
   app.use("/api/resources", resources);
   app.use("/api/users", users);
   app.use("/api/auth", auth);

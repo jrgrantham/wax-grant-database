@@ -7,6 +7,6 @@ module.exports = function (app) {
     console.log(`index.js Environment: ${app.get("env")}`);
     app.use(morgan("tiny"));
     startupDebugger("Morgan enabled...");
+    dbDebugger("turn on with env variable");
   }
-  dbDebugger("turn on with env variable");
 };

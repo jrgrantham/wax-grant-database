@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-const { Allocation, validate } = require("../models/allocations");
+const { Allocation, validate } = require("./model");
 
 router.get("/", async (req, res) => {
   const allocations = await Allocation.find();
