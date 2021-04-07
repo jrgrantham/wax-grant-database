@@ -1,43 +1,70 @@
 const mongoose = require("mongoose");
 const Joi = require("joi");
 
-function validateTask(resource) {
-  const schema = Joi.object({
-    name: Joi.string().min(3).max(50).required(),
-    acronym: Joi.string().min(2).max(3).required(),
-    role: Joi.string().required(),
-    salary: Joi.number().required(),
-    staff: Joi.boolean(),
-    location: Joi.string().required(), // flag if not
-    dayRate: Joi.number().required(),
+function validateTask(task) {
+  let month = Joi.object().keys({
+    // test: Joi.string().required()
+    status: Joi.boolean().required(),
+    barNumber:  Joi.number().required(),
+    value:  Joi.number().required(),
+    blockId:  Joi.string().required(),
+    scheduleIndex:  Joi.number().required(),
   });
-  return schema.validate(resource);
+
+  const schema = Joi.object({
+    workPackageTitle: Joi.string().min(3).max(50).required(),
+    description: Joi.string().min(3).max(255).required(),
+    days: Joi.number().required(),
+    startDep: Joi.number().required(),
+    endDep: Joi.number().required(),
+    dayLoading: Joi.string().min(3).max(15).required(),
+    sortPosition: Joi.number().required(),
+    schedule: Joi.array().items(month),
+  });
+  return schema.validate(task);
 }
 
-const Resource = mongoose.model(
-  "Resource",
+const Task = mongoose.model(
+  "Task",
   new mongoose.Schema({
-    name: {
+    workPackageTitle: {
       type: String,
       required: true,
       trim: true,
     },
-    acronym: {
+    description: {
       type: String,
       required: true,
       trim: true,
     },
-    role: {
+    days: {
       type: String,
       required: true,
       trim: true,
     },
-    salary: { type: Number, required: true },
-    staff: { type: Boolean, required: true },
-    location: { type: String, required: true }, // flag if not
-    dayRate: { type: Number, required: true },
+    startDep: {
+      type: Number,
+      default: 0,
+    },
+    endDep: {
+      type: Number,
+      default: 0,
+    },
+    dayLoading: {
+      type: String,
+      required: true,
+      trim: true,
+    },
+    sortPosition: {
+      type: String,
+      required: true,
+      trim: true,
+    },
+    schedule: {
+      type: [Object],
+    },
   })
 );
 
-module.exports.Resource = Resource;
+module.exports.Task = Task;
 module.exports.validate = validateTask;

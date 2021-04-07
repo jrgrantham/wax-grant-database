@@ -18,7 +18,7 @@ const Allocation = mongoose.model(
       required: true,
       maxlength: 255,
     },
-    email: {
+    personId: {
       type: String,
       required: true,
       maxlength: 255,

@@ -18,7 +18,7 @@ const Deadline = mongoose.model(
     type: {
       type: String,
       required: true,
-      enum: ["milestone", "deliverable"],
+      // enum: ["milestone", "deliverable"],
       lowercase: true,
       trim: true,
     },

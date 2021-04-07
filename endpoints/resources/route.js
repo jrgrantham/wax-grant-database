@@ -17,11 +17,15 @@ router.post("/", async (req, res) => {
   const { error } = validate(req.body);
   if (error) return res.status(400).send(error.details[0].message);
 
+
   let resource = new Resource({
-    sortPosition: req.body.sortPosition,
-    type: req.body.type,
-    description: req.body.description,
-    scheduled: req.body.scheduled,
+    name: req.body.name,
+    acronym: req.body.acronym,
+    role: req.body.role,
+    salary: req.body.salary,
+    staff: req.body.staff,
+    location: req.body.location,
+    dayRate: req.body.dayRate,
   });
 
   try {

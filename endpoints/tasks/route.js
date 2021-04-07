@@ -1,15 +1,15 @@
 const express = require("express");
 const router = express.Router();
-const { Resource, validate } = require("./model");
+const { Task, validate } = require("./model");
 
 router.get("/", async (req, res) => {
-  const resources = await Resource.find();
+  const resources = await Task.find();
   res.send(resources);
 });
 
 router.get("/:id", async (req, res) => {
-  const resource = await Resource.findById(req.params.id);
-  if (!resource) return res.status(404).send("Resource not found");
+  const resource = await Task.findById(req.params.id);
+  if (!resource) return res.status(404).send("Task not found");
   res.send(resource);
 });
 
@@ -17,11 +17,15 @@ router.post("/", async (req, res) => {
   const { error } = validate(req.body);
   if (error) return res.status(400).send(error.details[0].message);
 
-  let resource = new Resource({
-    sortPosition: req.body.sortPosition,
-    type: req.body.type,
+  let resource = new Task({
+    workPackageTitle: req.body.workPackageTitle,
     description: req.body.description,
-    scheduled: req.body.scheduled,
+    days: req.body.days,
+    startDep: req.body.startDep,
+    endDep: req.body.endDep ,
+    dayLoading: req.body.dayLoading,
+    sortPosition: req.body.sortPosition,
+    schedule: req.body.schedule,
   });
 
   try {
@@ -40,7 +44,7 @@ router.put("/:id", async (req, res) => {
   const { error } = validate(req.body);
   if (error) return res.status(400).send(error.details[0].message);
 
-  const resource = await Resource.findByIdAndUpdate(
+  const resource = await Task.findByIdAndUpdate(
     req.params.id,
     {
       description: req.body.description,
@@ -50,12 +54,12 @@ router.put("/:id", async (req, res) => {
     },
     { new: true }
   );
-  if (!resource) return res.status(404).send("Resource not found");
+  if (!resource) return res.status(404).send("Task not found");
   res.send(resource);
 });
 
 router.delete("/:id", async (req, res) => {
-  const resource = await Resource.findByIdAndDelete(req.params.id);
+  const resource = await Task.findByIdAndDelete(req.params.id);
   if (!resource) return res.status(404).send("not found");
   res.send(resource);
 });

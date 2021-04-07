@@ -3,12 +3,13 @@ const helmet = require("helmet");
 
 const deadline = require("../endpoints/deadlines/route");
 const resources = require("../endpoints/resources/route");
+const tasks = require("../endpoints/tasks/route");
 const users = require("../endpoints/users/route");
 const allocations = require("../endpoints/allocations/route");
 const auth = require("../endpoints/auth/route");
 const home = require("../endpoints/home/route");
 
-const authenticate = require("../middleware/auth");
+// const authenticate = require("../middleware/auth");
 const error = require("../middleware/error");
 
 module.exports = function (app) {
@@ -17,8 +18,8 @@ module.exports = function (app) {
   app.use(express.static("public"));
   app.use(helmet());
 
-  app.use("/api/deadline", authenticate, deadline);
-  // app.use("/api/tasks", tasks);
+  app.use("/api/deadlines", deadline);
+  app.use("/api/tasks", tasks);
   app.use("/api/resources", resources);
   app.use("/api/users", users);
   app.use("/api/auth", auth);
