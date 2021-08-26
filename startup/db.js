@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
-const winston = require("winston");
+// const winston = require("winston");
 
-module.exports = function () {
+module.exports = function (app) {
   // mongoose.set("useNewUrlParser", true);
   // mongoose.set("useFindAndModify", false);
   // mongoose.set("useCreateIndex", true);
@@ -13,5 +13,12 @@ module.exports = function () {
       useFindAndModify: false,
       useCreateIndex: true,
     })
-    .then(() => winston.info("connected to mongodb..."));
+    .then(() => {
+      if (app.get("env") === "development") {
+        console.log("connected to mongodb...");
+      }
+    })
+    .catch(() => {
+      console.log("could not connected to mongodb...");
+    });
 };

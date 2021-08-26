@@ -1,13 +1,14 @@
-const winston = require("winston");
+// const winston = require("winston");
 const express = require("express");
 const app = express();
 
 require("dotenv").config();
 require("./startup/logging")();
 require("./startup/routes")(app);
-require("./startup/db")();
+require("./startup/db")(app);
 require("./startup/config")();
 require("./startup/debugger")(app);
 
-const port = process.env.PORT || 3300;
-app.listen(port, () => winston.info(`listening on port ${port}...`));
+const port = process.env.PORT || 3330;
+app.listen(port, () => console.log(`listening on port ${port}...`));
+// app.listen(port, () => winston.info(`listening on port ${port}...`));

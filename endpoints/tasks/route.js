@@ -47,10 +47,14 @@ router.put("/:id", async (req, res) => {
   const resource = await Task.findByIdAndUpdate(
     req.params.id,
     {
+      workPackageTitle: req.body.workPackageTitle,
       description: req.body.description,
+      days: req.body.days,
+      startDep: req.body.startDep,
+      endDep: req.body.endDep ,
+      dayLoading: req.body.dayLoading,
       sortPosition: req.body.sortPosition,
-      type: req.body.type,
-      scheduled: req.body.scheduled,
+      schedule: req.body.schedule,
     },
     { new: true }
   );
