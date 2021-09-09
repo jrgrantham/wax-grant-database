@@ -6,79 +6,82 @@ const express = require("express");
 const router = express.Router();
 // const { User, validate } = require("./model");
 
-const setupData = {
-  projectId: "",
-  projectDesc: "Description...",
+const originalData = {
+  orgTypes: ["Business", "Academic"],
+  orgTypeDefault: "Business",
 
-  partners: 0,
-  lead: "",
-  pOne: "",
-  pTwo: "",
-  leadId: "", // required for updates to linked information (projects?)
-  pOneId: "",
-  pTwoId: "",
-  color: "",
+  orgSizes: [
+    "Micro SME",
+    "Small Company",
+    "Medium Company",
+    "Large Company",
+    "Academic",
+  ],
+  orgSizeDefault: "Micro SME",
 
-  maxProjectLength: 36,
-  maxWorkPackages: 10,
-  maxDeadlines: 10,
-  maxTasksPerPackage: 10,
+  natures: ["Platform", "Process", "Product"],
+  natureDefault: "Platform",
 
-  maxTeamMembers: 10,
-  maxSubcontract: 5,
-  maxMaterials: 10,
-  maxTravel: 10,
-  maxCapex: 10,
-  maxOther: 5,
+  ipProtections: [
+    "Copyright",
+    "Patents",
+    "Trade Secrets",
+    "Patents and Copyright",
+    "Copyright and Trade Secrets",
+    "Patents and Trade Secrets",
+  ],
+  ipProtectionDefault: "Patents and Copyright",
 
-  marketOptions: ["US Market", "Asia Market"],
+  projectRoles: [
+    "Project Manager",
+    "Technical Lead",
+    "Senior Software Developer",
+    "Software Developer",
+    "Full Stack Developer",
+    "Frontend Developer",
+    "Backend Developer",
+    "AI and ML Lead",
+    "Data Architect",
+    "Data Scientist",
+    "Business Development and Market Engagement",
+    "User Experience",
+    "Mechanical Engineer",
+    "Materials Engineer",
+    "Hardware Developer",
+    "Industrial Design",
+    "Electronics Engineer",
+  ],
+  projectRoleDefault: null,
 
-  materialWarn: 25,
-  materialOver: 40,
-  travelWarn: 25,
-  travelOver: 40,
-  subcontractWarn: 25,
-  subcontractOver: 40,
-  capexWarn: 25,
-  capexOver: 40,
-  otherWarn: 25,
-  otherOver: 40,
-  percentWarn: 25,
-  percentOver: 40,
+  locations: ["UK", "Other"],
+  locationDefault: "UK",
 
-  amberSalary: 70000,
-  redSalary: 90000,
-  amberDayRate: 700,
-  redDayRate: 1200,
-  amberOverUtil: 55,
-  redOverUtil: 59,
+  fundingLevelMin: 0,
+  fundingLevelMax: 100,
+  fundingLevelInc: 5,
+  fundingLevelDefault: 70,
 
-  maxMarkets: 3,
-  maxStreams: 4,
+  matchFundingSources: ["Investor", "Company Funds"],
+  matchFundingSourceDefault: "Investor",
 
-  useTemplates: true,
-  useAi: true,
-  useDlt: true,
-  useMan: true,
+  overheadRateMin: 0,
+  overheadRateMax: 100,
+  overheadRateInc: 10,
+  overheadRateDefault: 20,
 
-  useManagerial: true,
-  useCommercial: true,
-  useLegal: true,
-  useTechnical: true,
-  useEnvironmental: true,
+  businessWarn: 70,
+  academicWarn: 30,
 
-  maxEnvRisks: 2,
-  maxLegRisks: 2,
-  maxComRisks: 8,
-  maxTechRisks: 8,
-  maxManRisks: 8,
-
-  maxDescription: 250,
-  maxMitigation: 250,
-};
+  years: [
+    2019, 2020, 2021, 2022, 2023, 2024, 2025, 2026, 2027, 2028, 2029
+  ],
+  utilisations: [
+    0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100
+  ],
+}
 
 router.get("/", (req, res) => {
-  res.status(200).send(setupData);
+  res.status(200).send(originalData)
 });
 
 // router.get("/me", auth, async (req, res) => {
@@ -126,7 +129,7 @@ router.delete("/", async (req, res) => {
   const userId = req.body.userId;
   // const index = testData.findIndex((user) => user.userId === userId);
   // testData.splice(index, 1);
-  res.send({ userId });
+  res.send({userId});
 });
 
 module.exports = router;

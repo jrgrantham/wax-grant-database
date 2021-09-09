@@ -9,7 +9,9 @@ const users = require("../endpoints/users/route");
 const allocations = require("../endpoints/allocations/route");
 const auth = require("../endpoints/auth/route");
 const home = require("../endpoints/home/route");
-const projects = require("../endpoints/setup/route");
+const projects = require("../endpoints/allProjects/route");
+const global = require("../endpoints/global/route");
+const setup = require("../endpoints/setup/route");
 
 const authenticate = require("../middleware/authenticate");
 const admin = require("../middleware/admin");
@@ -26,6 +28,8 @@ module.exports = function (app) {
   app.use("/api/auth", auth);
 
   app.use("/api/users", users);
+  app.use("/api/global", global);
+  app.use("/api/setup", setup);
   // app.use("/api/users", authenticate, admin, users);
   app.use("/api/projects", projects);
   // app.use("/api/projects", authenticate, checkProject, projects);

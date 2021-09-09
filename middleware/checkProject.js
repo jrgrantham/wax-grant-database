@@ -1,4 +1,4 @@
-const { Setup } = require("../endpoints/setup/model");
+const { Setup } = require("../endpoints/allProjects/model");
 
 module.exports = async function (req, res, next) {
   try {
