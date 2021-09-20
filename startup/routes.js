@@ -3,8 +3,8 @@ const helmet = require("helmet");
 const cors = require("cors");
 
 const users = require("../endpoints/users/route");
-const auth = require("../endpoints/auth/route");
-const home = require("../endpoints/home/route");
+const login = require("../endpoints/login/login");
+// const home = require("../endpoints/home/route");
 const projects = require("../endpoints/projects/route");
 const global = require("../endpoints/global/route");
 const setup = require("../endpoints/setup/route");
@@ -15,43 +15,40 @@ const deadlines = require("../endpoints/deadlines/route");
 const capex = require("../endpoints/capex/route");
 const materials = require("../endpoints/materials/route");
 const travel = require("../endpoints/travel/route");
+const other = require("../endpoints/other/route");
+const assignments = require("../endpoints/assignments/route");
 
 const allocations = require("../endpoints/allocations/route");
 const resources = require("../endpoints/resources/route");
 
 const authenticate = require("../middleware/authenticate");
-// const admin = require("../middleware/admin");
+const admin = require("../middleware/admin");
 // const checkProject = require("../middleware/checkProject");
-const error = require("../middleware/error");
+// const error = require("../middleware/error");
 
 module.exports = function (app) {
-  app.use(cors())
+  app.use(cors());
   app.use(express.json());
   app.use(express.urlencoded({ extended: true }));
   app.use(express.static("public"));
   app.use(helmet());
 
-  app.use("/api/auth", auth);
+  app.use("/api/login", login);
 
-  app.use("/api/users", users);
-  app.use("/api/global", global);
-  app.use("/api/setup", setup);
-  app.use("/api/projects", projects);
-  app.use("/api/team", team);
-
-  // app.use("/api/users", authenticate, admin, users);
-  // app.use("/api/projects", authenticate, checkProject, projects);
-
-  app.use("/api/deadlines", deadlines);
-  app.use("/api/tasks", tasks);
-  app.use("/api/capex", capex);
-  app.use("/api/materials", materials);
-  app.use("/api/travel", travel);
-
+  app.use("/api/users", authenticate, users);
+  app.use("/api/global", authenticate, global);
+  app.use("/api/setup", authenticate, setup);
+  app.use("/api/projects", authenticate, projects);
+  app.use("/api/team", authenticate, team);
+  app.use("/api/deadlines", authenticate, deadlines);
+  app.use("/api/tasks", authenticate, tasks);
+  app.use("/api/capex", authenticate, capex);
+  app.use("/api/materials", authenticate, materials);
+  app.use("/api/travel", authenticate, travel);
+  app.use("/api/other", authenticate, other);
+  app.use("/api/assignments", authenticate, assignments);
   app.use("/api/resources", authenticate, resources);
   app.use("/api/allocations", authenticate, allocations);
 
-  app.use("/", home);
-
-  app.use(error);
+  // app.use(error);
 };

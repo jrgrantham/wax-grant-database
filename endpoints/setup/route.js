@@ -5,14 +5,15 @@
 const express = require("express");
 const router = express.Router();
 // const { User, validate } = require("./model");
+const admin = require("../../middleware/admin");
 
 const setupData = [
   {
     projectId: "abc",
-    projectDesc: "Description...",
+    projectDesc: "Damien's description from the server...",
 
-    partners: 0,
-    lead: "",
+    partners: 1,
+    lead: "james@xyx.com",
     pOne: "",
     pTwo: "",
     leadId: "", // required for updates to linked information (projects?)
@@ -89,7 +90,7 @@ router.get("/selected", (req, res) => {
   res.status(200).send(result);
 });
 
-router.get("/", (req, res) => {
+router.get("/", admin, (req, res) => {
   // protect route, admin only
   const list = [];
   setupData.forEach((project) => {
@@ -105,15 +106,7 @@ router.get("/", (req, res) => {
       color: project.color,
     });
   });
-  res.status(200).send(setupData);
-});
-
-router.get("/selected", (req, res) => {
-  //   const user = await User.findById(req.user.id).select("-password");
-  //   res.send(user);
-  // const projectId = res.header.selectedProjectId;
-  // console.log(projectId);
-  res.status(200).send(setupData);
+  res.status(200).send(list);
 });
 
 // router.get("/me", auth, async (req, res) => {
@@ -124,7 +117,7 @@ router.get("/selected", (req, res) => {
 
 router.post("/", async (req, res) => {
   const newUser = req.body;
-  console.log(newUser);
+  // console.log(newUser);
   // testData.push(newUser);
   res.send(newUser);
 

@@ -30,7 +30,7 @@ router.post("/", async (req, res) => {
 
   try {
     resource = await resource.save();
-    console.log(resource);
+    // console.log(resource);
     res.send(resource);
   } catch (ex) {
     // for (field in ex.errors) {

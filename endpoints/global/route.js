@@ -92,7 +92,7 @@ router.get("/", (req, res) => {
 
 router.post("/", async (req, res) => {
   const newUser = req.body;
-  console.log(newUser);
+  // console.log(newUser);
   // testData.push(newUser);
   res.send(newUser);
 

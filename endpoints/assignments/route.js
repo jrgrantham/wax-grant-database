@@ -4,123 +4,23 @@ const express = require("express");
 const router = express.Router();
 // const { Setup, validate } = require("./model");
 
-const setupData = [
+const assignmentData = [
   {
-    projectId: 'abc',
-    status: {
-      gantt: false,
-      details: {
-        lead: false,
-        pOne: true,
-        pTwo: false,
-      },
-      team: {
-        lead: false,
-        pOne: false,
-        pTwo: false,
-      },
-      costs: {
-        lead: false,
-        pOne: false,
-        pTwo: false,
-      },
-      revenue: false,
-      setup: false,
-      risks: false,
-    },
-    details: {
-      productPlatformName: "My First Project on the server",
-      applicationNumber: "123445",
-      nature: "Process",
-      ipProtection: "protection",
-      projectName: "first Project",
-      projectLength: 3,
-      startMonth: "Jan",
-      startYear: 2021,
-      projectManager: "projectManager",
-      software: "software",
-      matchFunding: "funding",
-      ganttRef: "ganttRef",
-      riskRef: "riskRef",
-      competitor: "competitor",
-    },
+    projectId: "abc",
     lead: {
-      companyName: "lead company",
-      companyAcronym: "acronym",
-      organisationType: "type",
-      organisationSize: "size",
-      postcode: "postcode",
-      turnover: 20000,
-      lastFinancialMonth: "",
-      lastFinancialYear: "year",
-      lawyer: "lawyer",
-      bankHolidays: 3,
-      annualLeave: 27,
-      numEmployees: 10,
-      overheadRate: 10,
-      partnerFunding: "",
-      fundingLevel: 10,
-      matchFundingSource: "source",
-      investorName: "name",
-
-      detailsComplete: false,
-      teamComplete: false,
-      ganttComplete: false,
-      costsComplete: false,
-      revenueComplete: false,
-      risksComplete: false,
+      materials: ["pack1"],
+      travel: ["pack1"],
+      capex: [],
     },
     pOne: {
-      companyName: "Company One",
-      companyAcronym: "",
-      organisationType: "",
-      organisationSize: "",
-      postcode: "",
-      turnover: 0,
-      lastFinancialMonth: "",
-      lastFinancialYear: "",
-      lawyer: "",
-      bankHolidays: 0,
-      annualLeave: 0,
-      numEmployees: 0,
-      overheadRate: 10,
-      partnerFunding: 0,
-      fundingLevel: 0,
-      matchFundingSource: "",
-      investorName: "",
-
-      detailsComplete: false,
-      teamComplete: false,
-      ganttComplete: false,
-      costsComplete: false,
-      revenueComplete: false,
-      risksComplete: false,
+      materials: [],
+      travel: [],
+      capex: [],
     },
     pTwo: {
-      companyName: "edit the company name...",
-      companyAcronym: "acronym",
-      organisationType: "type",
-      organisationSize: "size",
-      postcode: "postcode",
-      turnover: 20000,
-      lastFinancialMonth: "",
-      lastFinancialYear: "year",
-      lawyer: "lawyer",
-      bankHolidays: 3,
-      annualLeave: 30,
-      numEmployees: 10,
-      overheadRate: 10,
-      partnerFunding: "partner",
-      fundingLevel: 10,
-      matchFundingSource: "source",
-      investorName: "name",
-
-      detailsComplete: false,
-      teamComplete: false,
-      ganttComplete: false,
-      costsComplete: false,
-      revenueComplete: false,
-      risksComplete: false,
+      materials: [],
+      travel: [],
+      capex: [],
     },
   },
 ];
@@ -129,7 +29,7 @@ router.get("/selected", (req, res) => {
   //   const user = await User.findById(req.user.id).select("-password");
   //   res.send(user);
   const selectedprojectid = req.headers.selectedprojectid;
-  const result = setupData.find(
+  const result = assignmentData.find(
     ({ projectId }) => projectId === selectedprojectid
   );
   res.status(200).send(result);

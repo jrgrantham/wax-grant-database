@@ -9,7 +9,7 @@ function validateUser(user) {
     email: Joi.string().min(3).max(255).required().email(),
     password: Joi.string().min(3).max(255).required(),
     projectId: Joi.string(),
-    isAdmin: Joi.boolean().required(),
+    admin: Joi.boolean().required(),
   });
   return schema.validate(user);
 }
@@ -38,7 +38,7 @@ const userSchema = new mongoose.Schema({
     type: String,
     maxlength: 256,
   },
-  isAdmin: {
+  admin: {
     type: Boolean,
   },
 });
@@ -46,7 +46,7 @@ const userSchema = new mongoose.Schema({
 userSchema.methods.generateAuthToken = function () {
   const payload = {
     personId: this.id,
-    isAdmin: this.isAdmin,
+    admin: this.admin,
     projectId: this.projectId,
     email: this.email,
   };

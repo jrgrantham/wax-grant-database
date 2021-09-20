@@ -9,7 +9,7 @@ function validateUser(user) {
     email: Joi.string().min(3).max(255).required().email(),
     password: Joi.string().min(3).max(255).required(),
     projectId: Joi.string(),
-    isAdmin: Joi.boolean().required(),
+    admin: Joi.boolean().required(),
   });
   return schema.validate(user);
 }
@@ -38,16 +38,16 @@ const userSchema = new mongoose.Schema({
     type: String,
     maxlength: 256,
   },
-  isAdmin: {
+  admin: {
     type: Boolean,
   },
 });
 
-userSchema.methods.generateAuthToken = function () {
+userSchema.methods.generateAuthToken = function (rememberMe) {
   const payload = {
-    personId: this.id,
-    isAdmin: this.isAdmin,
-    projectId: this.projectId,
+    userId: this.id,
+    admin: this.admin,
+    // projectId: this.projectId,
     email: this.email,
   };
   // const secret = process.env.SECRET;
@@ -56,7 +56,8 @@ userSchema.methods.generateAuthToken = function () {
   // if (publicComputer) options = { expiresIn: "3h" };
   // else options = { expiresIn: "30d" };
 
-  const options = { expiresIn: "30d" };
+  const time = rememberMe ? "30d" : "1h";
+  const options = { expiresIn: time };
   const result = jwt.sign(payload, secret, options);
   return result;
 };

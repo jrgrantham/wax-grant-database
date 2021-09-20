@@ -4,7 +4,8 @@
 // const bcryptjs = require("bcryptjs");
 const express = require("express");
 const router = express.Router();
-// const { User, validate } = require("./model");
+const { User, validate } = require("./model");
+const admin = require('../../middleware/admin')
 
 const testData = [
   {
@@ -45,7 +46,23 @@ const testData = [
   },
 ];
 
-router.get("/", (req, res) => {
+const dummyProjectList = [
+  {
+    projectId: "abc",
+    projectDesc: "Damien's description from the server...",
+
+    partners: 1,
+    lead: "james@xyx.com",
+    pOne: "",
+    pTwo: "",
+    leadId: "", // required for updates to linked information (projects?)
+    pOneId: "",
+    pTwoId: "",
+    color: "",
+  },
+];
+
+router.get("/", admin, (req, res) => {
   // console.log(req);
   // console.log(res);
   // throw new Error('error test');
@@ -53,15 +70,34 @@ router.get("/", (req, res) => {
   // res.status(200).send(data)
 });
 
-// router.get("/me", auth, async (req, res) => {
-//   // throw new Error('error test');
-//   const user = await User.findById(req.user.id).select("-password");
-//   res.send(user);
-// });
+router.get("/me", async (req, res) => {
+  const userId = req.userId;
+  // console.log('************', req.userId);
+  try {
+    const user = await User.findOne({ _id: userId });
+    const { admin, dev } = user;
+    // if admin fetch setup list
+    // if client fetch project list
+    // console.log(user);
+    res.status(200).send({
+      admin,
+      dev,
+      availableProjects: dummyProjectList
+    });
+  } catch (ex) {
+    res.status(400).send({ message: ex.message });
+  }
+});
+
+// availableProjects: copyOfData,
+// selectedProjectData: {
+//   data: "slices of state go here",
+// },
+// test,
 
 router.post("/", async (req, res) => {
   const newUser = req.body;
-  console.log(newUser);
+  // console.log(newUser);
   testData.push(newUser);
   res.send(newUser);
 
@@ -98,7 +134,7 @@ router.delete("/", async (req, res) => {
   const userId = req.body.userId;
   const index = testData.findIndex((user) => user.userId === userId);
   testData.splice(index, 1);
-  res.send({userId});
+  res.send({ userId });
 });
 
 module.exports = router;
