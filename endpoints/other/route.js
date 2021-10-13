@@ -4,27 +4,51 @@ const express = require("express");
 const router = express.Router();
 // const { Setup, validate } = require("./model");
 
-const capexData = [
+const other = [
   {
-    projectId: 'abc',
-    description: "walking boots from the server",
-    cost: 120,
-    otherId: "1234",
-    leader: 'lead'
+    projectId: "abc",
+    data: [
+      {
+        description: "walking boots from the server",
+        cost: 120,
+        otherId: "1234",
+        leader: "lead",
+      },
+    ],
   },
 ];
 
 router.get("/selected", (req, res) => {
-  //   const user = await User.findById(req.user.id).select("-password");
-  //   res.send(user);
-  const selectedprojectid = req.headers.selectedprojectid;
-  // console.log(selectedprojectid);
-  const result = [];
-  capexData.forEach((cost) => {
-    // console.log(cost.projectId);
-    if (cost.projectId === selectedprojectid) result.push(cost);
-  });
+  const projectId = req.projectId;
+  const index = other.findIndex(
+    (project) => project.projectId === projectId
+  );
+  const result = other[index].data;
   res.status(200).send(result);
+});
+
+router.post("/new", async (req, res) => {
+  const projectId = req.body.projectId;
+  const newDeadline = {
+    projectId,
+    data: [],
+  };
+  other.push(newDeadline);
+  res.status(200).send({ message: "New other successful" });
+});
+
+router.put("/selected", async (req, res) => {
+  const projectId = req.projectId;
+  const data = req.body;
+  const updated = {
+    projectId,
+    data,
+  };
+  const index = other.findIndex(
+    (deadline) => deadline.projectId === projectId
+  );
+  other.splice(index, 1, updated);
+  res.status(200).send(updated);
 });
 
 // router.get("/myProject", async (req, res) => {

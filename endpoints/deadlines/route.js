@@ -68,6 +68,20 @@ router.post("/new", async (req, res) => {
   res.status(200).send({ message: "New deadline successful" });
 });
 
+router.put("/selected", async (req, res) => {
+  const projectId = req.projectId;
+  const data = req.body;
+  const updated = {
+    projectId,
+    data,
+  };
+  const index = deadlineData.findIndex(
+    (deadline) => deadline.projectId === projectId
+  );
+  deadlineData.splice(index, 1, updated);
+  res.status(200).send(updated);
+});
+
 // router.post("/", async (req, res) => {
 //   const { error } = validate(req.body);
 //   if (error) return res.status(400).send(error.details[0].message);

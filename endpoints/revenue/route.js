@@ -7,23 +7,7 @@ const router = express.Router();
 const assignmentData = [
   {
     projectId: "abc",
-    data: {
-      lead: {
-        materials: ["pack1"],
-        travel: ["pack1"],
-        capex: [],
-      },
-      pOne: {
-        materials: [],
-        travel: [],
-        capex: [],
-      },
-      pTwo: {
-        materials: [],
-        travel: [],
-        capex: [],
-      },
-    },
+    data: { markets: [], streams: [], total: [] },
   },
 ];
 

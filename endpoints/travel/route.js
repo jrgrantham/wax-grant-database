@@ -20,7 +20,6 @@ const travel = [
   },
 ];
 
-
 router.get("/selected", (req, res) => {
   const projectId = req.projectId;
   const index = travel.findIndex((project) => project.projectId === projectId);
@@ -35,7 +34,22 @@ router.post("/new", async (req, res) => {
     data: [],
   };
   travel.push(newTravel);
+
   res.status(200).send({ message: "New travel successful" });
+});
+
+router.put("/selected", async (req, res) => {
+  const projectId = req.projectId;
+  const data = req.body;
+  const updated = {
+    projectId,
+    data,
+  };
+  const index = travel.findIndex(
+    (deadline) => deadline.projectId === projectId
+  );
+  travel.splice(index, 1, updated);
+  res.status(200).send(updated);
 });
 
 // router.get("/myProject", async (req, res) => {

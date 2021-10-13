@@ -28,7 +28,6 @@ router.get("/selected", (req, res) => {
   res.status(200).send(result);
 });
 
-
 router.post("/new", async (req, res) => {
   const projectId = req.body.projectId;
   const newAllocation = {
@@ -36,7 +35,7 @@ router.post("/new", async (req, res) => {
     data: [],
   };
   allocations.push(newAllocation);
-  console.log(allocations);
+  // console.log(allocations);
   res.status(200).send({ message: "New allocation successful" });
 });
 

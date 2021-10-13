@@ -39,6 +39,20 @@ router.post("/new", async (req, res) => {
   res.status(200).send({ message: "New materials successful" });
 });
 
+router.put("/selected", async (req, res) => {
+  const projectId = req.projectId;
+  const data = req.body;
+  const updated = {
+    projectId,
+    data,
+  };
+  const index = materials.findIndex(
+    (deadline) => deadline.projectId === projectId
+  );
+  materials.splice(index, 1, updated);
+  res.status(200).send(updated);
+});
+
 // router.get("/myProject", async (req, res) => {
 // const projectId = req.projectId;
 // const project = await Setup.findById(projectId);

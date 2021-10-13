@@ -42,6 +42,20 @@ router.post("/new", async (req, res) => {
   res.status(200).send({ message: "New capex successful" });
 });
 
+router.put("/selected", async (req, res) => {
+  const projectId = req.projectId;
+  const data = req.body;
+  const updated = {
+    projectId,
+    data,
+  };
+  const index = capexData.findIndex(
+    (capex) => capex.projectId === projectId
+  );
+  capexData.splice(index, 1, updated);
+  res.status(200).send(updated);
+});
+
 // router.get("/myProject", async (req, res) => {
 // const projectId = req.projectId;
 // const project = await Setup.findById(projectId);
