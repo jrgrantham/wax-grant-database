@@ -4,80 +4,46 @@ const express = require("express");
 const router = express.Router();
 // const { Setup, validate } = require("./model");
 
-const setupData = [
+const assignmentData = [
   {
     projectId: "abc",
-    data: [
-      {
-        personId: "person1",
-        // projectId: "abc",
-        leader: "lead",
-        name: "James Grantham",
-        acronym: "JG",
-        role: "tbc",
-        salary: 50000,
-        employment: "staff",
-        location: "UK", // flag if not
-        dayRate: 0,
-        website: "intangible-engineering.com",
-        linkedIn: "linkedIn.com/me",
-        profile: "once upon a time...",
+    data: {
+      lead: {
+        materials: ["pack1"],
+        travel: ["pack1"],
+        capex: [],
       },
-      {
-        personId: "person2",
-        // projectId: "abc",
-        leader: "lead",
-        name: "Damien Jones",
-        acronym: "DJ",
-        role: "tbc",
-        salary: 60000,
-        employment: "staff",
-        location: "UK", // flag if not
-        dayRate: 100,
+      pOne: {
+        materials: [],
+        travel: [],
+        capex: [],
       },
-    ],
+      pTwo: {
+        materials: [],
+        travel: [],
+        capex: [],
+      },
+    },
   },
 ];
 
 router.get("/selected", (req, res) => {
-  const selected = req.projectId;
-  const index = setupData.findIndex(
-    (project) => project.projectId === selected
+  //   const user = await User.findById(req.user.id).select("-password");
+  //   res.send(user);
+
+  const projectId = req.projectId;
+  const index = assignmentData.findIndex(
+    (project) => project.projectId === projectId
   );
-  const result = setupData[index].data;
+  const result = assignmentData[index].data;
   res.status(200).send(result);
 });
 
 router.post("/new", async (req, res) => {
-  const projectId = req.body.projectId;
-  const newTeam = {
-    projectId,
-    data: [],
-  };
-  setupData.push(newTeam);
-  // console.log(setupData);
-  res.status(200).send({ message: "New team successful" });
-});
-
-router.put("/selected", (req, res) => {
-  const selected = req.projectId;
-  const data = req.body;
-  const index = setupData.findIndex(
-    (project) => project.projectId === selected
-  );
-  setupData[index].data = data;
-  console.log(data);
-  res.status(200).send(data);
-});
-
-router.post("/selected", (req, res) => {
-  const projectId = req.body;
-  const newProject = {
-    projectId,
-    data: [],
-  };
-  setupData.push(newProject);
-  res.status(200).send({ message: "Team initiated" });
+  const newAssignment = req.body;
+  // body contains projectId and data - no need to de-structure
+  assignmentData.push(newAssignment);
+  res.status(200).send({ message: "New revenue successful" });
 });
 
 // router.get("/myProject", async (req, res) => {

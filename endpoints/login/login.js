@@ -3,6 +3,7 @@ const express = require("express");
 // const Joi = require("joi");
 const router = express.Router();
 const { User } = require("../users/model");
+// const setupData = require('../setup/data')
 
 // function validate(user) {
 //   const schema = Joi.object({
@@ -17,6 +18,8 @@ router.post("/", async (req, res) => {
   const { email, password, rememberMe } = req.body;
   try {
     const user = await User.findOne({ email });
+    // await setup data
+    // const firstProjectId = 'abc'
     if (user && bcryptjs.compare(password, user.password)) {
       // if admin fetch setup list
       // if client fetch project list
@@ -24,6 +27,7 @@ router.post("/", async (req, res) => {
       user.password = "";
       res.status(200).send({
         message: `Hello ${user.name}!`,
+        projectId: user.projectId,
         token: token,
         admin: user.admin,
         dev: user.dev,

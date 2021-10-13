@@ -4,36 +4,37 @@ const router = express.Router();
 
 const deadlineData = [
   {
-    projectId: 'abc',
-    deadlineId: "del3",
-    sortPosition: 2,
-    type: "deliverable",
-    description: "Description of deliverable 3 on the server",
-    scheduled: 2,
-  },
-  {
-    projectId: 'abc',
-    deadlineId: "del4",
-    sortPosition: 3,
-    type: "deliverable",
-    description: "Description of deliverable 4",
-    scheduled: 2,
-  },
-  {
-    projectId: 'abc',
-    deadlineId: "mil1",
-    sortPosition: 0,
-    type: "milestone",
-    description: "Description of milestone 1",
-    scheduled: 0,
-  },
-  {
-    projectId: 'abc',
-    deadlineId: "mil2",
-    sortPosition: 1,
-    type: "milestone",
-    description: "Description of milestone 2",
-    scheduled: 0,
+    projectId: "abc",
+    data: [
+      {
+        deadlineId: "del3",
+        sortPosition: 2,
+        type: "deliverable",
+        description: "Description of deliverable 3 on the server",
+        scheduled: 2,
+      },
+      {
+        deadlineId: "del4",
+        sortPosition: 3,
+        type: "deliverable",
+        description: "Description of deliverable 4",
+        scheduled: 2,
+      },
+      {
+        deadlineId: "mil1",
+        sortPosition: 0,
+        type: "milestone",
+        description: "Description of milestone 1",
+        scheduled: 0,
+      },
+      {
+        deadlineId: "mil2",
+        sortPosition: 1,
+        type: "milestone",
+        description: "Description of milestone 2",
+        scheduled: 0,
+      },
+    ],
   },
 ];
 
@@ -49,14 +50,22 @@ const deadlineData = [
 // });
 
 router.get("/selected", async (req, res) => {
-  const selectedprojectid = req.headers.selectedprojectid;
-  // console.log(selectedprojectid);
-  const result = [];
-  // or array.filter...
-  deadlineData.forEach((deadline) => {
-    if (deadline.projectId === selectedprojectid) result.push(deadline);
-  });
+  const projectId = req.projectId;
+  const index = deadlineData.findIndex(
+    (project) => project.projectId === projectId
+  );
+  const result = deadlineData[index].data;
   res.status(200).send(result);
+});
+
+router.post("/new", async (req, res) => {
+  const projectId = req.body.projectId;
+  const newDeadline = {
+    projectId,
+    data: [],
+  };
+  deadlineData.push(newDeadline);
+  res.status(200).send({ message: "New deadline successful" });
 });
 
 // router.post("/", async (req, res) => {

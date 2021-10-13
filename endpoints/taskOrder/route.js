@@ -1,6 +1,5 @@
 const express = require("express");
 const router = express.Router();
-// const { Task, validate } = require("./model");
 
 const setupData = [
   {
@@ -11,7 +10,7 @@ const setupData = [
 
 router.get("/", async (req, res) => {
   // const resources = await Task.find();
-  res.send(setupData);
+  res.status(200).send(setupData);
 });
 
 router.get("/selected", async (req, res) => {
@@ -19,12 +18,29 @@ router.get("/selected", async (req, res) => {
   // if (!resource) return res.status(404).send("Task not found");
   // res.send(resource);
   // console.log(selectedprojectid);
-  const selectedprojectid = req.headers.selectedprojectid;
+  const selected = req.projectId;
   const result = setupData.find(
-    ({ projectId }) => projectId === selectedprojectid
+    ({ projectId }) => projectId === selected
   );
-  res.status(200).send(result);
+  res.status(200).send(result.taskOrder);
 });
- 
+
+router.post("/", async (req, res) => {
+  const taskOrder = req.body;
+  setupData.push(taskOrder);
+  res.status(200).send({ message: "New taskOrder successful" });
+});
+
+router.put("/", async (req, res) => {
+  const projectId = req.projectId;
+  const order = req.body;
+  console.log(order);
+  setupData.forEach((project) => {
+    if (project.projectId === projectId) {
+      project.taskOrder = order;
+    }
+  });
+  res.status(200).send(order);
+});
 
 module.exports = router;

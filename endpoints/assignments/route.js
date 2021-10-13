@@ -7,20 +7,22 @@ const router = express.Router();
 const assignmentData = [
   {
     projectId: "abc",
-    lead: {
-      materials: ["pack1"],
-      travel: ["pack1"],
-      capex: [],
-    },
-    pOne: {
-      materials: [],
-      travel: [],
-      capex: [],
-    },
-    pTwo: {
-      materials: [],
-      travel: [],
-      capex: [],
+    data: {
+      lead: {
+        materials: ["pack1"],
+        travel: ["pack1"],
+        capex: [],
+      },
+      pOne: {
+        materials: [],
+        travel: [],
+        capex: [],
+      },
+      pTwo: {
+        materials: [],
+        travel: [],
+        capex: [],
+      },
     },
   },
 ];
@@ -28,11 +30,20 @@ const assignmentData = [
 router.get("/selected", (req, res) => {
   //   const user = await User.findById(req.user.id).select("-password");
   //   res.send(user);
-  const selectedprojectid = req.headers.selectedprojectid;
-  const result = assignmentData.find(
-    ({ projectId }) => projectId === selectedprojectid
+
+  const projectId = req.projectId;
+  const index = assignmentData.findIndex(
+    (project) => project.projectId === projectId
   );
+  const result = assignmentData[index].data;
   res.status(200).send(result);
+});
+
+router.post("/new", async (req, res) => {
+  const newAssignment = req.body;
+  // body contains projectId and data - no need to de-structure
+  assignmentData.push(newAssignment);
+  res.status(200).send({ message: "New assignments successful" });
 });
 
 // router.get("/myProject", async (req, res) => {

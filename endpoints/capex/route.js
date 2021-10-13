@@ -6,28 +6,40 @@ const router = express.Router();
 
 const capexData = [
   {
-    projectId: 'abc',
-    capexId: "123",
-    condition: "New",
-    leader: "lead",
-    description: "capex from server",
-    depreciation: 40,
-    currentValue: 500,
-    utilisation: 10,
+    projectId: "abc",
+    data: [
+      {
+        capexId: "123",
+        condition: "New",
+        leader: "lead",
+        description: "capex from server",
+        depreciation: 40,
+        currentValue: 500,
+        utilisation: 10,
+      },
+    ],
   },
 ];
 
 router.get("/selected", (req, res) => {
   //   const user = await User.findById(req.user.id).select("-password");
   //   res.send(user);
-  const selectedprojectid = req.headers.selectedprojectid;
-  // console.log(selectedprojectid);
-  const result = [];
-  capexData.forEach((person) => {
-    // console.log(person.projectId);
-    if (person.projectId === selectedprojectid) result.push(person);
-  });
+  const projectId = req.projectId;
+  const index = capexData.findIndex(
+    (project) => project.projectId === projectId
+  );
+  const result = capexData[index].data;
   res.status(200).send(result);
+});
+
+router.post("/new", async (req, res) => {
+  const projectId = req.body.projectId;
+  const newCapex = {
+    projectId,
+    data: [],
+  };
+  capexData.push(newCapex);
+  res.status(200).send({ message: "New capex successful" });
 });
 
 // router.get("/myProject", async (req, res) => {

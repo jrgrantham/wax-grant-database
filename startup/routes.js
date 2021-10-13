@@ -11,12 +11,14 @@ const setup = require("../endpoints/setup/route");
 const team = require("../endpoints/team/route");
 // const taskOrder = require("../endpoints/taskOrder/route");
 const tasks = require("../endpoints/tasks/route");
+const taskOrder = require("../endpoints/taskOrder/route");
 const deadlines = require("../endpoints/deadlines/route");
 const capex = require("../endpoints/capex/route");
 const materials = require("../endpoints/materials/route");
 const travel = require("../endpoints/travel/route");
 const other = require("../endpoints/other/route");
 const assignments = require("../endpoints/assignments/route");
+const revenue = require("../endpoints/revenue/route");
 
 const allocations = require("../endpoints/allocations/route");
 const resources = require("../endpoints/resources/route");
@@ -42,6 +44,7 @@ module.exports = function (app) {
   app.use("/api/team", authenticate, team);
   app.use("/api/deadlines", authenticate, deadlines);
   app.use("/api/tasks", authenticate, tasks);
+  app.use("/api/taskOrder", authenticate, taskOrder);
   app.use("/api/capex", authenticate, capex);
   app.use("/api/materials", authenticate, materials);
   app.use("/api/travel", authenticate, travel);
@@ -49,6 +52,7 @@ module.exports = function (app) {
   app.use("/api/assignments", authenticate, assignments);
   app.use("/api/resources", authenticate, resources);
   app.use("/api/allocations", authenticate, allocations);
+  app.use("/api/revenue", authenticate, revenue);
 
   // app.use(error);
 };

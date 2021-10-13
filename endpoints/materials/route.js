@@ -6,26 +6,37 @@ const router = express.Router();
 
 const materials = [
   {
-    projectId: 'abc',
-    leader: "lead",
-    description: "wood from the server",
-    quantity: 2,
-    cost: 25,
-    materialId: "1234",
+    projectId: "abc",
+    data: [
+      {
+        leader: "lead",
+        description: "wood from the server",
+        quantity: 2,
+        cost: 25,
+        materialId: "1234",
+      },
+    ],
   },
 ];
 
 router.get("/selected", (req, res) => {
-  //   const user = await User.findById(req.user.id).select("-password");
-  //   res.send(user);
-  const selectedprojectid = req.headers.selectedprojectid;
-  // console.log(selectedprojectid);
-  const result = [];
-  materials.forEach((material) => {
-    // console.log(material.projectId);
-    if (material.projectId === selectedprojectid) result.push(material);
-  });
+  const projectId = req.projectId;
+  const index = materials.findIndex(
+    (project) => project.projectId === projectId
+  );
+  const result = materials[index].data;
   res.status(200).send(result);
+});
+
+router.post("/new", async (req, res) => {
+  const projectId = req.body.projectId;
+  const newDeadline = {
+    projectId,
+    data: [],
+  };
+  materials.push(newDeadline);
+  // console.log(materials);
+  res.status(200).send({ message: "New materials successful" });
 });
 
 // router.get("/myProject", async (req, res) => {

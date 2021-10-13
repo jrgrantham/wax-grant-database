@@ -5,100 +5,50 @@
 const express = require("express");
 const router = express.Router();
 const { User, validate } = require("./model");
-const admin = require('../../middleware/admin')
-
-const testData = [
-  {
-    userId: 1234,
-    name: "James",
-    email: "james@xyx.com",
-    password: "password",
-  },
-  {
-    userId: 2345,
-    name: "Damien",
-    email: "damien@xyx.com",
-    password: "password",
-  },
-  {
-    userId: 3456,
-    name: "Casper",
-    email: "casper@xyx.com",
-    password: "password",
-  },
-  {
-    userId: 4567,
-    name: "Eric",
-    email: "eric@xyx.com",
-    password: "password",
-  },
-  {
-    userId: 5678,
-    name: "Tony Smith",
-    email: "tony@xyx.com",
-    password: "password",
-  },
-  {
-    userId: 6789,
-    name: "Paul Everton",
-    email: "pauljameseverton@longemailadd.com",
-    password: "password",
-  },
-];
-
-const dummyProjectList = [
-  {
-    projectId: "abc",
-    projectDesc: "Damien's description from the server...",
-
-    partners: 1,
-    lead: "james@xyx.com",
-    pOne: "",
-    pTwo: "",
-    leadId: "", // required for updates to linked information (projects?)
-    pOneId: "",
-    pTwoId: "",
-    color: "",
-  },
-];
+const admin = require("../../middleware/admin");
+const userData = require("./data");
 
 router.get("/", admin, (req, res) => {
   // console.log(req);
   // console.log(res);
   // throw new Error('error test');
-  res.send(testData);
+  res.send(userData);
   // res.status(200).send(data)
 });
 
 router.get("/me", async (req, res) => {
   const userId = req.userId;
-  // console.log('************', req.userId);
   try {
     const user = await User.findOne({ _id: userId });
-    const { admin, dev } = user;
-    // if admin fetch setup list
-    // if client fetch project list
-    // console.log(user);
+    const { admin, dev, projectId } = user;
     res.status(200).send({
       admin,
       dev,
-      availableProjects: dummyProjectList
+      projectId,
     });
   } catch (ex) {
     res.status(400).send({ message: ex.message });
   }
 });
 
-// availableProjects: copyOfData,
-// selectedProjectData: {
-//   data: "slices of state go here",
-// },
-// test,
+router.put("/me", async (req, res) => {
+  const _id = req.userId;
+  const projectId = req.body.projectId;
+  // console.log(projectId);
+  try {
+    await User.findByIdAndUpdate(_id, {
+      projectId,
+    });
+    res.send(projectId);
+  } catch (ex) {
+    res.status(400).send({ message: ex.message });
+  }
+});
 
 router.post("/", async (req, res) => {
   const newUser = req.body;
   // console.log(newUser);
-  testData.push(newUser);
+  userData.push(newUser);
   res.send(newUser);
 
   // const { error } = validate(req.body);
@@ -132,8 +82,8 @@ router.delete("/", async (req, res) => {
   // const user = await User.findById(req.user.id).select("-password");
   // res.send(user);
   const userId = req.body.userId;
-  const index = testData.findIndex((user) => user.userId === userId);
-  testData.splice(index, 1);
+  const index = userData.findIndex((user) => user.userId === userId);
+  userData.splice(index, 1);
   res.send({ userId });
 });
 

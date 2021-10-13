@@ -5,22 +5,39 @@ const router = express.Router();
 const allocations = [
   {
     projectId: "abc",
-    allocationId: "82d0c4ee-57f4-4ea0-9c46-ea5c56c3ff33",
-    taskId: "task1",
-    personId: "person1",
-    percent: 100,
+    data: [
+      {
+        allocationId: "82d0c4ee-57f4-4ea0-9c46-ea5c56c3ff33",
+        taskId: "task1",
+        personId: "person1",
+        percent: 100,
+      },
+    ],
   },
 ];
 
 router.get("/selected", (req, res) => {
   //   const user = await User.findById(req.user.id).select("-password");
   //   res.send(user);
-  const selectedprojectid = req.headers.selectedprojectid;
-  const result = [];
-  allocations.forEach((allocation) => {
-    if (allocation.projectId === selectedprojectid) result.push(allocation);
-  });
+  const projectId = req.projectId;
+  const index = allocations.findIndex(
+    (project) => project.projectId === projectId
+  );
+  const result = allocations[index].data;
+  // console.log(result);
   res.status(200).send(result);
+});
+
+
+router.post("/new", async (req, res) => {
+  const projectId = req.body.projectId;
+  const newAllocation = {
+    projectId,
+    data: [],
+  };
+  allocations.push(newAllocation);
+  console.log(allocations);
+  res.status(200).send({ message: "New allocation successful" });
 });
 
 // router.get("/", async (req, res) => {

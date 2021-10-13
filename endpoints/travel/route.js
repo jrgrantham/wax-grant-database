@@ -7,23 +7,35 @@ const router = express.Router();
 const travel = [
   {
     projectId: "abc",
-    leader: "lead",
-    description: "visit Paris from the server",
-    quantity: 1,
-    cost: 120,
-    travelId: "1234",
+    data: [
+      {
+        projectId: "abc",
+        leader: "lead",
+        description: "visit Paris from the server",
+        quantity: 1,
+        cost: 120,
+        travelId: "1234",
+      },
+    ],
   },
 ];
 
+
 router.get("/selected", (req, res) => {
-  //   const user = await User.findById(req.user.id).select("-password");
-  //   res.send(user);
-  const selectedprojectid = req.headers.selectedprojectid;
-  const result = [];
-  travel.forEach((travel) => {
-    if (travel.projectId === selectedprojectid) result.push(travel);
-  });
+  const projectId = req.projectId;
+  const index = travel.findIndex((project) => project.projectId === projectId);
+  const result = travel[index].data;
   res.status(200).send(result);
+});
+
+router.post("/new", async (req, res) => {
+  const projectId = req.body.projectId;
+  const newTravel = {
+    projectId,
+    data: [],
+  };
+  travel.push(newTravel);
+  res.status(200).send({ message: "New travel successful" });
 });
 
 // router.get("/myProject", async (req, res) => {
