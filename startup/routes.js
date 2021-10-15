@@ -21,7 +21,7 @@ const assignments = require("../endpoints/assignments/route");
 const revenue = require("../endpoints/revenue/route");
 
 const allocations = require("../endpoints/allocations/route");
-const resources = require("../endpoints/resources/route");
+// const resources = require("../endpoints/resources/route");
 
 const authenticate = require("../middleware/authenticate");
 const admin = require("../middleware/admin");
@@ -36,8 +36,8 @@ module.exports = function (app) {
   app.use(helmet());
 
   app.use("/api/login", login);
-
   app.use("/api/users", authenticate, users);
+
   app.use("/api/global", authenticate, global);
   app.use("/api/setup", authenticate, setup);
   app.use("/api/projects", authenticate, projects);
@@ -50,7 +50,7 @@ module.exports = function (app) {
   app.use("/api/travel", authenticate, travel);
   app.use("/api/other", authenticate, other);
   app.use("/api/assignments", authenticate, assignments);
-  app.use("/api/resources", authenticate, resources);
+  // app.use("/api/resources", authenticate, resources);
   app.use("/api/allocations", authenticate, allocations);
   app.use("/api/revenue", authenticate, revenue);
 

@@ -52,6 +52,15 @@ router.put("/selected", async (req, res) => {
   res.status(200).send(updated);
 });
 
+router.delete("/selected", async (req, res) => {
+  const projectId = req.projectId;
+  const index = travel.findIndex(
+    (travel) => travel.projectId === projectId
+  );
+  travel.splice(index, 1);
+  res.status(200).send({ message: "Delete travel successful" });
+});
+
 // router.get("/myProject", async (req, res) => {
 // const projectId = req.projectId;
 // const project = await Setup.findById(projectId);

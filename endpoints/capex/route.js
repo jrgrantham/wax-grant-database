@@ -26,7 +26,7 @@ router.get("/selected", (req, res) => {
   //   res.send(user);
   const projectId = req.projectId;
   const index = capexData.findIndex(
-    (project) => project.projectId === projectId
+    (capex) => capex.projectId === projectId
   );
   const result = capexData[index].data;
   res.status(200).send(result);
@@ -54,6 +54,15 @@ router.put("/selected", async (req, res) => {
   );
   capexData.splice(index, 1, updated);
   res.status(200).send(updated);
+});
+
+router.delete("/selected", async (req, res) => {
+  const projectId = req.projectId;
+  const index = capexData.findIndex(
+    (capex) => capex.projectId === projectId
+  );
+  capexData.splice(index, 1);
+  res.status(200).send({ message: "Delete capex successful" });
 });
 
 // router.get("/myProject", async (req, res) => {

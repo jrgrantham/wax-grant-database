@@ -4,7 +4,7 @@ const express = require("express");
 const router = express.Router();
 // const { Setup, validate } = require("./model");
 
-const assignmentData = [
+const revenueData = [
   {
     projectId: "abc",
     data: { markets: [], streams: [], total: [] },
@@ -16,24 +16,33 @@ router.get("/selected", (req, res) => {
   //   res.send(user);
 
   const projectId = req.projectId;
-  const index = assignmentData.findIndex(
-    (project) => project.projectId === projectId
+  const index = revenueData.findIndex(
+    (revenue) => revenue.projectId === projectId
   );
-  const result = assignmentData[index].data;
+  const result = revenueData[index].data;
   res.status(200).send(result);
 });
 
 router.post("/new", async (req, res) => {
   const newAssignment = req.body;
   // body contains projectId and data - no need to de-structure
-  assignmentData.push(newAssignment);
+  revenueData.push(newAssignment);
   res.status(200).send({ message: "New revenue successful" });
+});
+
+router.delete("/selected", async (req, res) => {
+  const projectId = req.projectId;
+  const index = revenueData.findIndex(
+    (revenue) => revenue.projectId === projectId
+  );
+  revenueData.splice(index, 1);
+  res.status(200).send({ message: "Delete revenue successful" });
 });
 
 // router.get("/myProject", async (req, res) => {
 // const projectId = req.projectId;
-// const project = await Setup.findById(projectId);
-// res.send(project);
+// const revenue = await Setup.findById(projectId);
+// res.send(revenue);
 // });
 
 // router.post("/", async (req, res) => {
@@ -45,7 +54,7 @@ router.post("/new", async (req, res) => {
 //   // const { error } = validate(req.body);
 //   // if (error) return res.status(400).send(error.details[0].message);
 
-//   // let project = new Setup(
+//   // let revenue = new Setup(
 //   //   _.pick(req.body, [
 //   //     "name",
 //   //     "partners",
@@ -102,8 +111,8 @@ router.post("/new", async (req, res) => {
 //   // );
 
 //   // try {
-//   //   project = await project.save();
-//   //   res.send(project);
+//   //   revenue = await revenue.save();
+//   //   res.send(revenue);
 //   // } catch (ex) {
 //   //   // for (field in ex.errors) {
 //   //   //   console.log(ex.errors[field].message);

@@ -1,4 +1,4 @@
-const taskSetupData = [
+let taskSetupData = [
   {
     projectId: "abc",
     taskId: "task1",

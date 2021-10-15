@@ -7,14 +7,14 @@ const router = express.Router();
 // const { User, validate } = require("./model");
 const admin = require("../../middleware/admin");
 const setupData = require("./data");
+const { User } = require("../users/model");
 
 router.get("/selected", (req, res) => {
   //   const user = await User.findById(req.user.id).select("-password");
   //   res.send(user);
-  const selectedprojectid = req.headers.selectedprojectid;
-  const result = setupData.find(
-    ({ projectId }) => projectId === selectedprojectid
-  );
+  const projectId = req.projectId;
+  const index = setupData.findIndex((setup) => setup.projectId === projectId);
+  const result = setupData[index].data;
   res.status(200).send(result);
 });
 
@@ -108,13 +108,28 @@ router.put("/", admin, async (req, res) => {
   // }
 });
 
-router.delete("/", async (req, res) => {
+router.delete("/selected", async (req, res) => {
   const projectId = req.projectId;
-  const index = setupData.findIndex(
-    (project) => project.projectId === projectId
+  let nextProject = setupData[0].projectId;
+  if (nextProject === projectId) nextProject = setupData[1].projectId;
+  const setupIndex = setupData.findIndex(
+    (setup) => setup.projectId === projectId
   );
-  setupData.splice(index, 1);
-  res.send({ message: "success" });
+  setupData.splice(setupIndex, 1);
+
+  if (!nextProject) nextProject = null
+
+  const _id = req.userId;
+  try {
+    await User.findByIdAndUpdate(_id, {
+      projectId: nextProject,
+    });
+    // res.send(projectId);
+    res.status(200).send({ key: "selectedProjectId", value: nextProject });
+  } catch (ex) {
+    res.status(400).send({ message: ex.message });
+  }
+  console.log(setupData);
 });
 
 module.exports = router;

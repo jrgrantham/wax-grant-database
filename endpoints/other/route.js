@@ -21,7 +21,7 @@ const other = [
 router.get("/selected", (req, res) => {
   const projectId = req.projectId;
   const index = other.findIndex(
-    (project) => project.projectId === projectId
+    (other) => other.projectId === projectId
   );
   const result = other[index].data;
   res.status(200).send(result);
@@ -45,16 +45,25 @@ router.put("/selected", async (req, res) => {
     data,
   };
   const index = other.findIndex(
-    (deadline) => deadline.projectId === projectId
+    (other) => other.projectId === projectId
   );
   other.splice(index, 1, updated);
-  res.status(200).send(updated);
+  res.status(200).send({ message: "Update other successful" });
+});
+
+router.delete("/selected", async (req, res) => {
+  const projectId = req.projectId;
+  const index = other.findIndex(
+    (other) => other.projectId === projectId
+  );
+  other.splice(index, 1);
+  res.status(200).send({ message: "Delete other successful" });
 });
 
 // router.get("/myProject", async (req, res) => {
 // const projectId = req.projectId;
-// const project = await Setup.findById(projectId);
-// res.send(project);
+// const other = await Setup.findById(projectId);
+// res.send(other);
 // });
 
 // router.post("/", async (req, res) => {
@@ -66,7 +75,7 @@ router.put("/selected", async (req, res) => {
 //   // const { error } = validate(req.body);
 //   // if (error) return res.status(400).send(error.details[0].message);
 
-//   // let project = new Setup(
+//   // let other = new Setup(
 //   //   _.pick(req.body, [
 //   //     "name",
 //   //     "partners",
@@ -123,8 +132,8 @@ router.put("/selected", async (req, res) => {
 //   // );
 
 //   // try {
-//   //   project = await project.save();
-//   //   res.send(project);
+//   //   other = await other.save();
+//   //   res.send(other);
 //   // } catch (ex) {
 //   //   // for (field in ex.errors) {
 //   //   //   console.log(ex.errors[field].message);

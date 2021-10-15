@@ -33,7 +33,7 @@ router.get("/selected", (req, res) => {
 
   const projectId = req.projectId;
   const index = assignmentData.findIndex(
-    (project) => project.projectId === projectId
+    (assignment) => assignment.projectId === projectId
   );
   const result = assignmentData[index].data;
   res.status(200).send(result);
@@ -44,6 +44,15 @@ router.post("/new", async (req, res) => {
   // body contains projectId and data - no need to de-structure
   assignmentData.push(newAssignment);
   res.status(200).send({ message: "New assignments successful" });
+});
+
+router.delete("/selected", async (req, res) => {
+  const projectId = req.projectId;
+  const index = assignmentData.findIndex(
+    (assignment) => assignment.projectId === projectId
+  );
+  assignmentData.splice(index, 1);
+  res.status(200).send({ message: "Delete assignment successful" });
 });
 
 // router.get("/myProject", async (req, res) => {

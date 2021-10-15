@@ -9,9 +9,9 @@ const projectData = require("./data");
 router.get("/selected", (req, res) => {
   //   const user = await User.findById(req.user.id).select("-password");
   //   res.send(user);
-  const selectedprojectid = req.headers.selectedprojectid;
+  const selectedProjectId = req.projectId;
   const result = projectData.find(
-    ({ projectId }) => projectId === selectedprojectid
+    ({ projectId }) => projectId === selectedProjectId
   );
   res.status(200).send(result);
 });
@@ -30,7 +30,16 @@ router.put("/", admin, async (req, res) => {
     (project) => project.projectId === projectId
   );
   projectData.splice(index, 1, data);
-  res.status(200).send({ message: "success" });
+  res.status(200).send({ message: "Project updated" });
+});
+
+router.delete("/selected", async (req, res) => {
+  const projectId = req.projectId;
+  const index = projectData.findIndex(
+    (project) => project.projectId === projectId
+  );
+  projectData.splice(index, 1);
+  res.status(200).send({ message: "Delete project successful" });
 });
 
 // router.get("/myProject", async (req, res) => {

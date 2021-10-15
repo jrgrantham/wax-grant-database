@@ -39,6 +39,29 @@ router.post("/new", async (req, res) => {
   res.status(200).send({ message: "New allocation successful" });
 });
 
+router.put("/selected", async (req, res) => {
+  const projectId = req.projectId;
+  const data = req.body;
+  const updated = {
+    projectId,
+    data,
+  };
+  const index = allocations.findIndex(
+    (allocation) => allocation.projectId === projectId
+  );
+  allocations.splice(index, 1, updated);
+  res.status(200).send(updated);
+});
+
+router.delete("/selected", async (req, res) => {
+  const projectId = req.projectId;
+  const index = allocations.findIndex(
+    (allocation) => allocation.projectId === projectId
+  );
+  allocations.splice(index, 1);
+  res.status(200).send({ message: "Delete allocation successful" });
+});
+
 // router.get("/", async (req, res) => {
 //   const allocations = await Allocation.find();
 //   res.send(allocations);

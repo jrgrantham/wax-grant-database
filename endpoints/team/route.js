@@ -66,8 +66,8 @@ router.put("/selected", (req, res) => {
     (project) => project.projectId === selected
   );
   setupData[index].data = data;
-  console.log(data);
-  res.status(200).send(data);
+  // console.log(data);
+  res.status(200).send({ message: "Team updated" });
 });
 
 router.post("/selected", (req, res) => {
@@ -78,6 +78,15 @@ router.post("/selected", (req, res) => {
   };
   setupData.push(newProject);
   res.status(200).send({ message: "Team initiated" });
+});
+
+router.delete("/selected", async (req, res) => {
+  const projectId = req.projectId;
+  const index = setupData.findIndex(
+    (team) => team.projectId === projectId
+  );
+  setupData.splice(index, 1);
+  res.status(200).send({ message: "Delete team successful" });
 });
 
 // router.get("/myProject", async (req, res) => {

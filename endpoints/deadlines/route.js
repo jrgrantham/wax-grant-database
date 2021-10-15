@@ -52,7 +52,7 @@ const deadlineData = [
 router.get("/selected", async (req, res) => {
   const projectId = req.projectId;
   const index = deadlineData.findIndex(
-    (project) => project.projectId === projectId
+    (deadline) => deadline.projectId === projectId
   );
   const result = deadlineData[index].data;
   res.status(200).send(result);
@@ -80,6 +80,15 @@ router.put("/selected", async (req, res) => {
   );
   deadlineData.splice(index, 1, updated);
   res.status(200).send(updated);
+});
+
+router.delete("/selected", async (req, res) => {
+  const projectId = req.projectId;
+  const index = deadlineData.findIndex(
+    (deadline) => deadline.projectId === projectId
+  );
+  deadlineData.splice(index, 1);
+  res.status(200).send({ message: "Delete deadline successful" });
 });
 
 // router.post("/", async (req, res) => {

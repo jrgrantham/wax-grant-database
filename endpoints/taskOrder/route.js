@@ -43,4 +43,13 @@ router.put("/", async (req, res) => {
   res.status(200).send(order);
 });
 
+router.delete("/selected", async (req, res) => {
+  const projectId = req.projectId;
+  const index = setupData.findIndex(
+    (taskOrder) => taskOrder.projectId === projectId
+  );
+  setupData.splice(index, 1);
+  res.status(200).send({ message: "Delete taskOrder successful" });
+});
+
 module.exports = router;

@@ -22,7 +22,7 @@ const materials = [
 router.get("/selected", (req, res) => {
   const projectId = req.projectId;
   const index = materials.findIndex(
-    (project) => project.projectId === projectId
+    (material) => material.projectId === projectId
   );
   const result = materials[index].data;
   res.status(200).send(result);
@@ -47,10 +47,19 @@ router.put("/selected", async (req, res) => {
     data,
   };
   const index = materials.findIndex(
-    (deadline) => deadline.projectId === projectId
+    (material) => material.projectId === projectId
   );
   materials.splice(index, 1, updated);
   res.status(200).send(updated);
+});
+
+router.delete("/selected", async (req, res) => {
+  const projectId = req.projectId;
+  const index = materials.findIndex(
+    (material) => material.projectId === projectId
+  );
+  materials.splice(index, 1);
+  res.status(200).send({ message: "Delete materials successful" });
 });
 
 // router.get("/myProject", async (req, res) => {

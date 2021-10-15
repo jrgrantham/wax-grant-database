@@ -1,6 +1,7 @@
 const express = require("express");
 const router = express.Router();
-const { Task, validate } = require("./model");
+const { Task } = require("./model");
+// const { Task, validate } = require("./model");
 const taskSetupData = require("./data");
 
 router.get("/", async (req, res) => {
@@ -76,13 +77,24 @@ router.put("/selected", async (req, res) => {
 });
 
 router.delete("/selected", async (req, res) => {
-  const { taskId } = req.body;
-  const index = taskSetupData.findIndex((task) => task.taskId === taskId);
-  taskSetupData.splice(index, 1);
-  res.status(200).send({ message: "Task deleted" });
-  // const resource = await Task.findByIdAndDelete(req.params.id);
-  // if (!resource) return res.status(404).send("not found");
-  // res.send(resource);
+  const projectId = req.projectId;
+  // taskSetupData = taskSetupData.filter((task) => task.projectId !== projectId);
+  for (let i = 0; i < taskSetupData.length; i++) {
+    if (taskSetupData[i].projectId === projectId) {
+      taskSetupData.splice(i, 1);
+    }
+  }
+  res.status(200).send({ message: "Delete tasks successful" });
 });
+
+// router.delete("/selected", async (req, res) => {
+//   const { taskId } = req.body;
+//   const index = taskSetupData.findIndex((task) => task.taskId === taskId);
+//   taskSetupData.splice(index, 1);
+//   res.status(200).send({ message: "Task deleted" });
+//   // const resource = await Task.findByIdAndDelete(req.params.id);
+//   // if (!resource) return res.status(404).send("not found");
+//   // res.send(resource);
+// });
 
 module.exports = router;
