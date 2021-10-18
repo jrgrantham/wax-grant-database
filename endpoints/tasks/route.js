@@ -51,11 +51,10 @@ router.post("/new", async (req, res) => {
 router.put("/selected", async (req, res) => {
   const task = req.body;
   console.log(task);
-
   const taskId = task.taskId;
   const index = taskSetupData.findIndex((task) => task.taskId === taskId);
   taskSetupData.splice(index, 1, task);
-  res.status(200).send(task);
+  res.status(200).send({ message: "Task updated" });
   // const { error } = validate(req.body);
   // if (error) return res.status(400).send(error.details[0].message);
 
@@ -77,13 +76,10 @@ router.put("/selected", async (req, res) => {
 });
 
 router.delete("/selected", async (req, res) => {
-  const projectId = req.projectId;
-  // taskSetupData = taskSetupData.filter((task) => task.projectId !== projectId);
-  for (let i = 0; i < taskSetupData.length; i++) {
-    if (taskSetupData[i].projectId === projectId) {
-      taskSetupData.splice(i, 1);
-    }
-  }
+  const taskId = req.body.taskId
+  const index = taskSetupData.findIndex((task) => task.taskId === taskId);
+  taskSetupData.splice(index, 1);
+  console.log("*** tasks ***", taskSetupData);
   res.status(200).send({ message: "Delete tasks successful" });
 });
 

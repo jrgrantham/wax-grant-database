@@ -36,6 +36,7 @@ router.post("/new", async (req, res) => {
   };
   allocations.push(newAllocation);
   // console.log(allocations);
+
   res.status(200).send({ message: "New allocation successful" });
 });
 
@@ -50,7 +51,7 @@ router.put("/selected", async (req, res) => {
     (allocation) => allocation.projectId === projectId
   );
   allocations.splice(index, 1, updated);
-  res.status(200).send(updated);
+  res.status(200).send({ message: "Allocation updated" });
 });
 
 router.delete("/selected", async (req, res) => {

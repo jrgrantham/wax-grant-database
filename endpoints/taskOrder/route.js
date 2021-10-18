@@ -34,12 +34,12 @@ router.post("/", async (req, res) => {
 router.put("/", async (req, res) => {
   const projectId = req.projectId;
   const order = req.body;
-  console.log(order);
   setupData.forEach((project) => {
     if (project.projectId === projectId) {
       project.taskOrder = order;
     }
   });
+  console.log("*** taskOrder ***", setupData);
   res.status(200).send(order);
 });
 

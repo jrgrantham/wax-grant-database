@@ -24,10 +24,21 @@ router.get("/selected", (req, res) => {
 });
 
 router.post("/new", async (req, res) => {
-  const newAssignment = req.body;
+  const revenue = req.body;
   // body contains projectId and data - no need to de-structure
-  revenueData.push(newAssignment);
+  revenueData.push(revenue);
   res.status(200).send({ message: "New revenue successful" });
+});
+
+router.put("/selected", (req, res) => {
+  const selected = req.projectId;
+  const data = req.body;
+  const index = revenueData.findIndex(
+    (project) => project.projectId === selected
+  );
+  revenueData[index].data = data;
+  // console.log(data);
+  res.status(200).send({ message: "Revenue updated" });
 });
 
 router.delete("/selected", async (req, res) => {
