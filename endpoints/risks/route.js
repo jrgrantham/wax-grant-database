@@ -4,66 +4,80 @@ const express = require("express");
 const router = express.Router();
 // const { Setup, validate } = require("./model");
 
-const revenueData = [
+const riskData = [
   {
     projectId: "abc",
-    data: {
-      // revenueStart: 2022,
-      profitMargin: 0,
-      taxRate: 0,
-      markets: [
-        { name: "UK Market", start: 0, growth: 0 },
-        { name: "Global", start: 0, growth: 0 },
-      ],
-      streams: [],
-      total: [],
-    },
+    data: [
+      {
+        riskId: 'riskOnServer',
+        category: 'managerial',
+        description: "Description... server",
+        mitigation: "Mitigation...",
+        probability: 0,
+        consequence: 0,
+        postProbability: 0,
+        postConsequence: 0,
+      },
+    ],
   },
 ];
 
 router.get("/selected", (req, res) => {
-  //   const user = await User.findById(req.user.id).select("-password");
-  //   res.send(user);
-
-  const projectId = req.projectId;
-  const index = revenueData.findIndex(
-    (revenue) => revenue.projectId === projectId
+  const selected = req.projectId;
+  const index = riskData.findIndex(
+    (project) => project.projectId === selected
   );
-  const result = revenueData[index].data;
+  const result = riskData[index].data;
   res.status(200).send(result);
 });
 
 router.post("/new", async (req, res) => {
-  const revenue = req.body;
-  // body contains projectId and data - no need to de-structure
-  revenueData.push(revenue);
-  res.status(200).send({ message: "New revenue successful" });
+  const projectId = req.body.projectId;
+  const newRisk = {
+    projectId,
+    data: [],
+  };
+  riskData.push(newRisk);
+  // console.log(riskData);
+  res.status(200).send({ message: "New risks successful" });
 });
 
 router.put("/selected", (req, res) => {
   const selected = req.projectId;
   const data = req.body;
-  const index = revenueData.findIndex(
+  const index = riskData.findIndex(
     (project) => project.projectId === selected
   );
-  revenueData[index].data = data;
+  riskData[index].data = data;
+  
   // console.log(data);
-  res.status(200).send({ message: "Revenue updated" });
+  res.status(200).send({ message: "Risks updated" });
+});
+
+router.post("/selected", (req, res) => {
+  const projectId = req.body;
+  const newProject = {
+    projectId,
+    data: [],
+  };
+  riskData.push(newProject);
+  res.status(200).send({ message: "Risks initiated" });
 });
 
 router.delete("/selected", async (req, res) => {
   const projectId = req.projectId;
-  const index = revenueData.findIndex(
-    (revenue) => revenue.projectId === projectId
+  const index = riskData.findIndex(
+    (risk) => risk.projectId === projectId
   );
-  revenueData.splice(index, 1);
-  res.status(200).send({ message: "Delete revenue successful" });
+  riskData.splice(index, 1);
+  res.status(200).send({ message: "Delete risk successful" });
 });
+
 
 // router.get("/myProject", async (req, res) => {
 // const projectId = req.projectId;
-// const revenue = await Setup.findById(projectId);
-// res.send(revenue);
+// const project = await Setup.findById(projectId);
+// res.send(project);
 // });
 
 // router.post("/", async (req, res) => {
@@ -75,7 +89,7 @@ router.delete("/selected", async (req, res) => {
 //   // const { error } = validate(req.body);
 //   // if (error) return res.status(400).send(error.details[0].message);
 
-//   // let revenue = new Setup(
+//   // let project = new Setup(
 //   //   _.pick(req.body, [
 //   //     "name",
 //   //     "partners",
@@ -132,8 +146,8 @@ router.delete("/selected", async (req, res) => {
 //   // );
 
 //   // try {
-//   //   revenue = await revenue.save();
-//   //   res.send(revenue);
+//   //   project = await project.save();
+//   //   res.send(project);
 //   // } catch (ex) {
 //   //   // for (field in ex.errors) {
 //   //   //   console.log(ex.errors[field].message);

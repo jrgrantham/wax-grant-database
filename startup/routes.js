@@ -19,12 +19,14 @@ const travel = require("../endpoints/travel/route");
 const other = require("../endpoints/other/route");
 const assignments = require("../endpoints/assignments/route");
 const revenue = require("../endpoints/revenue/route");
+const risks = require("../endpoints/risks/route");
+const templates = require("../endpoints/templates/route");
 
 const allocations = require("../endpoints/allocations/route");
 // const resources = require("../endpoints/resources/route");
 
 const authenticate = require("../middleware/authenticate");
-const admin = require("../middleware/admin");
+// const admin = require("../middleware/admin");
 // const checkProject = require("../middleware/checkProject");
 // const error = require("../middleware/error");
 
@@ -53,6 +55,8 @@ module.exports = function (app) {
   // app.use("/api/resources", authenticate, resources);
   app.use("/api/allocations", authenticate, allocations);
   app.use("/api/revenue", authenticate, revenue);
+  app.use("/api/risks", authenticate, risks);
+  app.use("/api/templates", authenticate, templates);
 
   // app.use(error);
 };
