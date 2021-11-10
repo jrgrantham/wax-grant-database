@@ -37,6 +37,10 @@ module.exports = function (app) {
   app.use(express.static("public"));
   app.use(helmet());
 
+  app.get("/", (req, res) => {
+    res.status(200).send("server running");
+  });
+
   app.use("/api/login", login);
   app.use("/api/users", authenticate, users);
 
