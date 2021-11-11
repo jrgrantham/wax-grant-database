@@ -3,7 +3,7 @@ const express = require("express");
 const app = express();
 
 app.get("/", (req, res) => {
-  res.status(200).send("grant server running");
+  res.status(200).send("wax grant server is running...");
 });
 
 require("dotenv").config();
