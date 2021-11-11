@@ -2,6 +2,10 @@
 const express = require("express");
 const app = express();
 
+app.get("/", (req, res) => {
+  res.status(200).send("grant server running");
+});
+
 require("dotenv").config();
 require("./startup/logging")();
 require("./startup/routes")(app);
