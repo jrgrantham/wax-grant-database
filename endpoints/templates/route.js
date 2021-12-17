@@ -3,24 +3,14 @@
 const express = require("express");
 const router = express.Router();
 // const { Setup, validate } = require("./model");
-
-const templateData = [
-  {
-    templateId: "riskOnServer",
-    category: "managerial",
-    description: "Description... server template",
-    mitigation: "Mitigation...",
-    probability: 0,
-    consequence: 0,
-  },
-];
+const templateData = require("./data");
 
 router.get("/", (req, res) => {
   res.status(200).send(templateData);
 });
 
 router.post("/new", async (req, res) => {
-  const newTemplate = req.body
+  const newTemplate = req.body;
   templateData.push(newTemplate);
   res.status(200).send({ message: "New template successful" });
 });
@@ -28,7 +18,9 @@ router.post("/new", async (req, res) => {
 router.put("/selected", (req, res) => {
   const selected = req.projectId;
   const data = req.body;
-  const index = templateData.findIndex((project) => project.projectId === selected);
+  const index = templateData.findIndex(
+    (project) => project.projectId === selected
+  );
   templateData[index].data = data;
   // console.log(data);
   res.status(200).send({ message: "Risks updated" });

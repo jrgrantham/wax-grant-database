@@ -3,13 +3,14 @@ const mongoose = require("mongoose");
 const config = require("config");
 
 module.exports = function (app) {
+  
   const dev = app.get("env") === "development";
   const dbName = config.get("dbname");
   const dbUser = config.get("dbuser");
   const dbPassword = config.get("dbpassword");
 
   const localDB = "mongodb://localhost/playground";
-  const productionDB = `mongodb+srv://${dbUser}:${dbPassword}@${dbName}.uwmmi.mongodb.net/myFirstDatabase?retryWrites=true&w=majority`;
+  const productionDB = `mongodb+srv://${dbUser}:${dbPassword}@${dbName}.uwmmi.mongodb.net/${dbName}?retryWrites=true&w=majority`;
   const uri = dev ? localDB : productionDB;
 
   console.log(
@@ -37,7 +38,7 @@ module.exports = function (app) {
       useCreateIndex: true,
     })
     .then(() => {
-      if (dev) console.log("connected to mongodb...");
+      if (dev) console.log(`connected to: ${uri}`);
     })
     .catch(() => {
       console.log("could not connected to mongodb...");

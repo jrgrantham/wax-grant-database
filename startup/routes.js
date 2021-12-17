@@ -6,13 +6,15 @@ const users = require("../endpoints/users/route");
 const login = require("../endpoints/login/login");
 // const home = require("../endpoints/home/route");
 const projects = require("../endpoints/projects/route");
+
 const global = require("../endpoints/global/route");
+
 const setup = require("../endpoints/setup/route");
 const team = require("../endpoints/team/route");
 // const taskOrder = require("../endpoints/taskOrder/route");
 const tasks = require("../endpoints/tasks/route");
 const taskOrder = require("../endpoints/taskOrder/route");
-const deadlines = require("../endpoints/deadlines/route");
+const deadlines = require("../endpoints/deadlines");
 const capex = require("../endpoints/capex/route");
 const materials = require("../endpoints/materials/route");
 const travel = require("../endpoints/travel/route");
@@ -52,7 +54,6 @@ module.exports = function (app) {
   app.use("/api/travel", authenticate, travel);
   app.use("/api/other", authenticate, other);
   app.use("/api/assignments", authenticate, assignments);
-  // app.use("/api/resources", authenticate, resources);
   app.use("/api/allocations", authenticate, allocations);
   app.use("/api/revenue", authenticate, revenue);
   app.use("/api/risks", authenticate, risks);

@@ -15,6 +15,7 @@ const config = require("config");
 //   return schema.validate(user);
 // }
 
+
 router.post("/", async (req, res) => {
   const { email, password, rememberMe } = req.body;
 
@@ -35,7 +36,7 @@ router.post("/", async (req, res) => {
 
   const token = generateAuthToken(rememberMe);
   res.status(200).send({
-    message: `Hello *user*`,
+    message: `Hello generic user`,
     projectId: "abc",
     token: token,
     admin: true,

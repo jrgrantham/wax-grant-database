@@ -2,8 +2,8 @@ const express = require("express");
 const router = express.Router();
 const mongoose = require("mongoose");
 
-const Allocation = mongoose.model(
-  "Allocation",
+const Assignment = mongoose.model(
+  "Assignment",
   new mongoose.Schema({
     projectId: { type: String, required: true },
     data: { type: Array, required: true },
@@ -11,12 +11,10 @@ const Allocation = mongoose.model(
 );
 
 router.get("/selected", async (req, res) => {
-  // const projectId = req.projectId;
+  const projectId = req.projectId;
   try {
-    // const result = await Allocation.findOne({ projectId });
-    // res.status(200).send(result.data);
-    res.status(200).send([]);
-
+    const result = await Assignment.findOne({ projectId });
+    res.status(200).send(result.data);
   } catch (ex) {
     res.status(400).send({ message: ex.message });
   }
@@ -28,10 +26,10 @@ router.put("/selected", async (req, res) => {
   const update = { projectId, data: req.body };
 
   try {
-    const data = await Allocation.findOneAndUpdate(filter, update, {
+    const data = await Assignment.findOneAndUpdate(filter, update, {
       new: true,
     });
-    res.status(200).send({ message: "Allocation updated", data });
+    res.status(200).send({ message: "Assignment updated", data });
   } catch (ex) {
     res.status(400).send({ message: ex.message });
   }
@@ -44,9 +42,9 @@ router.post("/new", async (req, res) => {
     data: [],
   };
   try {
-    const doc = new Allocation(newEntry);
+    const doc = new Assignment(newEntry);
     await doc.save();
-    res.status(200).send({ message: "New allocation successful" });
+    res.status(200).send({ message: "New assignment successful" });
   } catch (ex) {
     res.status(400).send({ message: ex.message });
   }
@@ -55,8 +53,8 @@ router.post("/new", async (req, res) => {
 router.delete("/selected", async (req, res) => {
   const projectId = req.projectId;
   try {
-    Allocation.findOneAndDelete({ projectId });
-    res.status(200).send({ message: "Delete allocations successful" });
+    Assignment.findOneAndDelete({ projectId });
+    res.status(200).send({ message: "Delete assignments successful" });
   } catch (ex) {
     res.status(400).send({ message: ex.message });
   }

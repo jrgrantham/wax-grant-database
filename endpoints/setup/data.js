@@ -48,6 +48,7 @@ const setupData = [
 
     maxMarkets: 3,
     maxStreams: 4,
+    
 
     useTemplates: true,
     useAi: true,

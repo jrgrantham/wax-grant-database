@@ -1,18 +1,18 @@
 const mongoose = require("mongoose");
-const Joi = require("joi");
+// const Joi = require("joi");
 const jwt = require("jsonwebtoken");
 const config = require("config");
 
-function validateUser(user) {
-  const schema = Joi.object({
-    name: Joi.string().min(3).max(50).required(),
-    email: Joi.string().min(3).max(255).required().email(),
-    password: Joi.string().min(3).max(255).required(),
-    projectId: Joi.string(),
-    admin: Joi.boolean().required(),
-  });
-  return schema.validate(user);
-}
+// function validateUser(user) {
+//   const schema = Joi.object({
+//     name: Joi.string().min(3).max(50).required(),
+//     email: Joi.string().min(3).max(255).required().email(),
+//     password: Joi.string().min(3).max(255).required(),
+//     projectId: Joi.string(),
+//     admin: Joi.boolean().required(),
+//   });
+//   return schema.validate(user);
+// }
 
 const userSchema = new mongoose.Schema({
   name: {
@@ -65,4 +65,4 @@ userSchema.methods.generateAuthToken = function (rememberMe) {
 const User = mongoose.model("User", userSchema);
 
 module.exports.User = User;
-module.exports.validate = validateUser;
+// module.exports.validate = validateUser;

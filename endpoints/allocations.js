@@ -11,12 +11,10 @@ const Allocation = mongoose.model(
 );
 
 router.get("/selected", async (req, res) => {
-  // const projectId = req.projectId;
+  const projectId = req.projectId;
   try {
-    // const result = await Allocation.findOne({ projectId });
-    // res.status(200).send(result.data);
-    res.status(200).send([]);
-
+    const result = await Allocation.findOne({ projectId });
+    res.status(200).send(result.data);
   } catch (ex) {
     res.status(400).send({ message: ex.message });
   }

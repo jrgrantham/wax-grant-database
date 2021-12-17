@@ -3,21 +3,9 @@ const projectData = [
     projectId: "abc",
     status: {
       gantt: false,
-      details: {
-        lead: false,
-        pOne: true,
-        pTwo: false,
-      },
-      team: {
-        lead: false,
-        pOne: false,
-        pTwo: false,
-      },
-      costs: {
-        lead: false,
-        pOne: false,
-        pTwo: false,
-      },
+      details: true,
+      team: false,
+      costs: true,
       revenue: false,
       setup: false,
       risks: false,
@@ -116,6 +104,175 @@ const projectData = [
       revenueComplete: false,
       risksComplete: false,
     },
+    wizard: {
+      currentQuestionIndex: 0,
+      allQuestionsAsked: false,
+      complete: false,
+      component: "intro",
+      answers: {
+        0: { result: false, skipped: false },
+        1: { result: false, skipped: false },
+        2: { result: false, skipped: false },
+        3: { result: false, skipped: false },
+        4: { result: { NLP: false, VIS: false }, skipped: false },
+        5: { result: false, skipped: false },
+        6: { result: false, skipped: false },
+        7: { result: false, skipped: false },
+        8: { result: false, skipped: false },
+        9: {
+          result: {
+            Medical: false,
+            // Manufacturing: false,
+            Finance: false,
+          },
+          skipped: false,
+        },
+      },
+    },
+    templates: [
+      {
+        riskId: "man1",
+        riskType: "managerial",
+        riskCategory: "gen",
+        riskDescription:
+          "Project documentation/evidence is inadequate resulting in project delays",
+        riskPreProbability: 2,
+        riskPreConsequence: 2,
+        riskMitigation:
+          "Continuous assessment and action plan for the documentation/evidence gathered during project to avoid delays",
+        riskPostProbability: 2,
+        riskPostConsequence: 2,
+      },
+      {
+        riskId: "man2",
+        riskType: "managerial",
+        riskCategory: "gen",
+        riskDescription:
+          "Resources required to meet technical needs exceed expectation",
+        riskPreProbability: 2,
+        riskPreConsequence: 2,
+        riskMitigation:
+          "Project Manager will continually assess tasks and resources. Continuous effort on recruitment using existing networks will prevent delays in project delivery",
+        riskPostProbability: 2,
+        riskPostConsequence: 2,
+      },
+      {
+        riskId: "man3",
+        riskType: "managerial",
+        riskCategory: "gen",
+        riskDescription: "Misinterpretation leads to technical errors",
+        riskPreProbability: 2,
+        riskPreConsequence: 2,
+        riskMitigation:
+          "Agile development means that issues will be found quickly and rectified. Monthly project progress meetings and online space for documents will ensure technical information is clear/accessible",
+        riskPostProbability: 2,
+        riskPostConsequence: 2,
+      },
+      {
+        riskId: "man4",
+        riskType: "managerial",
+        riskCategory: "gen",
+        riskDescription: "Key team member incapacitated",
+        riskPreProbability: 2,
+        riskPreConsequence: 2,
+        riskMitigation:
+          "Standards and progress reports will ensure smooth handover. Regular team feedback ensures PM understands progress. Learning points are captured in a team wiki, which allows for fast knowledge transfer",
+        riskPostProbability: 2,
+        riskPostConsequence: 2,
+      },
+      {
+        riskId: "man5",
+        riskType: "managerial",
+        riskCategory: "gen",
+        riskDescription:
+          "Insufficient resourcing of the new members of the team compromises the ability to deliver project",
+        riskPreProbability: 2,
+        riskPreConsequence: 2,
+        riskMitigation:
+          "All key members of the team already sourced. Team members are committed to the project through supportive company culture and robust project/performance management structures",
+        riskPostProbability: 2,
+        riskPostConsequence: 2,
+      },
+      {
+        riskId: "man6",
+        riskType: "managerial",
+        riskCategory: "gen",
+        riskDescription:
+          "Changing requirements or scope creep delay development",
+        riskPreProbability: 2,
+        riskPreConsequence: 2,
+        riskMitigation:
+          "Agile methodologies and milestones to fence requirements. Management will encourage an open and transparent development environment that helps identify delays",
+        riskPostProbability: 2,
+        riskPostConsequence: 2,
+      },
+      {
+        riskId: "man7",
+        riskType: "managerial",
+        riskCategory: "gen",
+        riskDescription: "Key team member incapacitated",
+        riskPreProbability: 2,
+        riskPreConsequence: 2,
+        riskMitigation:
+          "Standards and progress reports will ensure smooth handover. Regular team feedback ensures PM understands progress. Learning points are captured in a team wiki, which allows for fast knowledge transfer",
+        riskPostProbability: 2,
+        riskPostConsequence: 2,
+      },
+      {
+        riskId: "man8",
+        riskType: "managerial",
+        riskCategory: "gen",
+        riskDescription:
+          "Unable to recruit to fill team gaps from known contacts",
+        riskPreProbability: 2,
+        riskPreConsequence: 2,
+        riskMitigation:
+          "Team has extensive experienced in recruitment. Initial, confidential discussions with several potential candidates, who have expressed interest but cannot confirm until project finance is secured. Project has been planned with roles involving these people",
+        riskPostProbability: 2,
+        riskPostConsequence: 2,
+      },
+      {
+        riskId: "man9",
+        riskType: "managerial",
+        riskCategory: "gen",
+        riskDescription:
+          "Development team are too distracted with project and development of core business is neglected",
+        riskPreProbability: 2,
+        riskPreConsequence: 2,
+        riskMitigation:
+          "Monthly board meetings to ensure strategy delivers business plan. Independent chairman and investor director",
+        riskPostProbability: 2,
+        riskPostConsequence: 2,
+      },
+    ],
+    roles: [],
+    tasks: [
+      {
+        taskTitle: "Account Compliance (KYC, AML)",
+        category: "fin",
+        taskType: "Finance Sector",
+        taskId: "1",
+      },
+      {
+        taskTitle: "Agile Sprint Planning",
+        category: "gen",
+        taskType: "Project Management",
+        taskId: "2",
+      },
+
+      {
+        taskTitle: "AI/ML Training ",
+        category: "ai",
+        taskType: "Artificial Intelligence",
+        taskId: "3",
+      },
+      {
+        taskTitle: "Algorithm Development and Refinement",
+        category: "gen",
+        taskType: "General",
+        taskId: "4",
+      },
+    ],
   },
 ];
 
