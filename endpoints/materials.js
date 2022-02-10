@@ -2,8 +2,8 @@ const express = require("express");
 const router = express.Router();
 const mongoose = require("mongoose");
 
-const Deadline = mongoose.model(
-  "Deadline",
+const Material = mongoose.model(
+  "Material",
   new mongoose.Schema({
     projectId: { type: String, required: true },
     data: { type: Array, required: true },
@@ -13,7 +13,7 @@ const Deadline = mongoose.model(
 router.get("/selected", async (req, res) => {
   const projectId = req.projectId;
   try {
-    const result = await Deadline.findOne({ projectId });
+    const result = await Material.findOne({ projectId });
     res.status(200).send(result.data);
   } catch (ex) {
     res.status(400).send({ message: ex.message });
@@ -26,10 +26,10 @@ router.put("/selected", async (req, res) => {
   const update = { projectId, data: req.body };
 
   try {
-    const data = await Deadline.findOneAndUpdate(filter, update, {
+    const data = await Material.findOneAndUpdate(filter, update, {
       new: true,
     });
-    res.status(200).send({ message: "Deadline updated", data });
+    res.status(200).send({ message: "Material updated", data });
   } catch (ex) {
     res.status(400).send({ message: ex.message });
   }
@@ -38,8 +38,8 @@ router.put("/selected", async (req, res) => {
 router.delete("/selected", async (req, res) => {
   const projectId = req.projectId;
   try {
-    Deadline.findOneAndDelete({ projectId });
-    res.status(200).send({ message: "Delete deadline successful" });
+    Material.findOneAndDelete({ projectId });
+    res.status(200).send({ message: "Delete material successful" });
   } catch (ex) {
     res.status(400).send({ message: ex.message });
   }
@@ -52,9 +52,9 @@ router.post("/new", async (req, res) => {
     data: [],
   };
   try {
-    const doc = new Deadline(newEntry);
+    const doc = new Material(newEntry);
     await doc.save();
-    res.status(200).send({ message: "New deadline successful" });
+    res.status(200).send({ message: "New material successful" });
   } catch (ex) {
     res.status(400).send({ message: ex.message });
   }

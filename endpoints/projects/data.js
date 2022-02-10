@@ -5,11 +5,12 @@ const projectData = [
       gantt: false,
       details: true,
       team: false,
-      costs: true,
+      costs: false,
       revenue: false,
       setup: false,
       risks: false,
     },
+
     details: {
       productPlatformName: "My First Project on the server",
       applicationNumber: "123445",
@@ -108,26 +109,30 @@ const projectData = [
       currentQuestionIndex: 0,
       allQuestionsAsked: false,
       complete: false,
-      component: "intro",
+      component: "questions",
+      progress: "0%",
       answers: {
-        0: { result: false, skipped: false },
-        1: { result: false, skipped: false },
-        2: { result: false, skipped: false },
-        3: { result: false, skipped: false },
-        4: { result: { NLP: false, VIS: false }, skipped: false },
-        5: { result: false, skipped: false },
-        6: { result: false, skipped: false },
-        7: { result: false, skipped: false },
-        8: { result: false, skipped: false },
-        9: {
-          result: {
-            Medical: false,
-            // Manufacturing: false,
-            Finance: false,
-          },
-          skipped: false,
-        },
+        // 0: { result: false, skipped: false },
+        // 1: { result: false, skipped: false },
+        // 2: { result: false, skipped: false },
+        // 3: { result: false, skipped: false },
+        // 4: { result: { NLP: false, VIS: false }, skipped: false },
+        // 5: { result: false, skipped: false },
+        // 6: { result: false, skipped: false },
+        // 7: { result: false, skipped: false },
+        // 8: { result: false, skipped: false },
+        // 9: {
+        //   result: {
+        //     Medical: false,
+        //     // Manufacturing: false,
+        //     Finance: false,
+        //   },
+        //   skipped: false,
+        // },
       },
+    },
+    settings: {
+      resourcesIncrement: 5,
     },
     templates: [
       {

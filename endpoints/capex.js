@@ -7,7 +7,7 @@ const Capex = mongoose.model(
   new mongoose.Schema({
     projectId: { type: String, required: true },
     data: { type: Array, required: true },
-  })
+  }, { collection: 'capex' })
 );
 
 router.get("/selected", async (req, res) => {
@@ -35,6 +35,16 @@ router.put("/selected", async (req, res) => {
   }
 });
 
+router.delete("/selected", async (req, res) => {
+  const projectId = req.projectId;
+  try {
+    Capex.findOneAndDelete({ projectId });
+    res.status(200).send({ message: "Delete capex successful" });
+  } catch (ex) {
+    res.status(400).send({ message: ex.message });
+  }
+});
+
 router.post("/new", async (req, res) => {
   const projectId = req.body.projectId;
   const newEntry = {
@@ -45,16 +55,6 @@ router.post("/new", async (req, res) => {
     const doc = new Capex(newEntry);
     await doc.save();
     res.status(200).send({ message: "New capex successful" });
-  } catch (ex) {
-    res.status(400).send({ message: ex.message });
-  }
-});
-
-router.delete("/selected", async (req, res) => {
-  const projectId = req.projectId;
-  try {
-    Capex.findOneAndDelete({ projectId });
-    res.status(200).send({ message: "Delete capex successful" });
   } catch (ex) {
     res.status(400).send({ message: ex.message });
   }

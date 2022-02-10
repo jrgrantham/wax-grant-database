@@ -7,19 +7,15 @@ const Global = mongoose.model(
   new mongoose.Schema({
     globalData: { type: String, required: true },
     data: { type: Object, required: true },
-  }),
-  'global'
+  }, { collection: 'global' }),
 );
 
 router.get("/", async (req, res) => {
   // const globalData = "originalData";
-  const projectId = req.projectId;
+  const globalData = "globalData";
   try {
-    const result = await Global.findOne({ projectId });
-    console.log("*********\n", result, "\n*********");
+    const result = await Global.findOne({ globalData });
     res.status(200).send(result);
-    // const result = await Global.findById("6193d383c44941dc8847e28e");
-    // res.status(200).send(result);
   } catch (ex) {
     res.status(400).send({ message: ex.message });
   }

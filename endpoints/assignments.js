@@ -14,7 +14,7 @@ router.get("/selected", async (req, res) => {
   const projectId = req.projectId;
   try {
     const result = await Assignment.findOne({ projectId });
-    res.status(200).send(result.data);
+    res.status(200).send(result.data[0]);
   } catch (ex) {
     res.status(400).send({ message: ex.message });
   }
@@ -35,6 +35,16 @@ router.put("/selected", async (req, res) => {
   }
 });
 
+router.delete("/selected", async (req, res) => {
+  const projectId = req.projectId;
+  try {
+    Assignment.findOneAndDelete({ projectId });
+    res.status(200).send({ message: "Delete assignments successful" });
+  } catch (ex) {
+    res.status(400).send({ message: ex.message });
+  }
+});
+
 router.post("/new", async (req, res) => {
   const projectId = req.body.projectId;
   const newEntry = {
@@ -45,16 +55,6 @@ router.post("/new", async (req, res) => {
     const doc = new Assignment(newEntry);
     await doc.save();
     res.status(200).send({ message: "New assignment successful" });
-  } catch (ex) {
-    res.status(400).send({ message: ex.message });
-  }
-});
-
-router.delete("/selected", async (req, res) => {
-  const projectId = req.projectId;
-  try {
-    Assignment.findOneAndDelete({ projectId });
-    res.status(200).send({ message: "Delete assignments successful" });
   } catch (ex) {
     res.status(400).send({ message: ex.message });
   }

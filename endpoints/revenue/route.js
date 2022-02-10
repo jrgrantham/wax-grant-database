@@ -15,7 +15,7 @@ const revenueData = [
         { name: "UK Market", start: 0, growth: 0 },
         { name: "Global", start: 0, growth: 0 },
       ],
-      streams: [],
+      streams: [{}],
       total: [],
     },
   },

@@ -11,6 +11,7 @@ const setupData = [
     pOneId: "",
     pTwoId: "",
     color: "",
+    clientFlavour: 'Full Write',
 
     maxProjectLength: 36,
     maxWorkPackages: 10,
@@ -48,12 +49,6 @@ const setupData = [
 
     maxMarkets: 3,
     maxStreams: 4,
-    
-
-    useTemplates: true,
-    useAi: true,
-    useDlt: true,
-    useMan: true,
 
     useManagerial: true,
     useCommercial: true,

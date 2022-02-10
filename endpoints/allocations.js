@@ -1,6 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const mongoose = require("mongoose");
+// const admin = require("../../middleware/admin");
 
 const Allocation = mongoose.model(
   "Allocation",
@@ -35,6 +36,16 @@ router.put("/selected", async (req, res) => {
   }
 });
 
+router.delete("/selected", async (req, res) => {
+  const projectId = req.projectId;
+  try {
+    Allocation.findOneAndDelete({ projectId });
+    res.status(200).send({ message: "Delete allocations successful" });
+  } catch (ex) {
+    res.status(400).send({ message: ex.message });
+  }
+});
+
 router.post("/new", async (req, res) => {
   const projectId = req.body.projectId;
   const newEntry = {
@@ -45,16 +56,6 @@ router.post("/new", async (req, res) => {
     const doc = new Allocation(newEntry);
     await doc.save();
     res.status(200).send({ message: "New allocation successful" });
-  } catch (ex) {
-    res.status(400).send({ message: ex.message });
-  }
-});
-
-router.delete("/selected", async (req, res) => {
-  const projectId = req.projectId;
-  try {
-    Allocation.findOneAndDelete({ projectId });
-    res.status(200).send({ message: "Delete allocations successful" });
   } catch (ex) {
     res.status(400).send({ message: ex.message });
   }

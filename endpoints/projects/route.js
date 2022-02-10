@@ -9,13 +9,13 @@ const projectData = require("./data");
 router.get("/selected", (req, res) => {
   //   const user = await User.findById(req.user.id).select("-password");
   //   res.send(user);
-  const selectedProjectId = req.projectId;
-  console.log(selectedProjectId);
+  // const selectedProjectId = req.projectId;
+  // console.log(selectedProjectId);
   // const result = projectData.find(
   //   ({ projectId }) => projectId === selectedProjectId
   // );
   const result = projectData[0]
-  console.log(result);
+  // console.log(result);
   res.status(200).send(result);
 });
 
