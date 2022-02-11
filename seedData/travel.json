@@ -1,0 +1,17 @@
+[
+  {
+    "_id": {
+      "$oid": "6203d3ea7a012673527c8d25"
+    },
+    "projectId": "abc",
+    "data": [
+      {
+        "travelId": "87421bca-fa54-457b-906a-178db721a52f",
+        "leader": "lead",
+        "description": "New journey",
+        "cost": 1,
+        "quantity": 1
+      }
+    ]
+  }
+]

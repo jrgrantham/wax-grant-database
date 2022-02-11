@@ -18,10 +18,8 @@ const revenue = require("../endpoints/revenue");
 const risks = require("../endpoints/risks");
 const setup = require("../endpoints/setup");
 const tasks = require("../endpoints/tasks");
-
-const team = require("../endpoints/team/route");
-const templates = require("../endpoints/templates/route");
-const travel = require("../endpoints/travel/route");
+const team = require("../endpoints/team");
+const travel = require("../endpoints/travel");
 
 module.exports = function (app) {
   app.use(cors());
@@ -44,7 +42,7 @@ module.exports = function (app) {
   app.use("/api/setup", authenticate, setup);
   app.use("/api/tasks", authenticate, tasks);
   app.use("/api/team", authenticate, team);
-  app.use("/api/templates", authenticate, templates);
+  // app.use("/api/templates", authenticate, templates);
   app.use("/api/travel", authenticate, travel);
   app.use("/api/users", authenticate, users);
 };
