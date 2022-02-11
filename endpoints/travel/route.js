@@ -7,16 +7,7 @@ const router = express.Router();
 const travel = [
   {
     projectId: "abc",
-    data: [
-      {
-        projectId: "abc",
-        leader: "lead",
-        description: "visit Paris from the server",
-        quantity: 1,
-        cost: 120,
-        travelId: "1234",
-      },
-    ],
+    data: [],
   },
 ];
 

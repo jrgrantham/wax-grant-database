@@ -14,6 +14,7 @@ router.get("/selected", async (req, res) => {
   const projectId = req.projectId;
   try {
     const result = await Assignment.findOne({ projectId });
+    // console.log(result.data[0]);
     res.status(200).send(result.data[0]);
   } catch (ex) {
     res.status(400).send({ message: ex.message });

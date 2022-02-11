@@ -14,7 +14,9 @@ router.get("/selected", async (req, res) => {
   const projectId = req.projectId;
   try {
     const result = await Project.findOne({ projectId });
-    res.status(200).send(result.data);
+    const project = result.data[0]
+    project.projectId = projectId
+    res.status(200).send(project);
   } catch (ex) {
     res.status(400).send({ message: ex.message });
   }

@@ -7,14 +7,14 @@ const Revenue = mongoose.model(
   new mongoose.Schema({
     projectId: { type: String, required: true },
     data: { type: Array, required: true },
-  })
+  }, { collection: 'revenue' })
 );
 
 router.get("/selected", async (req, res) => {
   const projectId = req.projectId;
   try {
     const result = await Revenue.findOne({ projectId });
-    res.status(200).send(result.data);
+    res.status(200).send(result.data[0]);
   } catch (ex) {
     res.status(400).send({ message: ex.message });
   }

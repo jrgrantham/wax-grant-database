@@ -7,7 +7,7 @@ const Other = mongoose.model(
   new mongoose.Schema({
     projectId: { type: String, required: true },
     data: { type: Array, required: true },
-  })
+  }, { collection: 'other' })
 );
 
 router.get("/selected", async (req, res) => {

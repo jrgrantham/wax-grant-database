@@ -7,83 +7,7 @@ const router = express.Router();
 const setupData = [
   {
     projectId: "abc",
-    data: [
-      {
-        personId: "person1",
-        // projectId: "abc",
-        leader: "lead",
-        name: "James Grantham",
-        acronym: "JG",
-        role: "tbc",
-        // salary: 50000,
-        employment: "subcontract",
-        location: "UK", // flag if not
-        dayRate: 0,
-        website: "intangible-engineering.com",
-        linkedIn: "linkedIn.com/me",
-        profile: "once upon a time...",
-      },
-      {
-        personId: "person2",
-        // projectId: "abc",
-        leader: "lead",
-        name: "Damien Jones",
-        acronym: "DJ",
-        role: "tbc",
-        salary: 60000,
-        employment: "staff",
-        location: "UK", // flag if not
-        // dayRate: 100,
-      },
-      {
-        personId: "person3",
-        // projectId: "abc",
-        leader: "lead",
-        name: "dad",
-        acronym: "DAD",
-        role: "tbc",
-        salary: 60000,
-        employment: "staff",
-        location: "UK", // flag if not
-        // dayRate: 100,
-      },
-      {
-        personId: "person4",
-        // projectId: "abc",
-        leader: "lead",
-        name: "Damien Jones",
-        acronym: "DJ",
-        role: "tbc",
-        salary: 60000,
-        employment: "staff",
-        location: "UK", // flag if not
-        // dayRate: 100,
-      },
-      {
-        personId: "person5",
-        // projectId: "abc",
-        leader: "lead",
-        name: "Damien Jones",
-        acronym: "DJ",
-        role: "tbc",
-        salary: 60000,
-        employment: "staff",
-        location: "UK", // flag if not
-        // dayRate: 100,
-      },
-      {
-        personId: "person6",
-        // projectId: "abc",
-        leader: "lead",
-        name: "Damien Jones",
-        acronym: "DJ",
-        role: "tbc",
-        salary: 60000,
-        employment: "staff",
-        location: "UK", // flag if not
-        // dayRate: 100,
-      },
-    ],
+    data: [],
   },
 ];
 
@@ -130,9 +54,7 @@ router.post("/selected", (req, res) => {
 
 router.delete("/selected", async (req, res) => {
   const projectId = req.projectId;
-  const index = setupData.findIndex(
-    (team) => team.projectId === projectId
-  );
+  const index = setupData.findIndex((team) => team.projectId === projectId);
   setupData.splice(index, 1);
   res.status(200).send({ message: "Delete team successful" });
 });

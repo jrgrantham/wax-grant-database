@@ -11,18 +11,17 @@ const assignments = require("../endpoints/assignments");
 const capex = require("../endpoints/capex");
 const deadlines = require("../endpoints/deadlines");
 const global = require("../endpoints/global");
-
-const materials = require("../endpoints/materials/route");
-const other = require("../endpoints/other/route");
-const projects = require("../endpoints/projects/route");
-const revenue = require("../endpoints/revenue/route");
-const risks = require("../endpoints/risks/route");
-const setup = require("../endpoints/setup/route");
+const materials = require("../endpoints/materials");
+const other = require("../endpoints/other");
+const projects = require("../endpoints/projects");
+const revenue = require("../endpoints/revenue");
+const risks = require("../endpoints/risks");
+const setup = require("../endpoints/setup");
 const tasks = require("../endpoints/tasks");
+
 const team = require("../endpoints/team/route");
 const templates = require("../endpoints/templates/route");
 const travel = require("../endpoints/travel/route");
-
 
 module.exports = function (app) {
   app.use(cors());

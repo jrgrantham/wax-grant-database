@@ -1,0 +1,20 @@
+[
+  {
+    "_id": {
+      "$oid": "6203d3ea7a012673527c8d23"
+    },
+    "projectId": "abc",
+    "data": [
+      {
+        "riskId": "riskOnServer",
+        "riskType": "managerial",
+        "riskDescription": "Description... db",
+        "riskMitigation": "Mitigation...",
+        "riskPreProbability": 0,
+        "riskPreConsequence": 0,
+        "riskPostProbability": 0,
+        "riskPostConsequence": 0
+      }
+    ]
+  }
+]
