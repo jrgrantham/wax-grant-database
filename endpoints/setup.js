@@ -7,22 +7,11 @@ const Setup = mongoose.model(
   new mongoose.Schema(
     {
       projectId: { type: String, required: true },
-      data: { type: Array, required: true },
+      data: { type: Object, required: true },
     },
     { collection: "setup" }
   )
 );
-
-router.get("/selected", async (req, res) => {
-  const projectId = req.projectId;
-  try {
-    const result = await Setup.findOne({ projectId });
-    res.status(200).send(result.data[0]);
-  } catch (ex) {
-    res.status(400).send({ message: ex.message });
-  }
-});
-
 
 router.get("/", async (req, res) => {
   // protect route, admin only
@@ -31,11 +20,11 @@ router.get("/", async (req, res) => {
     const allSetups = await Setup.find();
     // console.log(allSetups);
     allSetups.forEach((setup, index) => {
-      const current = {...setup.data[0]}
+      const current = {...setup.data}
       current.projectId = setup.projectId
       list[index] = current
     })
-    console.log(list);
+    // console.log(list);
     res.status(200).send(list);
   } catch (ex) {
     res.status(400).send({ message: ex.message });
@@ -46,6 +35,8 @@ router.put("/selected", async (req, res) => {
   const projectId = req.projectId;
   const filter = { projectId };
   const update = { projectId, data: req.body };
+
+  // console.log(req.body);
 
   try {
     const data = await Setup.findOneAndUpdate(filter, update, {
@@ -68,11 +59,13 @@ router.delete("/selected", async (req, res) => {
 });
 
 router.post("/new", async (req, res) => {
-  const projectId = req.body.projectId;
+  console.log("*** new setup ***");
+  const { projectId, data } = req.body;
   const newEntry = {
     projectId,
-    data: [],
+    data,
   };
+  console.log(projectId, data);
   try {
     const doc = new Setup(newEntry);
     await doc.save();

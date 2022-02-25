@@ -1,18 +1,16 @@
-[
-  {
-    "_id": {
-      "$oid": "6203d3ea7a012673527c8d23"
-    },
-    "projectId": "abc",
-    "data": {
-      "profitMargin": 0,
-      "taxRate": 0,
-      "markets": [
-        { "name": "UK Market", "start": 0, "growth": 0 },
-        { "name": "Global", "start": 0, "growth": 0 }
-      ],
-      "streams": [{}],
-      "total": []
-    }
+{
+  "_id": {
+    "$oid": "6203d3ea7a012673527c8d23"
+  },
+  "projectId": "abc",
+  "data": {
+    "profitMargin": 0,
+    "taxRate": 0,
+    "markets": [
+      { "name": "UK Market", "start": 0, "growth": 0 },
+      { "name": "Global", "start": 0, "growth": 0 }
+    ],
+    "streams": [{}],
+    "total": []
   }
-]
+}

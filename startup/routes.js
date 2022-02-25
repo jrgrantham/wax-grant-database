@@ -42,7 +42,6 @@ module.exports = function (app) {
   app.use("/api/setup", authenticate, setup);
   app.use("/api/tasks", authenticate, tasks);
   app.use("/api/team", authenticate, team);
-  // app.use("/api/templates", authenticate, templates);
   app.use("/api/travel", authenticate, travel);
   app.use("/api/users", authenticate, users);
 };

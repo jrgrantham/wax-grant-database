@@ -6,7 +6,7 @@ const Assignment = mongoose.model(
   "Assignment",
   new mongoose.Schema({
     projectId: { type: String, required: true },
-    data: { type: Array, required: true },
+    data: { type: Object, required: true },
   })
 );
 
@@ -14,8 +14,8 @@ router.get("/selected", async (req, res) => {
   const projectId = req.projectId;
   try {
     const result = await Assignment.findOne({ projectId });
-    // console.log(result.data[0]);
-    res.status(200).send(result.data[0]);
+    console.log(result.data);
+    res.status(200).send(result.data);
   } catch (ex) {
     res.status(400).send({ message: ex.message });
   }
@@ -47,10 +47,10 @@ router.delete("/selected", async (req, res) => {
 });
 
 router.post("/new", async (req, res) => {
-  const projectId = req.body.projectId;
+  const { projectId, data } = req.body;
   const newEntry = {
     projectId,
-    data: [],
+    data,
   };
   try {
     const doc = new Assignment(newEntry);

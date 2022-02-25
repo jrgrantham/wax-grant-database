@@ -1,0 +1,29 @@
+[{
+  "_id": {
+    "$oid": "6203d3ea7a012673527c8d25"
+  },
+  "projectId": "abc",
+  "data": [
+    {
+      "travelId": "87421bca-fa54-457b-906a-178db721a52f",
+      "leader": "lead",
+      "description": "New journey",
+      "cost": 1,
+      "quantity": 1
+    },
+    {
+      "travelId": "e175681c-3dd6-4bae-ab37-66d99328878e",
+      "leader": "lead",
+      "description": "New journey",
+      "cost": 2,
+      "quantity": 2
+    },
+    {
+      "travelId": "e53fa2c6-1fba-47cb-bc9a-7841fa82eb9f",
+      "leader": "lead",
+      "description": "New journey",
+      "cost": 4,
+      "quantity": 1
+    }
+  ]
+}]

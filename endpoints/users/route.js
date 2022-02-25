@@ -16,36 +16,36 @@ router.get("/", admin, (req, res) => {
   // res.status(200).send(data)
 });
 
-// router.get("/me", async (req, res) => {
-//   const userId = req.userId;
-//   try {
-//     const user = await User.findOne({ _id: userId });
-//     const { admin, dev, projectId } = user;
-//     res.status(200).send({
-//       admin,
-//       dev,
-//       projectId,
-//     });
-//   } catch (ex) {
-//     res.status(400).send({ message: ex.message });
-//   }
-// });
+router.get("/me", async (req, res) => {
+  const userId = req.userId;
+  try {
+    const user = await User.findOne({ _id: userId });
+    const { admin, projectId } = user;
+    res.status(200).send({
+      admin,
+      projectId,
+    });
+  } catch (ex) {
+    res.status(400).send({ message: ex.message });
+  }
+});
 
 // remove and use above code once connected to DB
-router.get("/me", async (req, res) => {
-    try {
-      res.status(200).send({
-        admin: true,
-        projectId: "abc",
-      });
-    } catch (ex) {
-      res.status(400).send({ message: ex.message });
-    }
-  });
+// router.get("/me", async (req, res) => {
+//     try {
+//       res.status(200).send({
+//         admin: true,
+//         projectId: "abc",
+//       });
+//     } catch (ex) {
+//       res.status(400).send({ message: ex.message });
+//     }
+//   });
 
 router.put("/me", async (req, res) => {
   const _id = req.userId;
   const projectId = req.body.projectId;
+  console.log(projectId);
   // console.log(projectId);
   try {
     await User.findByIdAndUpdate(_id, {

@@ -8,19 +8,13 @@
       "deadlineId": "d492f0f6-adfa-480f-a462-896c19208b59",
       "type": "milestone",
       "description": "Description...",
-      "scheduled": 2
+      "scheduled": 0
     },
     {
       "deadlineId": "123455",
       "type": "deliverable",
-      "description": "on server",
-      "scheduled": 0
-    },
-    {
-      "deadlineId": "ed9cbb4a-17c6-4895-8bcc-cc316e5bac48",
-      "type": "deliverable",
       "description": "Description...",
-      "scheduled": 1
+      "scheduled": 0
     }
   ]
 }]

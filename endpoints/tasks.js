@@ -46,11 +46,13 @@ router.delete("/selected", async (req, res) => {
 });
 
 router.post("/new", async (req, res) => {
-  const projectId = req.body.projectId;
+  // console.log("*** new task***");
+  const { projectId, data } = req.body;
   const newEntry = {
     projectId,
-    data: [],
+    data,
   };
+  // console.log(data);
   try {
     const doc = new Task (newEntry);
     await doc.save();
