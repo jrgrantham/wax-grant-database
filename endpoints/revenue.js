@@ -4,17 +4,20 @@ const mongoose = require("mongoose");
 
 const Revenue = mongoose.model(
   "Revenue",
-  new mongoose.Schema({
-    projectId: { type: String, required: true },
-    data: { type: Array, required: true },
-  }, { collection: 'revenue' })
+  new mongoose.Schema(
+    {
+      projectId: { type: String, required: true },
+      data: { type: Object, required: true },
+    },
+    { collection: "revenue" }
+  )
 );
 
 router.get("/selected", async (req, res) => {
   const projectId = req.projectId;
   try {
     const result = await Revenue.findOne({ projectId });
-    res.status(200).send(result.data[0]);
+    res.status(200).send(result.data);
   } catch (ex) {
     res.status(400).send({ message: ex.message });
   }
@@ -36,20 +39,20 @@ router.put("/selected", async (req, res) => {
 });
 
 router.delete("/selected", async (req, res) => {
-  const projectId = req.projectId;
+  const { projectId } = req.body;
   try {
-    Revenue.findOneAndDelete({ projectId });
-    res.status(200).send({ message: "Delete revenue successful" });
+    await Revenue.findOneAndDelete({ projectId });
+    res.status(200).send({ message: "Deleted Revenue" });
   } catch (ex) {
     res.status(400).send({ message: ex.message });
   }
 });
 
 router.post("/new", async (req, res) => {
-  const projectId = req.body.projectId;
+  const { projectId, data } = req.body;
   const newEntry = {
     projectId,
-    data: [],
+    data,
   };
   try {
     const doc = new Revenue(newEntry);

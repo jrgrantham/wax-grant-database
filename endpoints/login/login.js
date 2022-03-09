@@ -46,7 +46,7 @@ router.post("/", async (req, res) => {
   const { email, password, rememberMe } = req.body;
   try {
     const user = await User.findOne({ email });
-    console.log(user);
+    console.log("login", user);
     // const firstProjectId = 'abc'
     const successful = user && bcryptjs.compare(password, user.password)
     console.log(successful);
@@ -61,7 +61,6 @@ router.post("/", async (req, res) => {
         projectId: user.projectId,
         token: token,
         admin: user.admin,
-        dev: user.dev,
       });
     } else {
       res.status(401).send({ message: "Incorrect username or password" });

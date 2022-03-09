@@ -20,10 +20,10 @@ router.get("/", async (req, res) => {
     const allSetups = await Setup.find();
     // console.log(allSetups);
     allSetups.forEach((setup, index) => {
-      const current = {...setup.data}
-      current.projectId = setup.projectId
-      list[index] = current
-    })
+      const current = { ...setup.data };
+      current.projectId = setup.projectId;
+      list[index] = current;
+    });
     // console.log(list);
     res.status(200).send(list);
   } catch (ex) {
@@ -49,10 +49,10 @@ router.put("/selected", async (req, res) => {
 });
 
 router.delete("/selected", async (req, res) => {
-  const projectId = req.projectId;
+  const { projectId } = req.body;
   try {
-    Setup.findOneAndDelete({ projectId });
-    res.status(200).send({ message: "Delete setup successful" });
+    await Setup.findOneAndDelete({ projectId });
+    res.status(200).send({ message: "Deleted Setup", projectId });
   } catch (ex) {
     res.status(400).send({ message: ex.message });
   }
@@ -65,11 +65,11 @@ router.post("/new", async (req, res) => {
     projectId,
     data,
   };
-  console.log(projectId, data);
+  // console.log(projectId, data);
   try {
     const doc = new Setup(newEntry);
     await doc.save();
-    res.status(200).send({ message: "New setup successful" });
+    res.status(200).send({ message: "New setup successful", data: doc.data });
   } catch (ex) {
     res.status(400).send({ message: ex.message });
   }

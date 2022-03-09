@@ -18,7 +18,7 @@ router.get("/", admin, (req, res) => {
 
 router.get("/me", async (req, res) => {
   const userId = req.userId;
-  console.log(userId);
+  // console.log(userId);
   try {
     const user = await User.findOne({ _id: userId });
     const { admin, projectId } = user;
@@ -43,16 +43,38 @@ router.get("/me", async (req, res) => {
 //     }
 //   });
 
+// router.put("/selected", async (req, res) => {
+//   const projectId = req.projectId;
+//   const filter = { projectId };
+//   const update = { projectId, data: req.body };
+//   try {
+//     const data = await Project.findOneAndUpdate(filter, update, {
+//       new: true,
+//     });
+//     res.status(200).send({ message: "Project updated", data });
+//   } catch (ex) {
+//     res.status(400).send({ message: ex.message });
+//   }
+// });
+
 router.put("/me", async (req, res) => {
   const _id = req.userId;
   const projectId = req.body.projectId;
-  console.log(projectId);
+  const rememberMe = req.rememberMe;
+  console.log("users route", projectId);
   // console.log(projectId);
   try {
-    await User.findByIdAndUpdate(_id, {
-      projectId,
+    const user = await User.findByIdAndUpdate(
+      _id,
+      { projectId },
+      { new: true }
+    );
+    const token = user.generateAuthToken(rememberMe);
+    console.log("users route", user.projectId);
+    user.password = "";
+    res.status(200).send({
+      token,
     });
-    res.send(projectId);
   } catch (ex) {
     res.status(400).send({ message: ex.message });
   }
@@ -78,7 +100,6 @@ router.post("/", async (req, res) => {
   //   user = await user.save();
   //   console.log(user);
 
-  
   //   const token = user.generateAuthToken();
   //   res
   //     .header("x-auth-token", token)

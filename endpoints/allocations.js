@@ -37,10 +37,10 @@ router.put("/selected", async (req, res) => {
 });
 
 router.delete("/selected", async (req, res) => {
-  const projectId = req.projectId;
+  const { projectId } = req.body;
   try {
-    Allocation.findOneAndDelete({ projectId });
-    res.status(200).send({ message: "Delete allocations successful" });
+    await Allocation.findOneAndDelete({ projectId });
+    res.status(200).send({ message: "Deleted Allocations" });
   } catch (ex) {
     res.status(400).send({ message: ex.message });
   }

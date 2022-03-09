@@ -37,10 +37,10 @@ router.put("/selected", async (req, res) => {
 });
 
 router.delete("/selected", async (req, res) => {
-  const projectId = req.projectId;
+  const { projectId } = req.body;
   try {
-    Assignment.findOneAndDelete({ projectId });
-    res.status(200).send({ message: "Delete assignments successful" });
+    await Assignment.findOneAndDelete({ projectId });
+    res.status(200).send({ message: "Deleted Assignments" });
   } catch (ex) {
     res.status(400).send({ message: ex.message });
   }

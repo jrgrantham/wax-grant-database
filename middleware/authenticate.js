@@ -10,11 +10,12 @@ module.exports = function (req, res, next) {
 
   try {
     const decoded = jwt.verify(token, config.get("jwtPrivateKey"));
-    const { admin, userId } = decoded;
-    const selectedProjectId = req.headers.selectedprojectid
+    const { admin, userId, projectId, rememberMe } = decoded;
+    // const selectedProjectId = req.headers.selectedprojectid
     req.userId = userId;
     req.admin = admin;
-    req.projectId = selectedProjectId;
+    req.projectId = projectId;
+    req.rememberMe = rememberMe
     next();
   } catch (ex) {
     res.status(401).send({ message: "Invalid token" });

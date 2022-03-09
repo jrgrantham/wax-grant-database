@@ -47,8 +47,9 @@ userSchema.methods.generateAuthToken = function (rememberMe) {
   const payload = {
     userId: this.id,
     admin: this.admin,
-    // projectId: this.projectId,
+    projectId: this.projectId,
     email: this.email,
+    rememberMe,
   };
   // const secret = process.env.SECRET;
   const secret = config.get("jwtPrivateKey");
