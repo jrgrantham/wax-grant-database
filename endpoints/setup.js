@@ -36,8 +36,6 @@ router.put("/selected", async (req, res) => {
   const filter = { projectId };
   const update = { projectId, data: req.body };
 
-  // console.log(req.body);
-
   try {
     const data = await Setup.findOneAndUpdate(filter, update, {
       new: true,
@@ -59,7 +57,6 @@ router.delete("/selected", async (req, res) => {
 });
 
 router.post("/new", async (req, res) => {
-  console.log("*** new setup ***");
   const { projectId, data } = req.body;
   const newEntry = {
     projectId,

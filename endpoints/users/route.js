@@ -1,20 +1,8 @@
-// const asyncMiddleware = require("../middleware/async");
-// const _ = require("lodash");
-// const auth = require("../../middleware/authenticate");
-// const bcryptjs = require("bcryptjs");
+const bcryptjs = require("bcryptjs");
 const express = require("express");
 const router = express.Router();
-const { User, validate } = require("./model");
+const { User } = require("./model");
 const admin = require("../../middleware/admin");
-const userData = require("./data");
-
-router.get("/", admin, (req, res) => {
-  // console.log(req);
-  // console.log(res);
-  // throw new Error('error test');
-  res.send(userData);
-  // res.status(200).send(data)
-});
 
 router.get("/me", async (req, res) => {
   const userId = req.userId;
@@ -31,37 +19,12 @@ router.get("/me", async (req, res) => {
   }
 });
 
-// remove and use above code once connected to DB
-// router.get("/me", async (req, res) => {
-//     try {
-//       res.status(200).send({
-//         admin: true,
-//         projectId: "abc",
-//       });
-//     } catch (ex) {
-//       res.status(400).send({ message: ex.message });
-//     }
-//   });
-
-// router.put("/selected", async (req, res) => {
-//   const projectId = req.projectId;
-//   const filter = { projectId };
-//   const update = { projectId, data: req.body };
-//   try {
-//     const data = await Project.findOneAndUpdate(filter, update, {
-//       new: true,
-//     });
-//     res.status(200).send({ message: "Project updated", data });
-//   } catch (ex) {
-//     res.status(400).send({ message: ex.message });
-//   }
-// });
-
+// individual selecting a project
 router.put("/me", async (req, res) => {
   const _id = req.userId;
   const projectId = req.body.projectId;
   const rememberMe = req.rememberMe;
-  console.log("users route", projectId);
+  // console.log("users route", projectId);
   // console.log(projectId);
   try {
     const user = await User.findByIdAndUpdate(
@@ -70,7 +33,7 @@ router.put("/me", async (req, res) => {
       { new: true }
     );
     const token = user.generateAuthToken(rememberMe);
-    console.log("users route", user.projectId);
+    // console.log("users route", user.projectId);
     user.password = "";
     res.status(200).send({
       token,
@@ -80,46 +43,87 @@ router.put("/me", async (req, res) => {
   }
 });
 
-router.post("/", async (req, res) => {
-  const newUser = req.body;
-  // console.log(newUser);
-  userData.push(newUser);
-  res.send(newUser);
-
-  // const { error } = validate(req.body);
-  // if (error) return res.status(400).send(error.details[0].message);
-
-  // let user = await User.findOne({ email: req.body.email });
-  // if (user) return res.status(400).send("User already registered");
-
-  // user = new User(_.pick(req.body, ["password", "name", "email"]));
-  // const newPassword = bcryptjs.hashSync(req.body.password, 10);
-  // user.password = newPassword;
-
-  // try {
-  //   user = await user.save();
-  //   console.log(user);
-
-  //   const token = user.generateAuthToken();
-  //   res
-  //     .header("x-auth-token", token)
-  //     .send(_.pick(user, ["_id", "name", "email"]));
-  // } catch (ex) {
-  //   // for (field in ex.errors) {
-  //   //   console.log(ex.errors[field].message);
-  //   // }
-  //   console.log(ex.message);
-  // }
+// admin get all users
+router.get("/", admin, async (req, res) => {
+  // res.send(userData);
+  const list = [];
+  try {
+    const allUsers = await User.find().lean();
+    allUsers.forEach((user, index) => {
+      const current = { ...user };
+      current.password = "";
+      list[index] = current;
+    });
+    res.status(200).send(list);
+  } catch (ex) {
+    res.status(400).send({ message: ex.message });
+  }
 });
 
+// admin add new user
+router.post("/", async (req, res) => {
+  const { userId, name, email, password, projectId } = req.body;
+
+  let user = await User.findOne({ email });
+  if (user) return res.status(400).send("User already registered");
+
+  const hashedPassword = bcryptjs.hashSync(password, 10);
+  const newUser = {
+    userId,
+    name,
+    email,
+    projectId,
+    password: hashedPassword,
+  };
+
+  try {
+    const doc = new User(newUser);
+    await doc.save();
+    res
+      .status(200)
+      .send({
+        message: "New user successful",
+        data: { ...newUser, password: "" },
+      });
+  } catch (ex) {
+    res.status(400).send({ message: ex.message });
+  }
+});
+
+// admin editing a user
+router.put("/", async (req, res) => {
+  const { userId, projectId, password } = req.userId;
+  const filter = { userId };
+
+  const hashedPassword = bcryptjs.hashSync(password, 10);
+  const newUser = {
+    userId,
+    name,
+    email,
+    password: hashedPassword,
+  };
+
+  try {
+    const user = await User.findByIdAndUpdate(
+      filter,
+      { projectId },
+      { new: true }
+    );
+    res.status(200).send({});
+  } catch (ex) {
+    res.status(400).send({ message: ex.message });
+  }
+});
+
+// admin delete user
 router.delete("/", async (req, res) => {
-  // throw new Error('error test');
-  // const user = await User.findById(req.user.id).select("-password");
-  // res.send(user);
-  const userId = req.body.userId;
-  const index = userData.findIndex((user) => user.userId === userId);
-  userData.splice(index, 1);
-  res.send({ userId });
+  const { userId } = req.body;
+  try {
+    await User.findOneAndDelete({ userId });
+    res.status(200).send({ message: "Deleted User", userId });
+  } catch (ex) {
+    res.status(400).send({ message: ex.message });
+  }
 });
 
 module.exports = router;

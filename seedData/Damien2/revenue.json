@@ -1,10 +1,10 @@
-[{
-  "_id": {
-    "$oid": "6203d3ea7a012673527c8d23"
-  },
-  "projectId": "abc",
-  "data": [
-    {
+[
+  {
+    "_id": {
+      "$oid": "6203d3ea7a012673527c8d23"
+    },
+    "projectId": "abc",
+    "data": {
       "profitMargin": 25,
       "taxRate": 21,
       "markets": [
@@ -49,5 +49,5 @@
       ],
       "total": []
     }
-  ]
-}]
+  }
+]
