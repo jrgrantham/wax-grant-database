@@ -24,8 +24,6 @@ router.put("/me", async (req, res) => {
   const _id = req.userId;
   const projectId = req.body.projectId;
   const rememberMe = req.rememberMe;
-  // console.log("users route", projectId);
-  // console.log(projectId);
   try {
     const user = await User.findByIdAndUpdate(
       _id,
@@ -62,7 +60,7 @@ router.get("/", admin, async (req, res) => {
 
 // admin add new user
 router.post("/", async (req, res) => {
-  const { userId, name, email, password, projectId } = req.body;
+  const { userId, name, email, password, projectId, projects } = req.body;
 
   let user = await User.findOne({ email });
   if (user) return res.status(400).send("User already registered");
@@ -73,18 +71,17 @@ router.post("/", async (req, res) => {
     name,
     email,
     projectId,
+    projects,
     password: hashedPassword,
   };
 
   try {
     const doc = new User(newUser);
     await doc.save();
-    res
-      .status(200)
-      .send({
-        message: "New user successful",
-        data: { ...newUser, password: "" },
-      });
+    res.status(200).send({
+      message: "New user successful",
+      data: { ...newUser, password: "" },
+    });
   } catch (ex) {
     res.status(400).send({ message: ex.message });
   }
@@ -92,24 +89,46 @@ router.post("/", async (req, res) => {
 
 // admin editing a user
 router.put("/", async (req, res) => {
-  const { userId, projectId, password } = req.userId;
+  const { userId, name, email, password } = req.body;
   const filter = { userId };
-
   const hashedPassword = bcryptjs.hashSync(password, 10);
-  const newUser = {
+  const updatedUser = {
     userId,
     name,
     email,
+    // projectId,
     password: hashedPassword,
   };
 
   try {
-    const user = await User.findByIdAndUpdate(
-      filter,
-      { projectId },
-      { new: true }
-    );
-    res.status(200).send({});
+    const user = await User.findOneAndUpdate(filter, updatedUser, {
+      new: true,
+    }).lean();
+    res.status(200).send({
+      message: "Update user successful",
+      data: { ...user, password: "" },
+    });
+  } catch (ex) {
+    res.status(400).send({ message: ex.message });
+  }
+});
+
+// admin updating projects
+router.put("/projects", async (req, res) => {
+  const { userId, projects } = req.body;
+  const filter = { userId };
+  const update = { projects };
+
+  console.log("projects", projects);
+
+  try {
+    const user = await User.findOneAndUpdate(filter, update, {
+      new: true,
+    }).lean();
+    res.status(200).send({
+      message: "Update user successful",
+      data: { ...user, password: "" },
+    });
   } catch (ex) {
     res.status(400).send({ message: ex.message });
   }

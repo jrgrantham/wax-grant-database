@@ -22,6 +22,13 @@ const userSchema = new mongoose.Schema({
     minlength: 3,
     maxlength: 50,
   },
+  userId: {
+    type: String,
+    required: true,
+    trim: true,
+    minlength: 3,
+    maxlength: 50,
+  },
   email: {
     type: String,
     required: true,
@@ -38,6 +45,9 @@ const userSchema = new mongoose.Schema({
     type: String,
     maxlength: 256,
   },
+  projects: {
+    type: Array,
+  },
   admin: {
     type: Boolean,
   },
@@ -51,12 +61,7 @@ userSchema.methods.generateAuthToken = function (rememberMe) {
     email: this.email,
     rememberMe,
   };
-  // const secret = process.env.SECRET;
   const secret = config.get("jwtPrivateKey");
-  // let options;
-  // if (publicComputer) options = { expiresIn: "3h" };
-  // else options = { expiresIn: "30d" };
-
   const time = rememberMe ? "30d" : "1h";
   const options = { expiresIn: time };
   const result = jwt.sign(payload, secret, options);
