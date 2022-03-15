@@ -11,7 +11,6 @@ module.exports = function (req, res, next) {
   try {
     const decoded = jwt.verify(token, config.get("jwtPrivateKey"));
     const { admin, userId, projectId, rememberMe } = decoded;
-    // const selectedProjectId = req.headers.selectedprojectid
     req.userId = userId;
     req.admin = admin;
     req.projectId = projectId;

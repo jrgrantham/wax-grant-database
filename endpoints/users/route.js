@@ -6,9 +6,8 @@ const admin = require("../../middleware/admin");
 
 router.get("/me", async (req, res) => {
   const userId = req.userId;
-  // console.log(userId);
   try {
-    const user = await User.findOne({ _id: userId });
+    const user = await User.findOne({ userId });
     const { admin, projectId } = user;
     res.status(200).send({
       admin,
@@ -31,7 +30,6 @@ router.put("/me", async (req, res) => {
       { new: true }
     );
     const token = user.generateAuthToken(rememberMe);
-    // console.log("users route", user.projectId);
     user.password = "";
     res.status(200).send({
       token,
@@ -93,10 +91,8 @@ router.put("/", async (req, res) => {
   const filter = { userId };
   const hashedPassword = bcryptjs.hashSync(password, 10);
   const updatedUser = {
-    userId,
     name,
     email,
-    // projectId,
     password: hashedPassword,
   };
 
@@ -115,11 +111,9 @@ router.put("/", async (req, res) => {
 
 // admin updating projects
 router.put("/projects", async (req, res) => {
-  const { userId, projects } = req.body;
+  const { userId, projects, projectId } = req.body;
   const filter = { userId };
-  const update = { projects };
-
-  console.log("projects", projects);
+  const update = { projects, projectId };
 
   try {
     const user = await User.findOneAndUpdate(filter, update, {

@@ -55,7 +55,7 @@ const userSchema = new mongoose.Schema({
 
 userSchema.methods.generateAuthToken = function (rememberMe) {
   const payload = {
-    userId: this.id,
+    userId: this.userId,
     admin: this.admin,
     projectId: this.projectId,
     email: this.email,

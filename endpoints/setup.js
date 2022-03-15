@@ -14,17 +14,27 @@ const Setup = mongoose.model(
 );
 
 router.get("/", async (req, res) => {
-  // protect route, admin only
+  const { admin, userId } = req;
+  console.log(userId);
   const list = [];
   try {
     const allSetups = await Setup.find();
     // console.log(allSetups);
-    allSetups.forEach((setup, index) => {
+    allSetups.forEach((setup) => {
       const current = { ...setup.data };
       current.projectId = setup.projectId;
-      list[index] = current;
+      if (admin) {
+        list.push(current);
+      } else {
+        if (
+          current.lead === userId ||
+          current.pOne === userId ||
+          current.pTwo === userId
+        ) {
+          list.push(current);
+        }
+      }
     });
-    // console.log(list);
     res.status(200).send(list);
   } catch (ex) {
     res.status(400).send({ message: ex.message });
