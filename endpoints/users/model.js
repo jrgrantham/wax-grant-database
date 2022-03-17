@@ -59,6 +59,7 @@ userSchema.methods.generateAuthToken = function (rememberMe) {
     admin: this.admin,
     projectId: this.projectId,
     email: this.email,
+    name: this.name,
     rememberMe,
   };
   const secret = config.get("jwtPrivateKey");

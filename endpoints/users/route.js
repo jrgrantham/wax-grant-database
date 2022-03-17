@@ -3,29 +3,35 @@ const express = require("express");
 const router = express.Router();
 const { User } = require("./model");
 const admin = require("../../middleware/admin");
+const helpers = require("../../middleware/helpers");
 
 router.get("/me", async (req, res) => {
-  const userId = req.userId;
-  try {
-    const user = await User.findOne({ userId });
-    const { admin, projectId } = user;
-    res.status(200).send({
-      admin,
-      projectId,
-    });
-  } catch (ex) {
-    res.status(400).send({ message: ex.message });
-  }
+  const { userId, projectId, admin, name } = req;
+  const checkedProjectId = await helpers.checkProject({
+    providedProjectId: projectId,
+    admin,
+    userId,
+  });
+  const message = admin
+    ? "Selected project does not exist, please login again"
+    : "No project allocated, contact WAX administration";
+
+  res.status(200).send({
+    name,
+    admin,
+    projectId: checkedProjectId,
+    message: checkedProjectId ? null : message,
+  });
 });
 
 // individual selecting a project
 router.put("/me", async (req, res) => {
-  const _id = req.userId;
+  const { userId } = req;
   const projectId = req.body.projectId;
   const rememberMe = req.rememberMe;
   try {
-    const user = await User.findByIdAndUpdate(
-      _id,
+    const user = await User.findOneAndUpdate(
+      { userId },
       { projectId },
       { new: true }
     );

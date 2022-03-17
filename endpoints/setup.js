@@ -15,7 +15,7 @@ const Setup = mongoose.model(
 
 router.get("/", async (req, res) => {
   const { admin, userId } = req;
-  console.log(userId);
+  // console.log(userId);
   const list = [];
   try {
     const allSetups = await Setup.find();
@@ -83,3 +83,4 @@ router.post("/new", async (req, res) => {
 });
 
 module.exports = router;
+module.exports.Setup = Setup
