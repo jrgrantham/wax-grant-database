@@ -4,10 +4,13 @@ const mongoose = require("mongoose");
 
 const Global = mongoose.model(
   "Global",
-  new mongoose.Schema({
-    globalData: { type: String, required: true },
-    data: { type: Object, required: true },
-  }, { collection: 'global' }),
+  new mongoose.Schema(
+    {
+      globalData: { type: String, required: true },
+      data: { type: Object, required: true },
+    },
+    { collection: "global" }
+  )
 );
 
 router.get("/", async (req, res) => {
@@ -15,16 +18,16 @@ router.get("/", async (req, res) => {
   const globalData = "globalData";
   try {
     const result = await Global.findOne({ globalData });
-    res.status(200).send(result);
+    res.status(200).send(result.data);
   } catch (ex) {
     res.status(400).send({ message: ex.message });
   }
 });
 
 router.put("/", async (req, res) => {
-  const projectId = req.projectId;
-  const filter = { projectId };
-  const update = { projectId, data: req.body };
+  const globalData = "globalData";
+  const filter = { globalData };
+  const update = {data: req.body};
 
   try {
     const data = await Global.findOneAndUpdate(filter, update, {
