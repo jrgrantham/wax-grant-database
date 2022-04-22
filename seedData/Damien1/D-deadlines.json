@@ -1,0 +1,64 @@
+[
+  {
+    "_id": {
+      "$oid": "6203d3ea7a012673527c8d25"
+    },
+    "projectId": "abc",
+    "data": [
+      {
+        "deadlineId": "d492f0f6-adfa-480f-a462-896c19208b59",
+        "type": "milestone",
+        "description": "Functional and Technical Specification Complete",
+        "scheduled": 0
+      },
+      {
+        "deadlineId": "9bb54d66-172d-4a82-b01d-df2831f3b8b7",
+        "type": "milestone",
+        "description": "Early Geospatial Data Integration and CER Assessment Prototype Complete",
+        "scheduled": 1
+      },
+      {
+        "deadlineId": "c3af332f-f330-4a3f-99bb-b0cf64e4dfb6",
+        "type": "milestone",
+        "description": "Initial Integrated Prototype Testing Complete",
+        "scheduled": 2
+      },
+      {
+        "deadlineId": "496a770f-c30f-40ce-96c5-c555f108da19",
+        "type": "deliverable",
+        "description": "Functional and Technical Specifications",
+        "scheduled": 0
+      },
+      {
+        "deadlineId": "123455",
+        "type": "deliverable",
+        "description": "Early Geospatial Data Integration and CER Assessment Prototype",
+        "scheduled": 1
+      },
+      {
+        "deadlineId": "d28fab0e-a1de-4aba-917e-165f28c19a90",
+        "type": "deliverable",
+        "description": "Early Open REST API Prototype",
+        "scheduled": 1
+      },
+      {
+        "deadlineId": "e5956063-92f8-4ff9-8986-d55176c8c1a2",
+        "type": "deliverable",
+        "description": "Early User Interface Prototype",
+        "scheduled": 2
+      },
+      {
+        "deadlineId": "c50b8e33-5c2f-4bfd-a226-602b9093c228",
+        "type": "deliverable",
+        "description": "Integrated Early Prototype",
+        "scheduled": 2
+      },
+      {
+        "deadlineId": "6adc3860-5dfc-4468-8956-32c7407f42ad",
+        "type": "deliverable",
+        "description": "Initial User Testing (with Financial Institution) Report",
+        "scheduled": 2
+      }
+    ]
+  }
+]

@@ -1,0 +1,742 @@
+{"level":"error","message":"error test error test","stack":"Error: error test\n    at /Users/jamesgrantham/WebDev/wax/wax-grant-database/routes/users.js:10:9\n    at newFn (/Users/jamesgrantham/WebDev/wax/wax-grant-database/node_modules/express-async-errors/index.js:16:20)\n    at Layer.handle [as handle_request] (/Users/jamesgrantham/WebDev/wax/wax-grant-database/node_modules/express/lib/router/layer.js:95:5)\n    at next (/Users/jamesgrantham/WebDev/wax/wax-grant-database/node_modules/express/lib/router/route.js:137:13)\n    at module.exports (/Users/jamesgrantham/WebDev/wax/wax-grant-database/middleware/auth.js:14:5)\n    at newFn (/Users/jamesgrantham/WebDev/wax/wax-grant-database/node_modules/express-async-errors/index.js:16:20)\n    at Layer.handle [as handle_request] (/Users/jamesgrantham/WebDev/wax/wax-grant-database/node_modules/express/lib/router/layer.js:95:5)\n    at next (/Users/jamesgrantham/WebDev/wax/wax-grant-database/node_modules/express/lib/router/route.js:137:13)\n    at Route.dispatch (/Users/jamesgrantham/WebDev/wax/wax-grant-database/node_modules/express/lib/router/route.js:112:3)\n    at newFn (/Users/jamesgrantham/WebDev/wax/wax-grant-database/node_modules/express-async-errors/index.js:16:20)\n    at Layer.handle [as handle_request] (/Users/jamesgrantham/WebDev/wax/wax-grant-database/node_modules/express/lib/router/layer.js:95:5)\n    at /Users/jamesgrantham/WebDev/wax/wax-grant-database/node_modules/express/lib/router/index.js:281:22\n    at Function.process_params (/Users/jamesgrantham/WebDev/wax/wax-grant-database/node_modules/express/lib/router/index.js:335:12)\n    at next (/Users/jamesgrantham/WebDev/wax/wax-grant-database/node_modules/express/lib/router/index.js:275:10)\n    at Function.handle (/Users/jamesgrantham/WebDev/wax/wax-grant-database/node_modules/express/lib/router/index.js:174:3)\n    at router (/Users/jamesgrantham/WebDev/wax/wax-grant-database/node_modules/express/lib/router/index.js:47:12)"}
+{"message":"error test","level":"error"}
+{"message":"error test","level":"error"}
+{"level":"error","message":""}
+{"level":"error","message":"startup failure startup failure","stack":"Error: startup failure\n    at Object.<anonymous> (/Users/jamesgrantham/WebDev/wax/wax-grant-database/index.js:44:7)\n    at Module._compile (internal/modules/cjs/loader.js:1063:30)\n    at Object.Module._extensions..js (internal/modules/cjs/loader.js:1092:10)\n    at Module.load (internal/modules/cjs/loader.js:928:32)\n    at Function.Module._load (internal/modules/cjs/loader.js:769:14)\n    at Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)\n    at internal/main/run_main_module.js:17:47"}
+{"level":"error","message":"startup failure startup failure","stack":"Error: startup failure\n    at Object.<anonymous> (/Users/jamesgrantham/WebDev/wax/wax-grant-database/index.js:44:7)\n    at Module._compile (internal/modules/cjs/loader.js:1063:30)\n    at Object.Module._extensions..js (internal/modules/cjs/loader.js:1092:10)\n    at Module.load (internal/modules/cjs/loader.js:928:32)\n    at Function.Module._load (internal/modules/cjs/loader.js:769:14)\n    at Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)\n    at internal/main/run_main_module.js:17:47"}
+{"message":"startup failure","level":"error"}
+{"message":"connected to mongodb...","level":"info"}
+{"message":"connected to mongodb...","level":"info"}
+{"message":"connected to mongodb...","level":"info"}
+{"message":"connected to mongodb...","level":"info"}
+{"message":"connected to mongodb...","level":"info"}
+{"message":"connected to mongodb...","level":"info"}
+{"message":"connected to mongodb...","level":"info"}
+{"message":"connected to mongodb...","level":"info"}
+{"message":"connected to mongodb...","level":"info"}
+{"message":"connected to mongodb...","level":"info"}
+{"message":"connected to mongodb...","level":"info"}
+{"message":"connected to mongodb...","level":"info"}
+{"message":"connected to mongodb...","level":"info"}
+{"message":"connected to mongodb...","level":"info"}
+{"message":"connected to mongodb...","level":"info"}
+{"message":"connected to mongodb...","level":"info"}
+{"message":"connected to mongodb...","level":"info"}
+{"message":"connected to mongodb...","level":"info"}
+{"message":"it works!!","level":"info"}
+{"message":"it works!!","level":"info"}
+{"message":"connected to mongodb...","level":"info"}
+{"message":"connected to mongodb...","level":"info"}
+{"message":"connected to mongodb...","level":"info"}
+{"message":"it works!!","level":"info"}
+{"message":"listening on port 3300...","level":"info"}
+{"message":"connected to mongodb...","level":"info"}
+{"message":"it works!!","level":"info"}
+{"message":"listening on port 3300...","level":"info"}
+{"message":"connected to mongodb...","level":"info"}
+{"message":"it works!!","level":"info"}
+{"message":"listening on port 3300...","level":"info"}
+{"message":"connected to mongodb...","level":"info"}
+{"message":"it works!!","level":"info"}
+{"message":"listening on port 3300...","level":"info"}
+{"message":"connected to mongodb...","level":"info"}
+{"message":"it works!!","level":"info"}
+{"message":"listening on port 3300...","level":"info"}
+{"message":"connected to mongodb...","level":"info"}
+{"message":"listening on port 3300...","level":"info"}
+{"message":"connected to mongodb...","level":"info"}
+{"message":"listening on port 3300...","level":"info"}
+{"message":"connected to mongodb...","level":"info"}
+{"message":"it works!!","level":"info"}
+{"message":"listening on port 3300...","level":"info"}
+{"message":"connected to mongodb...","level":"info"}
+{"message":"listening on port 3300...","level":"info"}
+{"message":"connected to mongodb...","level":"info"}
+{"message":"listening on port 3300...","level":"info"}
+{"message":"connected to mongodb...","level":"info"}
+{"message":"listening on port 3300...","level":"info"}
+{"message":"connected to mongodb...","level":"info"}
+{"message":"listening on port 3300...","level":"info"}
+{"message":"connected to mongodb...","level":"info"}
+{"message":"listening on port 3300...","level":"info"}
+{"message":"connected to mongodb...","level":"info"}
+{"message":"listening on port 3300...","level":"info"}
+{"message":"connected to mongodb...","level":"info"}
+{"message":"listening on port 3300...","level":"info"}
+{"message":"connected to mongodb...","level":"info"}
+{"message":"listening on port 3300...","level":"info"}
+{"message":"connected to mongodb...","level":"info"}
+{"message":"listening on port 3300...","level":"info"}
+{"message":"connected to mongodb...","level":"info"}
+{"message":"listening on port 3300...","level":"info"}
+{"message":"connected to mongodb...","level":"info"}
+{"message":"listening on port 3300...","level":"info"}
+{"message":"connected to mongodb...","level":"info"}
+{"message":"listening on port 3300...","level":"info"}
+{"message":"connected to mongodb...","level":"info"}
+{"message":"it works!!","level":"info"}
+{"message":"listening on port 3300...","level":"info"}
+{"message":"connected to mongodb...","level":"info"}
+{"message":"listening on port 3300...","level":"info"}
+{"message":"connected to mongodb...","level":"info"}
+{"message":"listening on port 3300...","level":"info"}
+{"message":"connected to mongodb...","level":"info"}
+{"message":"listening on port 3300...","level":"info"}
+{"message":"connected to mongodb...","level":"info"}
+{"message":"listening on port 3300...","level":"info"}
+{"message":"connected to mongodb...","level":"info"}
+{"message":"listening on port 3300...","level":"info"}
+{"message":"connected to mongodb...","level":"info"}
+{"message":"listening on port 3300...","level":"info"}
+{"message":"connected to mongodb...","level":"info"}
+{"message":"listening on port 3300...","level":"info"}
+{"message":"connected to mongodb...","level":"info"}
+{"message":"listening on port 3300...","level":"info"}
+{"message":"connected to mongodb...","level":"info"}
+{"message":"listening on port 3300...","level":"info"}
+{"message":"connected to mongodb...","level":"info"}
+{"message":"listening on port 3300...","level":"info"}
+{"message":"connected to mongodb...","level":"info"}
+{"message":"listening on port 3300...","level":"info"}
+{"message":"connected to mongodb...","level":"info"}
+{"message":"listening on port 3300...","level":"info"}
+{"message":"connected to mongodb...","level":"info"}
+{"message":"listening on port 3300...","level":"info"}
+{"message":"connected to mongodb...","level":"info"}
+{"message":"listening on port 3300...","level":"info"}
+{"message":"connected to mongodb...","level":"info"}
+{"message":"listening on port 3300...","level":"info"}
+{"message":"connected to mongodb...","level":"info"}
+{"message":"listening on port 3300...","level":"info"}
+{"message":"connected to mongodb...","level":"info"}
+{"message":"listening on port 3300...","level":"info"}
+{"message":"connected to mongodb...","level":"info"}
+{"message":"listening on port 3300...","level":"info"}
+{"message":"connected to mongodb...","level":"info"}
+{"message":"listening on port 3300...","level":"info"}
+{"message":"connected to mongodb...","level":"info"}
+{"message":"listening on port 3300...","level":"info"}
+{"message":"connected to mongodb...","level":"info"}
+{"message":"listening on port 3300...","level":"info"}
+{"message":"connected to mongodb...","level":"info"}
+{"message":"listening on port 3300...","level":"info"}
+{"message":"connected to mongodb...","level":"info"}
+{"message":"listening on port 3300...","level":"info"}
+{"message":"connected to mongodb...","level":"info"}
+{"message":"listening on port 3300...","level":"info"}
+{"message":"connected to mongodb...","level":"info"}
+{"message":"listening on port 3300...","level":"info"}
+{"message":"connected to mongodb...","level":"info"}
+{"message":"listening on port 3300...","level":"info"}
+{"message":"connected to mongodb...","level":"info"}
+{"message":"listening on port 3300...","level":"info"}
+{"message":"connected to mongodb...","level":"info"}
+{"message":"listening on port 3300...","level":"info"}
+{"message":"connected to mongodb...","level":"info"}
+{"message":"listening on port 3300...","level":"info"}
+{"message":"connected to mongodb...","level":"info"}
+{"message":"listening on port 3300...","level":"info"}
+{"message":"connected to mongodb...","level":"info"}
+{"message":"listening on port 3300...","level":"info"}
+{"message":"connected to mongodb...","level":"info"}
+{"message":"listening on port 3300...","level":"info"}
+{"message":"connected to mongodb...","level":"info"}
+{"message":"listening on port 3300...","level":"info"}
+{"message":"connected to mongodb...","level":"info"}
+{"message":"listening on port 3300...","level":"info"}
+{"message":"connected to mongodb...","level":"info"}
+{"message":"listening on port 3300...","level":"info"}
+{"message":"connected to mongodb...","level":"info"}
+{"message":"listening on port 3300...","level":"info"}
+{"message":"connected to mongodb...","level":"info"}
+{"message":"listening on port 3300...","level":"info"}
+{"message":"connected to mongodb...","level":"info"}
+{"message":"listening on port 3300...","level":"info"}
+{"message":"connected to mongodb...","level":"info"}
+{"message":"listening on port 3300...","level":"info"}
+{"message":"connected to mongodb...","level":"info"}
+{"message":"listening on port 3300...","level":"info"}
+{"message":"connected to mongodb...","level":"info"}
+{"message":"listening on port 3300...","level":"info"}
+{"message":"connected to mongodb...","level":"info"}
+{"message":"listening on port 3300...","level":"info"}
+{"message":"connected to mongodb...","level":"info"}
+{"message":"listening on port 3300...","level":"info"}
+{"message":"connected to mongodb...","level":"info"}
+{"message":"listening on port 3300...","level":"info"}
+{"message":"connected to mongodb...","level":"info"}
+{"message":"listening on port 3300...","level":"info"}
+{"message":"connected to mongodb...","level":"info"}
+{"message":"listening on port 3300...","level":"info"}
+{"message":"connected to mongodb...","level":"info"}
+{"message":"listening on port 3300...","level":"info"}
+{"message":"connected to mongodb...","level":"info"}
+{"message":"listening on port 3300...","level":"info"}
+{"message":"connected to mongodb...","level":"info"}
+{"message":"listening on port 3300...","level":"info"}
+{"message":"connected to mongodb...","level":"info"}
+{"message":"listening on port 3300...","level":"info"}
+{"message":"connected to mongodb...","level":"info"}
+{"message":"listening on port 3300...","level":"info"}
+{"message":"connected to mongodb...","level":"info"}
+{"message":"listening on port 3300...","level":"info"}
+{"message":"connected to mongodb...","level":"info"}
+{"message":"listening on port 3300...","level":"info"}
+{"message":"connected to mongodb...","level":"info"}
+{"message":"listening on port 3300...","level":"info"}
+{"message":"connected to mongodb...","level":"info"}
+{"message":"listening on port 3300...","level":"info"}
+{"message":"connected to mongodb...","level":"info"}
+{"message":"listening on port 3300...","level":"info"}
+{"message":"connected to mongodb...","level":"info"}
+{"message":"listening on port 3300...","level":"info"}
+{"message":"connected to mongodb...","level":"info"}
+{"message":"listening on port 3300...","level":"info"}
+{"message":"connected to mongodb...","level":"info"}
+{"level":"error"}
+{"level":"error"}
+{"message":"listening on port 3300...","level":"info"}
+{"message":"connected to mongodb...","level":"info"}
+{"message":"listening on port 3300...","level":"info"}
+{"message":"connected to mongodb...","level":"info"}
+{"level":"error"}
+{"level":"error"}
+{"message":"listening on port 3300...","level":"info"}
+{"message":"connected to mongodb...","level":"info"}
+{"level":"error"}
+{"message":"listening on port 3300...","level":"info"}
+{"message":"connected to mongodb...","level":"info"}
+{"message":"listening on port 3300...","level":"info"}
+{"message":"connected to mongodb...","level":"info"}
+{"message":"listening on port 3300...","level":"info"}
+{"message":"connected to mongodb...","level":"info"}
+{"message":"listening on port 3300...","level":"info"}
+{"message":"connected to mongodb...","level":"info"}
+{"message":"listening on port 3300...","level":"info"}
+{"message":"connected to mongodb...","level":"info"}
+{"message":"listening on port 3300...","level":"info"}
+{"message":"connected to mongodb...","level":"info"}
+{"message":"listening on port 3300...","level":"info"}
+{"message":"connected to mongodb...","level":"info"}
+{"message":"listening on port 3300...","level":"info"}
+{"message":"connected to mongodb...","level":"info"}
+{"message":"listening on port 3300...","level":"info"}
+{"message":"connected to mongodb...","level":"info"}
+{"message":"listening on port 3300...","level":"info"}
+{"message":"connected to mongodb...","level":"info"}
+{"level":"error"}
+{"level":"error"}
+{"level":"error"}
+{"message":"listening on port 3300...","level":"info"}
+{"message":"connected to mongodb...","level":"info"}
+{"level":"error"}
+{"message":"listening on port 3300...","level":"info"}
+{"message":"connected to mongodb...","level":"info"}
+{"level":"error"}
+{"message":"listening on port 3300...","level":"info"}
+{"message":"connected to mongodb...","level":"info"}
+{"level":"error"}
+{"message":"listening on port 3300...","level":"info"}
+{"message":"connected to mongodb...","level":"info"}
+{"level":"error"}
+{"message":"listening on port 3300...","level":"info"}
+{"message":"connected to mongodb...","level":"info"}
+{"message":"listening on port 3300...","level":"info"}
+{"message":"connected to mongodb...","level":"info"}
+{"message":"listening on port 3300...","level":"info"}
+{"message":"connected to mongodb...","level":"info"}
+{"message":"listening on port 3300...","level":"info"}
+{"message":"connected to mongodb...","level":"info"}
+{"message":"listening on port 3300...","level":"info"}
+{"message":"connected to mongodb...","level":"info"}
+{"message":"listening on port 3300...","level":"info"}
+{"message":"connected to mongodb...","level":"info"}
+{"message":"listening on port 3300...","level":"info"}
+{"message":"connected to mongodb...","level":"info"}
+{"message":"listening on port 3300...","level":"info"}
+{"message":"connected to mongodb...","level":"info"}
+{"message":"listening on port 3300...","level":"info"}
+{"message":"connected to mongodb...","level":"info"}
+{"message":"listening on port 3300...","level":"info"}
+{"message":"connected to mongodb...","level":"info"}
+{"message":"listening on port 3300...","level":"info"}
+{"message":"connected to mongodb...","level":"info"}
+{"message":"listening on port 3300...","level":"info"}
+{"message":"connected to mongodb...","level":"info"}
+{"message":"listening on port 3300...","level":"info"}
+{"message":"connected to mongodb...","level":"info"}
+{"message":"listening on port 3300...","level":"info"}
+{"message":"connected to mongodb...","level":"info"}
+{"message":"listening on port 3300...","level":"info"}
+{"message":"connected to mongodb...","level":"info"}
+{"message":"listening on port 3300...","level":"info"}
+{"message":"connected to mongodb...","level":"info"}
+{"message":"listening on port 3300...","level":"info"}
+{"message":"connected to mongodb...","level":"info"}
+{"message":"listening on port 3300...","level":"info"}
+{"message":"connected to mongodb...","level":"info"}
+{"message":"listening on port 3300...","level":"info"}
+{"message":"connected to mongodb...","level":"info"}
+{"message":"listening on port 3300...","level":"info"}
+{"message":"connected to mongodb...","level":"info"}
+{"message":"Unexpected token } in JSON at position 363","level":"error"}
+{"message":"listening on port 3300...","level":"info"}
+{"message":"connected to mongodb...","level":"info"}
+{"message":"listening on port 3300...","level":"info"}
+{"message":"connected to mongodb...","level":"info"}
+{"message":"listening on port 3300...","level":"info"}
+{"message":"connected to mongodb...","level":"info"}
+{"message":"listening on port 3300...","level":"info"}
+{"message":"connected to mongodb...","level":"info"}
+{"message":"listening on port 3300...","level":"info"}
+{"message":"connected to mongodb...","level":"info"}
+{"message":"listening on port 3300...","level":"info"}
+{"message":"connected to mongodb...","level":"info"}
+{"message":"listening on port 3300...","level":"info"}
+{"message":"connected to mongodb...","level":"info"}
+{"message":"listening on port 3300...","level":"info"}
+{"message":"connected to mongodb...","level":"info"}
+{"message":"listening on port 3300...","level":"info"}
+{"message":"connected to mongodb...","level":"info"}
+{"message":"listening on port 3300...","level":"info"}
+{"message":"connected to mongodb...","level":"info"}
+{"message":"listening on port 3300...","level":"info"}
+{"message":"connected to mongodb...","level":"info"}
+{"message":"Resource is not a constructor","level":"error"}
+{"message":"listening on port 3300...","level":"info"}
+{"message":"connected to mongodb...","level":"info"}
+{"message":"Resource is not a constructor","level":"error"}
+{"message":"listening on port 3300...","level":"info"}
+{"message":"connected to mongodb...","level":"info"}
+{"message":"listening on port 3300...","level":"info"}
+{"message":"connected to mongodb...","level":"info"}
+{"message":"listening on port 3300...","level":"info"}
+{"message":"connected to mongodb...","level":"info"}
+{"message":"listening on port 3300...","level":"info"}
+{"message":"connected to mongodb...","level":"info"}
+{"message":"listening on port 3300...","level":"info"}
+{"message":"connected to mongodb...","level":"info"}
+{"message":"listening on port 3300...","level":"info"}
+{"message":"connected to mongodb...","level":"info"}
+{"message":"listening on port 3300...","level":"info"}
+{"message":"connected to mongodb...","level":"info"}
+{"message":"listening on port 3300...","level":"info"}
+{"message":"connected to mongodb...","level":"info"}
+{"message":"Resource is not a constructor","level":"error"}
+{"message":"listening on port 3300...","level":"info"}
+{"message":"connected to mongodb...","level":"info"}
+{"message":"listening on port 3300...","level":"info"}
+{"message":"connected to mongodb...","level":"info"}
+{"message":"listening on port 3300...","level":"info"}
+{"message":"connected to mongodb...","level":"info"}
+{"message":"listening on port 3300...","level":"info"}
+{"message":"connected to mongodb...","level":"info"}
+{"message":"listening on port 3300...","level":"info"}
+{"message":"connected to mongodb...","level":"info"}
+{"message":"listening on port 3300...","level":"info"}
+{"message":"connected to mongodb...","level":"info"}
+{"message":"listening on port 3300...","level":"info"}
+{"message":"connected to mongodb...","level":"info"}
+{"message":"listening on port 3300...","level":"info"}
+{"message":"connected to mongodb...","level":"info"}
+{"message":"Resource is not a constructor","level":"error"}
+{"message":"Resource is not a constructor","level":"error"}
+{"message":"listening on port 3300...","level":"info"}
+{"message":"connected to mongodb...","level":"info"}
+{"message":"listening on port 3300...","level":"info"}
+{"message":"connected to mongodb...","level":"info"}
+{"message":"Resource is not a constructor","level":"error"}
+{"message":"listening on port 3300...","level":"info"}
+{"message":"connected to mongodb...","level":"info"}
+{"message":"listening on port 3300...","level":"info"}
+{"message":"connected to mongodb...","level":"info"}
+{"message":"listening on port 3300...","level":"info"}
+{"message":"connected to mongodb...","level":"info"}
+{"message":"listening on port 3300...","level":"info"}
+{"message":"connected to mongodb...","level":"info"}
+{"message":"listening on port 3300...","level":"info"}
+{"message":"connected to mongodb...","level":"info"}
+{"message":"listening on port 3300...","level":"info"}
+{"message":"connected to mongodb...","level":"info"}
+{"message":"listening on port 3300...","level":"info"}
+{"message":"connected to mongodb...","level":"info"}
+{"message":"listening on port 3300...","level":"info"}
+{"message":"connected to mongodb...","level":"info"}
+{"message":"listening on port 3300...","level":"info"}
+{"message":"connected to mongodb...","level":"info"}
+{"message":"listening on port 3300...","level":"info"}
+{"message":"connected to mongodb...","level":"info"}
+{"message":"listening on port 3300...","level":"info"}
+{"message":"connected to mongodb...","level":"info"}
+{"message":"listening on port 3300...","level":"info"}
+{"message":"connected to mongodb...","level":"info"}
+{"message":"listening on port 3300...","level":"info"}
+{"message":"connected to mongodb...","level":"info"}
+{"message":"listening on port 3300...","level":"info"}
+{"message":"connected to mongodb...","level":"info"}
+{"message":"listening on port 3300...","level":"info"}
+{"message":"connected to mongodb...","level":"info"}
+{"message":"listening on port 3300...","level":"info"}
+{"message":"connected to mongodb...","level":"info"}
+{"message":"listening on port 3300...","level":"info"}
+{"message":"connected to mongodb...","level":"info"}
+{"message":"listening on port 3300...","level":"info"}
+{"message":"connected to mongodb...","level":"info"}
+{"message":"listening on port 3300...","level":"info"}
+{"message":"connected to mongodb...","level":"info"}
+{"message":"listening on port 3300...","level":"info"}
+{"message":"connected to mongodb...","level":"info"}
+{"message":"listening on port 3300...","level":"info"}
+{"message":"connected to mongodb...","level":"info"}
+{"message":"listening on port 3300...","level":"info"}
+{"message":"connected to mongodb...","level":"info"}
+{"message":"listening on port 3300...","level":"info"}
+{"message":"connected to mongodb...","level":"info"}
+{"message":"listening on port 3300...","level":"info"}
+{"message":"connected to mongodb...","level":"info"}
+{"message":"listening on port 3300...","level":"info"}
+{"message":"connected to mongodb...","level":"info"}
+{"message":"listening on port 3300...","level":"info"}
+{"message":"connected to mongodb...","level":"info"}
+{"message":"listening on port 3300...","level":"info"}
+{"message":"connected to mongodb...","level":"info"}
+{"message":"listening on port 3300...","level":"info"}
+{"message":"connected to mongodb...","level":"info"}
+{"message":"listening on port 3300...","level":"info"}
+{"message":"connected to mongodb...","level":"info"}
+{"message":"listening on port 3300...","level":"info"}
+{"message":"connected to mongodb...","level":"info"}
+{"message":"listening on port 3300...","level":"info"}
+{"message":"connected to mongodb...","level":"info"}
+{"message":"listening on port 3300...","level":"info"}
+{"message":"connected to mongodb...","level":"info"}
+{"message":"listening on port 3300...","level":"info"}
+{"message":"connected to mongodb...","level":"info"}
+{"message":"listening on port 3300...","level":"info"}
+{"message":"connected to mongodb...","level":"info"}
+{"message":"listening on port 3300...","level":"info"}
+{"message":"connected to mongodb...","level":"info"}
+{"message":"listening on port 3300...","level":"info"}
+{"message":"connected to mongodb...","level":"info"}
+{"message":"listening on port 3300...","level":"info"}
+{"message":"connected to mongodb...","level":"info"}
+{"message":"listening on port 3300...","level":"info"}
+{"message":"connected to mongodb...","level":"info"}
+{"message":"listening on port 3300...","level":"info"}
+{"message":"connected to mongodb...","level":"info"}
+{"message":"listening on port 3300...","level":"info"}
+{"message":"connected to mongodb...","level":"info"}
+{"message":"listening on port 3300...","level":"info"}
+{"message":"connected to mongodb...","level":"info"}
+{"message":"listening on port 3300...","level":"info"}
+{"message":"connected to mongodb...","level":"info"}
+{"message":"listening on port 3300...","level":"info"}
+{"message":"connected to mongodb...","level":"info"}
+{"message":"listening on port 3300...","level":"info"}
+{"message":"connected to mongodb...","level":"info"}
+{"message":"listening on port 3300...","level":"info"}
+{"message":"connected to mongodb...","level":"info"}
+{"message":"listening on port 3300...","level":"info"}
+{"message":"connected to mongodb...","level":"info"}
+{"message":"listening on port 3300...","level":"info"}
+{"message":"connected to mongodb...","level":"info"}
+{"message":"listening on port 3300...","level":"info"}
+{"message":"connected to mongodb...","level":"info"}
+{"message":"listening on port 3300...","level":"info"}
+{"message":"connected to mongodb...","level":"info"}
+{"message":"listening on port 3300...","level":"info"}
+{"message":"connected to mongodb...","level":"info"}
+{"message":"listening on port 3300...","level":"info"}
+{"message":"connected to mongodb...","level":"info"}
+{"message":"listening on port 3300...","level":"info"}
+{"message":"connected to mongodb...","level":"info"}
+{"message":"listening on port 3300...","level":"info"}
+{"message":"connected to mongodb...","level":"info"}
+{"message":"listening on port 3300...","level":"info"}
+{"message":"connected to mongodb...","level":"info"}
+{"message":"listening on port 3300...","level":"info"}
+{"message":"connected to mongodb...","level":"info"}
+{"message":"listening on port 3300...","level":"info"}
+{"message":"connected to mongodb...","level":"info"}
+{"message":"listening on port 3300...","level":"info"}
+{"message":"connected to mongodb...","level":"info"}
+{"message":"listening on port 3300...","level":"info"}
+{"message":"connected to mongodb...","level":"info"}
+{"message":"listening on port 3300...","level":"info"}
+{"message":"connected to mongodb...","level":"info"}
+{"message":"connected to mongodb...","level":"info"}
+{"message":"connected to mongodb...","level":"info"}
+{"message":"connected to mongodb...","level":"info"}
+{"message":"connected to mongodb...","level":"info"}
+{"message":"connected to mongodb...","level":"info"}
+{"message":"connected to mongodb...","level":"info"}
+{"message":"connected to mongodb...","level":"info"}
+{"message":"connected to mongodb...","level":"info"}
+{"message":"listening on port 3330...","level":"info"}
+{"message":"connected to mongodb...","level":"info"}
+{"message":"listening on port 3330...","level":"info"}
+{"message":"connected to mongodb...","level":"info"}
+{"message":"listening on port 3330...","level":"info"}
+{"message":"connected to mongodb...","level":"info"}
+{"message":"listening on port 3330...","level":"info"}
+{"message":"connected to mongodb...","level":"info"}
+{"message":"connected to mongodb...","level":"info"}
+{"message":"listening on port 3330...","level":"info"}
+{"message":"connected to mongodb...","level":"info"}
+{"message":"connected to mongodb...","level":"info"}
+{"message":"connected to mongodb...","level":"info"}
+{"message":"console.lo is not a function","level":"error"}
+{"message":"Joi.String is not a function","level":"error"}
+{"message":"Joi.String is not a function","level":"error"}
+{"message":"Joi.String is not a function","level":"error"}
+{"message":"Joi.String is not a function","level":"error"}
+{"message":"Joi.String is not a function","level":"error"}
+{"message":"Joi.String is not a function","level":"error"}
+{"message":"Joi.String is not a function","level":"error"}
+{"message":"Joi.String is not a function","level":"error"}
+{"message":"Joi.String is not a function","level":"error"}
+{"message":"Joi.String is not a function","level":"error"}
+{"message":"Joi.String is not a function","level":"error"}
+{"message":"Joi.String is not a function","level":"error"}
+{"message":"Joi.String is not a function","level":"error"}
+{"message":"Joi.String is not a function","level":"error"}
+{"message":"Joi.String is not a function","level":"error"}
+{"message":"Joi.String is not a function","level":"error"}
+{"message":"Unexpected token / in JSON at position 390","level":"error"}
+{"message":"Unexpected token / in JSON at position 6","level":"error"}
+{"message":"Parameter \"filter\" to find() must be an object, got _id","level":"error"}
+{"level":"error"}
+{"level":"error"}
+{"level":"error"}
+{"level":"error"}
+{"level":"error"}
+{"level":"error"}
+{"level":"error"}
+{"level":"error"}
+{"level":"error"}
+{"level":"error"}
+{"level":"error"}
+{"level":"error"}
+{"level":"error"}
+{"level":"error"}
+{"level":"error"}
+{"level":"error"}
+{"level":"error"}
+{"level":"error"}
+{"level":"error"}
+{"level":"error"}
+{"level":"error"}
+{"level":"error"}
+{"level":"error"}
+{"level":"error"}
+{"level":"error"}
+{"level":"error"}
+{"level":"error"}
+{"level":"error"}
+{"level":"error"}
+{"level":"error"}
+{"level":"error"}
+{"level":"error"}
+{"level":"error"}
+{"level":"error"}
+{"level":"error"}
+{"level":"error"}
+{"level":"error"}
+{"level":"error"}
+{"level":"error"}
+{"level":"error"}
+{"level":"error"}
+{"level":"error"}
+{"level":"error"}
+{"level":"error"}
+{"level":"error"}
+{"level":"error"}
+{"level":"error"}
+{"level":"error"}
+{"level":"error"}
+{"level":"error"}
+{"level":"error"}
+{"level":"error"}
+{"level":"error"}
+{"level":"error"}
+{"level":"error"}
+{"level":"error"}
+{"level":"error"}
+{"level":"error"}
+{"level":"error"}
+{"level":"error"}
+{"level":"error"}
+{"level":"error"}
+{"level":"error"}
+{"level":"error"}
+{"level":"error"}
+{"level":"error"}
+{"level":"error"}
+{"level":"error"}
+{"level":"error"}
+{"level":"error"}
+{"level":"error"}
+{"level":"error"}
+{"level":"error"}
+{"level":"error"}
+{"level":"error"}
+{"level":"error"}
+{"level":"error"}
+{"level":"error"}
+{"level":"error"}
+{"level":"error"}
+{"level":"error"}
+{"level":"error"}
+{"level":"error"}
+{"level":"error"}
+{"level":"error"}
+{"level":"error"}
+{"level":"error"}
+{"level":"error"}
+{"level":"error"}
+{"level":"error"}
+{"level":"error"}
+{"level":"error"}
+{"level":"error"}
+{"level":"error"}
+{"level":"error"}
+{"level":"error"}
+{"level":"error"}
+{"level":"error"}
+{"level":"error"}
+{"level":"error"}
+{"level":"error"}
+{"level":"error"}
+{"level":"error"}
+{"level":"error"}
+{"level":"error"}
+{"level":"error"}
+{"level":"error"}
+{"level":"error"}
+{"level":"error"}
+{"level":"error"}
+{"level":"error"}
+{"level":"error"}
+{"level":"error"}
+{"level":"error"}
+{"level":"error"}
+{"level":"error"}
+{"level":"error"}
+{"level":"error"}
+{"level":"error"}
+{"level":"error"}
+{"level":"error"}
+{"level":"error"}
+{"level":"error"}
+{"level":"error"}
+{"level":"error"}
+{"level":"error"}
+{"level":"error"}
+{"level":"error"}
+{"level":"error"}
+{"level":"error"}
+{"level":"error"}
+{"level":"error"}
+{"level":"error"}
+{"level":"error"}
+{"level":"error"}
+{"level":"error"}
+{"level":"error"}
+{"level":"error"}
+{"level":"error"}
+{"level":"error"}
+{"level":"error"}
+{"level":"error"}
+{"level":"error"}
+{"level":"error"}
+{"level":"error"}
+{"level":"error"}
+{"level":"error"}
+{"level":"error"}
+{"level":"error"}
+{"level":"error"}
+{"level":"error"}
+{"level":"error"}
+{"level":"error"}
+{"level":"error"}
+{"level":"error"}
+{"level":"error"}
+{"level":"error"}
+{"level":"error"}
+{"level":"error"}
+{"level":"error"}
+{"level":"error"}
+{"level":"error"}
+{"level":"error"}
+{"level":"error"}
+{"level":"error"}
+{"level":"error"}
+{"level":"error"}
+{"level":"error"}
+{"level":"error"}
+{"level":"error"}
+{"level":"error"}
+{"level":"error"}
+{"level":"error"}
+{"level":"error"}
+{"level":"error"}
+{"level":"error"}
+{"level":"error"}
+{"level":"error"}
+{"level":"error"}
+{"level":"error"}
+{"level":"error"}
+{"level":"error"}
+{"level":"error"}
+{"level":"error"}
+{"level":"error"}
+{"level":"error"}
+{"level":"error"}
+{"level":"error"}
+{"level":"error"}
+{"level":"error"}
+{"level":"error"}
+{"level":"error"}
+{"level":"error"}
+{"level":"error"}
+{"level":"error"}
+{"level":"error"}
+{"level":"error"}
+{"level":"error"}
+{"level":"error"}
+{"level":"error"}
+{"level":"error"}
+{"level":"error"}
+{"level":"error"}
+{"level":"error"}
+{"level":"error"}
+{"level":"error"}
+{"level":"error"}
+{"level":"error"}
+{"level":"error"}
+{"level":"error"}
+{"level":"error"}
+{"level":"error"}
+{"level":"error"}
+{"level":"error"}
+{"level":"error"}
+{"level":"error"}
+{"level":"error"}
+{"level":"error"}
+{"level":"error"}
+{"level":"error"}
+{"level":"error"}
+{"level":"error"}
+{"level":"error"}
+{"level":"error"}
+{"level":"error"}
+{"level":"error"}
+{"level":"error"}
+{"level":"error"}
+{"level":"error"}
+{"level":"error"}
+{"level":"error"}
+{"level":"error"}
+{"level":"error"}
+{"level":"error"}
+{"level":"error"}

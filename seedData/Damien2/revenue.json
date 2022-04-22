@@ -1,0 +1,53 @@
+[
+  {
+    "_id": {
+      "$oid": "6203d3ea7a012673527c8d23"
+    },
+    "projectId": "abc",
+    "data": {
+      "profitMargin": 25,
+      "taxRate": 21,
+      "markets": [
+        {
+          "name": "UK Market",
+          "start": 50500000,
+          "growth": 10,
+          "linkedIn": "djdjdjwd",
+          "description": "djdjdjwd"
+        },
+        {
+          "name": "US Market",
+          "start": 500,
+          "growth": 10
+        },
+        {
+          "name": "Global",
+          "start": 340,
+          "growth": 0
+        }
+      ],
+      "streams": [
+        {
+          "streamName": "Subscriptions",
+          "UK Market": {
+            "y1": 50,
+            "y2": 100,
+            "y3": 200,
+            "y4": 300,
+            "y5": 450,
+            "unitRevenue": "30"
+          },
+          "US Market": {
+            "y1": 50,
+            "y2": 80,
+            "y3": 100,
+            "y4": 100,
+            "y5": 100,
+            "unitRevenue": "20"
+          }
+        }
+      ],
+      "total": []
+    }
+  }
+]

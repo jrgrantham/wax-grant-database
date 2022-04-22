@@ -1,0 +1,20 @@
+[{
+  "_id": {
+    "$oid": "6203d3ea7a012673527c8d25"
+  },
+  "projectId": "abc",
+  "data": [
+    {
+      "deadlineId": "d492f0f6-adfa-480f-a462-896c19208b59",
+      "type": "milestone",
+      "description": "Description...",
+      "scheduled": 0
+    },
+    {
+      "deadlineId": "123455",
+      "type": "deliverable",
+      "description": "Description...",
+      "scheduled": 0
+    }
+  ]
+}]

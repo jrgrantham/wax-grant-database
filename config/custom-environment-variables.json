@@ -1,0 +1,9 @@
+{
+  "mail": {
+    "password": "PASSWORD"
+  },
+  "jwtPrivateKey": "wax_grant_jwtPrivateKey",
+  "dbname": "wax_grant_dbname",
+  "dbuser": "wax_grant_dbuser",
+  "dbpassword": "wax_grant_dbpassword"
+}

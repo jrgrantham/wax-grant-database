@@ -1,0 +1,776 @@
+[{
+  "_id": {
+    "$oid": "6203d5137a012673527c8d28"
+  },
+  "data": [
+    {
+      "taskId": "task1",
+      "workPackageTitle": "Project Management",
+      "workPackageId": "pack1",
+      "description": "Project Management",
+      "days": 6,
+      "startDep": "",
+      "endDep": "",
+      "dayLoading": "front",
+      "schedule": [
+        {
+          "barNumber": 1,
+          "value": 2
+        },
+        {
+          "barNumber": 1,
+          "value": 2
+        },
+        {
+          "barNumber": 1,
+          "value": 2
+        }
+      ]
+    },
+    {
+      "taskId": "377cb2be-efec-486e-b439-b3ac2b6a2f87",
+      "workPackageId": "pack1",
+      "workPackageTitle": "Project Management",
+      "description": "Continuous market and risk appraisal",
+      "days": 3,
+      "startDep": null,
+      "endDep": null,
+      "dayLoading": "front",
+      "schedule": [
+        {
+          "barNumber": 1,
+          "value": 1
+        },
+        {
+          "barNumber": 1,
+          "value": 1
+        },
+        {
+          "barNumber": 1,
+          "value": 1
+        }
+      ]
+    },
+    {
+      "taskId": "6421f5c7-5c64-4df3-9b2a-420c51d725db",
+      "workPackageId": "pack1",
+      "workPackageTitle": "Project Management",
+      "description": "Detailed Phase 2 Planning (including goals)",
+      "days": 2,
+      "startDep": null,
+      "endDep": null,
+      "dayLoading": "front",
+      "schedule": [
+        {
+          "barNumber": 0,
+          "value": 0
+        },
+        {
+          "barNumber": 0,
+          "value": 0
+        },
+        {
+          "barNumber": 1,
+          "value": 2
+        }
+      ]
+    },
+    {
+      "taskId": "53fa96f0-7654-4ddc-b1b1-5e1d008fc1d6",
+      "workPackageId": "4376864a-ec78-4e93-a3dd-50469297a0d6",
+      "workPackageTitle": "Exploitation hshshs",
+      "description": "IP Protection",
+      "days": 3,
+      "startDep": null,
+      "endDep": null,
+      "dayLoading": "front",
+      "schedule": [
+        {
+          "barNumber": 1,
+          "value": 1
+        },
+        {
+          "barNumber": 1,
+          "value": 1
+        },
+        {
+          "barNumber": 1,
+          "value": 1
+        }
+      ]
+    },
+    {
+      "taskId": "00b96915-d2eb-4af1-9c9a-12129fec4f8d",
+      "workPackageId": "4376864a-ec78-4e93-a3dd-50469297a0d6",
+      "workPackageTitle": "Exploitation hshshs",
+      "description": "Continuous engagement with finance industry via Kosmos consortium",
+      "days": 6,
+      "startDep": null,
+      "endDep": null,
+      "dayLoading": "front",
+      "schedule": [
+        {
+          "barNumber": 1,
+          "value": 3
+        },
+        {
+          "barNumber": 1,
+          "value": 1
+        },
+        {
+          "barNumber": 1,
+          "value": 2
+        }
+      ]
+    },
+    {
+      "taskId": "d57aed5e-e6ba-416c-b4a1-2be917af05b7",
+      "workPackageId": "4376864a-ec78-4e93-a3dd-50469297a0d6",
+      "workPackageTitle": "Exploitation hshshs",
+      "description": "Standardised environmental taxonomy development",
+      "days": 2,
+      "startDep": null,
+      "endDep": null,
+      "dayLoading": "front",
+      "schedule": [
+        {
+          "barNumber": 0,
+          "value": 0
+        },
+        {
+          "barNumber": 1,
+          "value": 1
+        },
+        {
+          "barNumber": 1,
+          "value": 1
+        }
+      ]
+    },
+    {
+      "taskId": "b582667f-2084-427e-8c94-7feba3a39098",
+      "workPackageId": "4376864a-ec78-4e93-a3dd-50469297a0d6",
+      "workPackageTitle": "Exploitation hshshs",
+      "description": "Commercialisation Planning",
+      "days": 2,
+      "startDep": null,
+      "endDep": null,
+      "dayLoading": "front",
+      "schedule": [
+        {
+          "barNumber": 0,
+          "value": 0
+        },
+        {
+          "barNumber": 1,
+          "value": 1
+        },
+        {
+          "barNumber": 1,
+          "value": 1
+        }
+      ]
+    },
+    {
+      "taskId": "5e2bb72c-23ea-4c64-a10d-afa50ad8bf79",
+      "workPackageId": "4376864a-ec78-4e93-a3dd-50469297a0d6",
+      "workPackageTitle": "Exploitation hshshs",
+      "description": "Establishing Commercial Feasibility",
+      "days": 6,
+      "startDep": null,
+      "endDep": null,
+      "dayLoading": "front",
+      "schedule": [
+        {
+          "barNumber": 1,
+          "value": 2
+        },
+        {
+          "barNumber": 1,
+          "value": 2
+        },
+        {
+          "barNumber": 1,
+          "value": 2
+        }
+      ]
+    },
+    {
+      "taskId": "175c1ce3-b216-4bc6-ad58-7f9cb4ecc641",
+      "workPackageId": "9b8c7603-dd0e-4ee8-bce8-46a4225d6ece",
+      "workPackageTitle": "Core Platform Development",
+      "description": "Functional and Technical Specifications",
+      "days": 5,
+      "startDep": null,
+      "endDep": null,
+      "dayLoading": "front",
+      "schedule": [
+        {
+          "barNumber": 1,
+          "value": 5
+        },
+        {
+          "barNumber": 0,
+          "value": 0
+        },
+        {
+          "barNumber": 0,
+          "value": 0
+        }
+      ]
+    },
+    {
+      "taskId": "a0c4b0a4-c9bf-4bdd-987b-38fd39564eed",
+      "workPackageId": "9b8c7603-dd0e-4ee8-bce8-46a4225d6ece",
+      "workPackageTitle": "Core Platform Development",
+      "description": "Open REST API development and integration",
+      "days": 4,
+      "startDep": null,
+      "endDep": null,
+      "dayLoading": "front",
+      "schedule": [
+        {
+          "barNumber": 1,
+          "value": 2
+        },
+        {
+          "barNumber": 1,
+          "value": 2
+        },
+        {
+          "barNumber": 0,
+          "value": 0
+        }
+      ]
+    },
+    {
+      "taskId": "3d8f6c55-d6bc-499e-b97f-4a7d8456f3ca",
+      "workPackageId": "9b8c7603-dd0e-4ee8-bce8-46a4225d6ece",
+      "workPackageTitle": "Core Platform Development",
+      "description": "Web Application development",
+      "days": 5,
+      "startDep": null,
+      "endDep": null,
+      "dayLoading": "front",
+      "schedule": [
+        {
+          "barNumber": 1,
+          "value": 2
+        },
+        {
+          "barNumber": 1,
+          "value": 2
+        },
+        {
+          "barNumber": 1,
+          "value": 1
+        }
+      ]
+    },
+    {
+      "taskId": "f6a32258-8f7d-4330-8071-fed29e18b0a1",
+      "workPackageId": "9b8c7603-dd0e-4ee8-bce8-46a4225d6ece",
+      "workPackageTitle": "Core Platform Development",
+      "description": "Database development",
+      "days": 6,
+      "startDep": null,
+      "endDep": null,
+      "dayLoading": "front",
+      "schedule": [
+        {
+          "barNumber": 1,
+          "value": 2
+        },
+        {
+          "barNumber": 1,
+          "value": 2
+        },
+        {
+          "barNumber": 1,
+          "value": 2
+        }
+      ]
+    },
+    {
+      "taskId": "9a264786-3f0f-435f-983c-dd78e73b5b74",
+      "workPackageId": "9b8c7603-dd0e-4ee8-bce8-46a4225d6ece",
+      "workPackageTitle": "Core Platform Development",
+      "description": "Integration with back-office systems",
+      "days": 3,
+      "startDep": null,
+      "endDep": null,
+      "dayLoading": "front",
+      "schedule": [
+        {
+          "barNumber": 1,
+          "value": 1
+        },
+        {
+          "barNumber": 1,
+          "value": 1
+        },
+        {
+          "barNumber": 1,
+          "value": 1
+        }
+      ]
+    },
+    {
+      "taskId": "1dfea00d-d17d-4c23-b0d8-82030e6635ec",
+      "workPackageId": "9b8c7603-dd0e-4ee8-bce8-46a4225d6ece",
+      "workPackageTitle": "Core Platform Development",
+      "description": "Data security, encryption and permissioning",
+      "days": 3,
+      "startDep": null,
+      "endDep": null,
+      "dayLoading": "front",
+      "schedule": [
+        {
+          "barNumber": 1,
+          "value": 1
+        },
+        {
+          "barNumber": 1,
+          "value": 1
+        },
+        {
+          "barNumber": 1,
+          "value": 1
+        }
+      ]
+    },
+    {
+      "taskId": "31297a63-7f7a-409e-95ce-46500356ba0f",
+      "workPackageId": "25be5626-4ab7-4b10-b919-0a5742268571",
+      "workPackageTitle": "Geospatial Data Integration and CER Assessment",
+      "description": "Data Extract Transform and Load",
+      "days": 2,
+      "startDep": null,
+      "endDep": null,
+      "dayLoading": "front",
+      "schedule": [
+        {
+          "barNumber": 1,
+          "value": 2
+        },
+        {
+          "barNumber": 0,
+          "value": 0
+        },
+        {
+          "barNumber": 0,
+          "value": 0
+        }
+      ]
+    },
+    {
+      "taskId": "05b3a1a9-2041-4196-ae71-6726d044e5d2",
+      "workPackageId": "25be5626-4ab7-4b10-b919-0a5742268571",
+      "workPackageTitle": "Geospatial Data Integration and CER Assessment",
+      "description": "Company geolocation lookup system",
+      "days": 2,
+      "startDep": null,
+      "endDep": null,
+      "dayLoading": "front",
+      "schedule": [
+        {
+          "barNumber": 1,
+          "value": 2
+        },
+        {
+          "barNumber": 0,
+          "value": 0
+        },
+        {
+          "barNumber": 0,
+          "value": 0
+        }
+      ]
+    },
+    {
+      "taskId": "b98038b0-8dfd-414b-b51c-29164f1f74f3",
+      "workPackageId": "25be5626-4ab7-4b10-b919-0a5742268571",
+      "workPackageTitle": "Geospatial Data Integration and CER Assessment",
+      "description": "Identifying/geolocating environmental impact via NLP of news feeds",
+      "days": 8,
+      "startDep": null,
+      "endDep": null,
+      "dayLoading": "front",
+      "schedule": [
+        {
+          "barNumber": 1,
+          "value": 4
+        },
+        {
+          "barNumber": 1,
+          "value": 4
+        },
+        {
+          "barNumber": 0,
+          "value": 0
+        }
+      ]
+    },
+    {
+      "taskId": "e0298893-ef90-46d1-ad0a-7ee288ec0c11",
+      "workPackageId": "25be5626-4ab7-4b10-b919-0a5742268571",
+      "workPackageTitle": "Geospatial Data Integration and CER Assessment",
+      "description": "Integrating GIS Satellite data APIs for geolocated environmental impact",
+      "days": 10,
+      "startDep": null,
+      "endDep": null,
+      "dayLoading": "front",
+      "schedule": [
+        {
+          "barNumber": 1,
+          "value": 5
+        },
+        {
+          "barNumber": 1,
+          "value": 5
+        },
+        {
+          "barNumber": 0,
+          "value": 0
+        }
+      ]
+    },
+    {
+      "taskId": "124fd77c-2e7b-423e-a714-d6f1dacb5875",
+      "workPackageId": "25be5626-4ab7-4b10-b919-0a5742268571",
+      "workPackageTitle": "Geospatial Data Integration and CER Assessment",
+      "description": "Correlating company location with geolocated environmental impact",
+      "days": 8,
+      "startDep": null,
+      "endDep": null,
+      "dayLoading": "front",
+      "schedule": [
+        {
+          "barNumber": 1,
+          "value": 4
+        },
+        {
+          "barNumber": 1,
+          "value": 4
+        },
+        {
+          "barNumber": 0,
+          "value": 0
+        }
+      ]
+    },
+    {
+      "taskId": "60e82575-6563-41b2-852f-89b50ff6d39a",
+      "workPackageId": "25be5626-4ab7-4b10-b919-0a5742268571",
+      "workPackageTitle": "Geospatial Data Integration and CER Assessment",
+      "description": "Correlating GIS and Bill-of-lading/HS Code data to calculate scope 2/3 emissions",
+      "days": 6,
+      "startDep": null,
+      "endDep": null,
+      "dayLoading": "front",
+      "schedule": [
+        {
+          "barNumber": 1,
+          "value": 3
+        },
+        {
+          "barNumber": 1,
+          "value": 3
+        },
+        {
+          "barNumber": 0,
+          "value": 0
+        }
+      ]
+    },
+    {
+      "taskId": "851f911a-8176-442b-a8dc-b681a461ad36",
+      "workPackageId": "25be5626-4ab7-4b10-b919-0a5742268571",
+      "workPackageTitle": "Geospatial Data Integration and CER Assessment",
+      "description": "Integration of data from self-reporting to finesse data",
+      "days": 2,
+      "startDep": null,
+      "endDep": null,
+      "dayLoading": "front",
+      "schedule": [
+        {
+          "barNumber": 0,
+          "value": 0
+        },
+        {
+          "barNumber": 1,
+          "value": 2
+        },
+        {
+          "barNumber": 0,
+          "value": 0
+        }
+      ]
+    },
+    {
+      "taskId": "50764d0a-8450-44d9-8e65-fb5e7b973038",
+      "workPackageId": "25be5626-4ab7-4b10-b919-0a5742268571",
+      "workPackageTitle": "Geospatial Data Integration and CER Assessment",
+      "description": "CER Assessment Calculator Prototyping and Unit Testing",
+      "days": 5,
+      "startDep": null,
+      "endDep": null,
+      "dayLoading": "front",
+      "schedule": [
+        {
+          "barNumber": 0,
+          "value": 0
+        },
+        {
+          "barNumber": 1,
+          "value": 5
+        },
+        {
+          "barNumber": 0,
+          "value": 0
+        }
+      ]
+    },
+    {
+      "taskId": "94ba9687-8d52-43e0-97fe-7da79500890b",
+      "workPackageId": "81635dc8-1037-48c6-b3cc-9af3c9db54b0",
+      "workPackageTitle": "Interface Development",
+      "description": "Financial Institution Dashboard",
+      "days": 6,
+      "startDep": null,
+      "endDep": null,
+      "dayLoading": "front",
+      "schedule": [
+        {
+          "barNumber": 0,
+          "value": 0
+        },
+        {
+          "barNumber": 1,
+          "value": 3
+        },
+        {
+          "barNumber": 1,
+          "value": 3
+        }
+      ]
+    },
+    {
+      "taskId": "f1744319-89ce-4368-bc7d-8983f2bc1803",
+      "workPackageId": "81635dc8-1037-48c6-b3cc-9af3c9db54b0",
+      "workPackageTitle": "Interface Development",
+      "description": "Company lookup Interface",
+      "days": 4,
+      "startDep": null,
+      "endDep": null,
+      "dayLoading": "front",
+      "schedule": [
+        {
+          "barNumber": 0,
+          "value": 0
+        },
+        {
+          "barNumber": 1,
+          "value": 2
+        },
+        {
+          "barNumber": 1,
+          "value": 2
+        }
+      ]
+    },
+    {
+      "taskId": "15f6903f-4811-497b-97b5-e35a4504b345",
+      "workPackageId": "81635dc8-1037-48c6-b3cc-9af3c9db54b0",
+      "workPackageTitle": "Interface Development",
+      "description": "SME interface (for viewing data and permissioning)",
+      "days": 6,
+      "startDep": null,
+      "endDep": null,
+      "dayLoading": "front",
+      "schedule": [
+        {
+          "barNumber": 0,
+          "value": 0
+        },
+        {
+          "barNumber": 1,
+          "value": 3
+        },
+        {
+          "barNumber": 1,
+          "value": 3
+        }
+      ]
+    },
+    {
+      "taskId": "b894bfa9-a7f7-4e2a-8308-e1296e228e3e",
+      "workPackageId": "81635dc8-1037-48c6-b3cc-9af3c9db54b0",
+      "workPackageTitle": "Interface Development",
+      "description": "CER Report Generation",
+      "days": 2,
+      "startDep": null,
+      "endDep": null,
+      "dayLoading": "front",
+      "schedule": [
+        {
+          "barNumber": 0,
+          "value": 0
+        },
+        {
+          "barNumber": 1,
+          "value": 1
+        },
+        {
+          "barNumber": 1,
+          "value": 1
+        }
+      ]
+    },
+    {
+      "taskId": "4bf77fa9-e150-4ac8-b989-7be027959302",
+      "workPackageId": "81635dc8-1037-48c6-b3cc-9af3c9db54b0",
+      "workPackageTitle": "Interface Development",
+      "description": "Early Prototyping and Unit Testing",
+      "days": 4,
+      "startDep": null,
+      "endDep": null,
+      "dayLoading": "front",
+      "schedule": [
+        {
+          "barNumber": 0,
+          "value": 0
+        },
+        {
+          "barNumber": 1,
+          "value": 2
+        },
+        {
+          "barNumber": 1,
+          "value": 2
+        }
+      ]
+    },
+    {
+      "taskId": "e0c4a3fc-b019-4150-840f-9fc220f8a75b",
+      "workPackageId": "7da6a19d-20bf-4612-9133-2c60f6919b2a",
+      "workPackageTitle": "Testing",
+      "description": "Continuous Integration",
+      "days": 6,
+      "startDep": null,
+      "endDep": null,
+      "dayLoading": "front",
+      "schedule": [
+        {
+          "barNumber": 1,
+          "value": 2
+        },
+        {
+          "barNumber": 1,
+          "value": 2
+        },
+        {
+          "barNumber": 1,
+          "value": 2
+        }
+      ]
+    },
+    {
+      "taskId": "865595a6-60e8-4d76-a629-0c0a6056d883",
+      "workPackageId": "7da6a19d-20bf-4612-9133-2c60f6919b2a",
+      "workPackageTitle": "Testing",
+      "description": "Performance/stress testing",
+      "days": 9,
+      "startDep": null,
+      "endDep": null,
+      "dayLoading": "front",
+      "schedule": [
+        {
+          "barNumber": 1,
+          "value": 3
+        },
+        {
+          "barNumber": 1,
+          "value": 3
+        },
+        {
+          "barNumber": 1,
+          "value": 3
+        }
+      ]
+    },
+    {
+      "taskId": "829b490e-b187-4b0d-b97b-54e20177c67e",
+      "workPackageId": "7da6a19d-20bf-4612-9133-2c60f6919b2a",
+      "workPackageTitle": "Testing",
+      "description": "Security testing",
+      "days": 6,
+      "startDep": null,
+      "endDep": null,
+      "dayLoading": "front",
+      "schedule": [
+        {
+          "barNumber": 1,
+          "value": 2
+        },
+        {
+          "barNumber": 1,
+          "value": 2
+        },
+        {
+          "barNumber": 1,
+          "value": 2
+        }
+      ]
+    },
+    {
+      "taskId": "786c35b7-2304-4686-b336-b1007885b970",
+      "workPackageId": "7da6a19d-20bf-4612-9133-2c60f6919b2a",
+      "workPackageTitle": "Testing",
+      "description": "User Testing (with Kosmos Consortium) and Optimisation",
+      "days": 4,
+      "startDep": null,
+      "endDep": null,
+      "dayLoading": "front",
+      "schedule": [
+        {
+          "barNumber": 0,
+          "value": 0
+        },
+        {
+          "barNumber": 1,
+          "value": 2
+        },
+        {
+          "barNumber": 1,
+          "value": 2
+        }
+      ]
+    },
+    {
+      "taskId": "04b7003e-1a87-42db-962a-4fb513a566a4",
+      "workPackageId": "7da6a19d-20bf-4612-9133-2c60f6919b2a",
+      "workPackageTitle": "Testing",
+      "description": "Benefits Calculation",
+      "days": 4,
+      "startDep": null,
+      "endDep": null,
+      "dayLoading": "front",
+      "schedule": [
+        {
+          "barNumber": 0,
+          "value": 0
+        },
+        {
+          "barNumber": 1,
+          "value": 2
+        },
+        {
+          "barNumber": 1,
+          "value": 2
+        }
+      ]
+    }
+  ],
+  "projectId": "abc"
+}]

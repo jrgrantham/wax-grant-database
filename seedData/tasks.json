@@ -1,0 +1,32 @@
+[{
+  "_id": {
+    "$oid": "6203d5137a012673527c8d28"
+  },
+  "data": [
+    {
+      "taskId": "task1",
+      "workPackageTitle": "Pack title...",
+      "workPackageId": "pack1",
+      "description": "description...",
+      "days": 1,
+      "startDep": "",
+      "endDep": "",
+      "dayLoading": "front",
+      "schedule": [
+        {
+          "barNumber": 1,
+          "value": 1
+        },
+        {
+          "barnumber": 0,
+          "value": 0
+        },
+        {
+          "barNumber": 0,
+          "value": 0
+        }
+      ]
+    }
+  ],
+  "projectId": "abc"
+}]

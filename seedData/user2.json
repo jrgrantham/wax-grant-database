@@ -1,0 +1,36 @@
+[{
+  "_id": {
+    "$oid": "606a23e39a795e1cdfe2a612"
+  },
+  "password": "$2a$10$R54g.AG1Sgysl0vPBs9s5.7aV5t.r9uVlEMDpXeMtzcKpJEU1dgNu",
+  "name": "James Grantham",
+  "email": "james.r.grantham@gmail.com",
+  "__v": 0,
+  "projectId": "abc",
+  "admin": true,
+  "userId": "user1",
+  "projects": []
+},{
+  "_id": {
+    "$oid": "622f234b2f25d0a01324208f"
+  },
+  "projects": [],
+  "userId": "40267a8d-9ce0-4047-b3d2-befca8f08c4d",
+  "name": "Damien Jones",
+  "admin": true,
+  "email": "damien@wax-rdc.com",
+  "password": "$2a$10$La1xoQTvKW53zqbcmKrWOerEbfpmOD.qdA1mdi037Bd29M7NlYY7C",
+  "__v": 0,
+  "projectId": "abc"
+},{
+  "_id": {
+    "$oid": "62308747256cddc9880f94f9"
+  },
+  "projects": [],
+  "userId": "c29ec33b-d122-48d6-b294-9c11deef5508",
+  "name": "Casper Gray",
+  "admin": true,
+  "email": "casper@wax-rdc.com",
+  "password": "$2a$10$wXvjC5T7X0xQjSvlsqg5z.xvA1g1sTmSPQ3fEI/ze1ODVuGXjJ9Ea",
+  "__v": 0
+}]
