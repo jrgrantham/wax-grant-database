@@ -6,6 +6,7 @@ const admin = require("../../middleware/admin");
 const helpers = require("../../middleware/helpers");
 
 router.get("/me", async (req, res) => {
+  console.log("***** get/me *****");
   const { userId, projectId, admin, name } = req;
   const checkedProjectId = await helpers.checkProject({
     providedProjectId: projectId,
@@ -13,26 +14,32 @@ router.get("/me", async (req, res) => {
     userId,
   });
   const message = admin
-    ? "Selected project does not exist, please login again"
+    ? "Selected project deleted, project changed"
     : "No project allocated, contact WAX administration";
 
   res.status(200).send({
     name,
     admin,
     projectId: checkedProjectId,
-    message: checkedProjectId ? null : message,
+    message: projectId === checkedProjectId ? null : message,
   });
 });
 
 // individual selecting a project
 router.put("/me", async (req, res) => {
-  const { userId } = req;
+  const { userId, admin } = req;
   const projectId = req.body.projectId;
   const rememberMe = req.rememberMe;
+  const checkedProjectId = await helpers.checkProject({
+    providedProjectId: projectId,
+    admin,
+    userId,
+  });
+  console.log("changing project: " + projectId);
   try {
     const user = await User.findOneAndUpdate(
       { userId },
-      { projectId },
+      { projectId: checkedProjectId },
       { new: true }
     );
     const token = user.generateAuthToken(rememberMe);
