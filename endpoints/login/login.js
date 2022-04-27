@@ -29,15 +29,18 @@ router.post("/", async (req, res) => {
       const check = {
         projects: false, // has list of projects
         selected: false, // has a selected project
-        project: false, // project still available
-        error: false, // setting to true prevents token being saved on client
+        project: false,  // project still available
+        error: false,    // setting to true prevents token being saved on client
         token: undefined,
         message: `Hello ${firstName}, you have no project allocated. Contact WAX administration`,
       };
+
       // must have a list of assigned projects or be admin
       if (projects.length > 0 || admin) check.projects = true;
+
       // must have a selected project from the list or be admin
-      if (projects.includes(projectId) || admin) check.selected = true;
+      if (projects.includes(projectId) || admin) check.selected = projectId;
+
       // the selected project must still be available
       // only worth checking if the other 2 pass
       if (check.projects && check.selected)
