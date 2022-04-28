@@ -26,6 +26,12 @@ router.post("/", async (req, res) => {
       const { projectId, projects, admin, name, userId } = user;
       const firstName = name.split(" ")[0];
 
+      // console.log('projectId', projectId);
+      // console.log('projects', projects);
+      // console.log('admin', admin);
+      // console.log('name', name);
+      // console.log("userId", userId);
+
       const check = {
         projects: false, // has list of projects
         selected: false, // has a selected project
@@ -53,6 +59,8 @@ router.post("/", async (req, res) => {
       // either set the token or set an error
       if (check.project) check.token = user.generateAuthToken(rememberMe);
       else check.error = true;
+
+      console.log(check);
 
       user.password = "";
       res.status(200).send({
