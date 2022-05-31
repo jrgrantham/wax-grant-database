@@ -100,11 +100,12 @@ router.post("/", async (req, res) => {
 
 // admin editing a user
 router.put("/", async (req, res) => {
-  const { userId, name, email, password } = req.body;
+  const { userId, name, email, password, color } = req.body;
   const filter = { userId };
   const hashedPassword = bcryptjs.hashSync(password, 10);
   const updatedUser = {
     name,
+    color,
     email,
     password: hashedPassword,
   };
@@ -121,6 +122,26 @@ router.put("/", async (req, res) => {
     res.status(400).send({ message: ex.message });
   }
 });
+
+// router.put("/color", async (req, res) => {
+//   const { color, userId } = req.body;
+//   const filter = { userId };
+//   const updatedUser = { color };
+//   console.log(updatedUser);
+  
+//   try {
+//     const user = await User.findOneAndUpdate(filter, updatedUser, {
+//       new: true,
+//     }).lean();
+//     console.log(user);
+//     res.status(200).send({
+//       message: "Update user successful",
+//       data: { ...user, password: "" },
+//     });
+//   } catch (ex) {
+//     res.status(400).send({ message: ex.message });
+//   }
+// });
 
 // admin updating projects
 router.put("/projects", async (req, res) => {
