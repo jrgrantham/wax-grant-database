@@ -1,5 +1,5 @@
 const express = require("express");
-const bodyParser = require('body-parser'); 
+const bodyParser = require("body-parser");
 const helmet = require("helmet");
 const cors = require("cors");
 const authenticate = require("../middleware/authenticate");
@@ -26,8 +26,12 @@ const travel = require("../endpoints/travel");
 const email = require("../endpoints/email/mailRouter");
 
 module.exports = function (app) {
-  app.use(cors());
-  app.use(bodyParser.json({limit: '50mb'}));
+  var corsOptions = {
+    origin: "*",
+    optionsSuccessStatus: 200, // some legacy browsers (IE11, various SmartTVs) choke on 204
+  };
+  app.use(cors(corsOptions));
+  app.use(bodyParser.json({ limit: "50mb" }));
   app.use(express.json());
   app.use(express.urlencoded({ extended: true }));
   app.use(express.static("public"));
@@ -52,6 +56,5 @@ module.exports = function (app) {
   app.use("/api/tasks", authenticate, tasks);
   app.use("/api/team", authenticate, team);
   app.use("/api/travel", authenticate, travel);
-  app.use('/api/email', email)
+  app.use("/api/email", email);
 };
-
