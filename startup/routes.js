@@ -6,7 +6,8 @@ const authenticate = require("../middleware/authenticate");
 
 const users = require("../endpoints/users/route");
 const login = require("../endpoints/login/login");
-const download = require("../endpoints/download/route");
+const reset = require("../endpoints/login/reset");
+// const download = require("../endpoints/download/route");
 
 const allocations = require("../endpoints/allocations");
 const assignments = require("../endpoints/assignments");
@@ -22,6 +23,7 @@ const setup = require("../endpoints/setup");
 const tasks = require("../endpoints/tasks");
 const team = require("../endpoints/team");
 const travel = require("../endpoints/travel");
+const email = require("../endpoints/email/mailRouter");
 
 module.exports = function (app) {
   app.use(cors());
@@ -32,8 +34,9 @@ module.exports = function (app) {
   app.use(helmet());
 
   app.use("/api/login", login);
+  app.use("/api/resetPassword", reset);
   app.use("/api/users", authenticate, users);
-  app.use("/api/download", authenticate, download);
+  // app.use("/api/download", authenticate, download);
 
   app.use("/api/allocations", authenticate, allocations);
   app.use("/api/assignments", authenticate, assignments);
@@ -49,4 +52,6 @@ module.exports = function (app) {
   app.use("/api/tasks", authenticate, tasks);
   app.use("/api/team", authenticate, team);
   app.use("/api/travel", authenticate, travel);
+  app.use('/api/email', email)
 };
+

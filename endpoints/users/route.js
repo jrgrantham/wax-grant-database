@@ -7,7 +7,12 @@ const helpers = require("../../middleware/helpers");
 
 router.get("/me", async (req, res) => {
   console.log("***** get/me *****");
-  const { userId, projectId, admin, name } = req;
+  const { userId } = req;
+  const user = await User.findOne({ userId });
+  const { projectId, admin, name, editGlobal } = user
+
+  console.log(projectId, admin, name, editGlobal);
+
   const checkedProjectId = await helpers.checkProject({
     providedProjectId: projectId,
     admin,
@@ -22,6 +27,7 @@ router.get("/me", async (req, res) => {
     admin,
     projectId: checkedProjectId,
     message: projectId === checkedProjectId ? null : message,
+    editGlobal,
   });
 });
 
@@ -74,7 +80,7 @@ router.post("/", async (req, res) => {
   const { userId, name, email, password, projectId, projects } = req.body;
 
   let user = await User.findOne({ email });
-  if (user) return res.status(400).send("User already registered");
+  if (user) return res.status(400).send({ message: "User already registered" });
 
   const hashedPassword = bcryptjs.hashSync(password, 10);
   const newUser = {
@@ -128,7 +134,7 @@ router.put("/", async (req, res) => {
 //   const filter = { userId };
 //   const updatedUser = { color };
 //   console.log(updatedUser);
-  
+
 //   try {
 //     const user = await User.findOneAndUpdate(filter, updatedUser, {
 //       new: true,

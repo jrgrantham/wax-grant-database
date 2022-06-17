@@ -15,12 +15,12 @@ module.exports = function (app) {
 
   console.log(
     "*****\n",
+    "app name -",
+    dbName,
+    "\n",
     "file - db.js\n",
     "data -",
     uri,
-    "\n",
-    "name -",
-    dbName,
     "\n",
     "user -",
     dbUser,

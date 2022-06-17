@@ -8,6 +8,8 @@ module.exports = function () {
   // console.log("config.js - password: " + process.env.PASSWORD);
   
   // console.log("config.js - name: " + config.get('jwtPrivateKey'));
+
+  
   if (!config.get("jwtPrivateKey")) {
     throw new Error("FATAL ERROR: jwtPrivateKey is not defined");
   }

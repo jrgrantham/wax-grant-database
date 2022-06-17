@@ -54,6 +54,9 @@ const userSchema = new mongoose.Schema({
   color: {
     type: Number,
   },
+  editGlobal: {
+    type: Boolean,
+  },
 });
 
 userSchema.methods.generateAuthToken = function (rememberMe) {
