@@ -26,11 +26,16 @@ const travel = require("../endpoints/travel");
 const email = require("../endpoints/email/mailRouter");
 
 module.exports = function (app) {
-  var corsOptions = {
-    origin: "*",
-    optionsSuccessStatus: 200, // some legacy browsers (IE11, various SmartTVs) choke on 204
-  };
-  app.use(cors(corsOptions));
+  // var corsOptions = {
+  //   origin: "*",
+  //   optionsSuccessStatus: 200, // some legacy browsers (IE11, various SmartTVs) choke on 204
+  // };
+  app.use(
+    cors({
+      origin: "*",
+      credentials: true,
+    })
+  );
   app.use(bodyParser.json({ limit: "50mb" }));
   app.use(express.json());
   app.use(express.urlencoded({ extended: true }));
