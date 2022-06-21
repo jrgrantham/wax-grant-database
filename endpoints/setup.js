@@ -1,6 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const mongoose = require("mongoose");
+const { User } = require("./users/model");
 
 const Setup = mongoose.model(
   "Setup",
@@ -17,27 +18,35 @@ router.get("/", async (req, res) => {
   const { admin, userId } = req;
   // console.log(userId);
   const list = [];
-  try {
-    const allSetups = await Setup.find();
-    // console.log(allSetups);
-    allSetups.forEach((setup) => {
-      const current = { ...setup.data };
-      current.projectId = setup.projectId;
-      if (admin) {
+
+  if (admin) {
+    try {
+      const allSetups = await Setup.find();
+      allSetups.forEach((setup) => {
+        const current = { ...setup.data };
+        current.projectId = setup.projectId;
         list.push(current);
-      } else {
-        if (
-          current.lead === userId ||
-          current.pOne === userId ||
-          current.pTwo === userId
-        ) {
+      });
+      res.status(200).send(list);
+    } catch (ex) {
+      res.status(400).send({ message: ex.message });
+    }
+  } else {
+    try {
+      const allSetups = await Setup.find();
+      const user = await User.findOne({ userId });
+      const { projects } = user;
+      allSetups.forEach((setup) => {
+        if (projects.includes(setup.projectId)) {
+          const current = { ...setup.data };
+          current.projectId = setup.projectId;
           list.push(current);
         }
-      }
-    });
-    res.status(200).send(list);
-  } catch (ex) {
-    res.status(400).send({ message: ex.message });
+      });
+      res.status(200).send(list);
+    } catch (ex) {
+      res.status(400).send({ message: ex.message });
+    }
   }
 });
 
@@ -83,4 +92,4 @@ router.post("/new", async (req, res) => {
 });
 
 module.exports = router;
-module.exports.Setup = Setup
+module.exports.Setup = Setup;

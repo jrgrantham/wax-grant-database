@@ -4,10 +4,13 @@ const mongoose = require("mongoose");
 
 const Other = mongoose.model(
   "Other",
-  new mongoose.Schema({
-    projectId: { type: String, required: true },
-    data: { type: Array, required: true },
-  }, { collection: 'other' })
+  new mongoose.Schema(
+    {
+      projectId: { type: String, required: true },
+      data: { type: Array, required: true },
+    },
+    { collection: "other" }
+  )
 );
 
 router.get("/selected", async (req, res) => {
@@ -46,10 +49,10 @@ router.delete("/selected", async (req, res) => {
 });
 
 router.post("/new", async (req, res) => {
-  const projectId = req.body.projectId;
+  const { projectId, data } = req.body;
   const newEntry = {
     projectId,
-    data: [],
+    data,
   };
   try {
     const doc = new Other(newEntry);

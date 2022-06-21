@@ -51,6 +51,12 @@ const userSchema = new mongoose.Schema({
   admin: {
     type: Boolean,
   },
+  color: {
+    type: Number,
+  },
+  editGlobal: {
+    type: Boolean,
+  },
 });
 
 userSchema.methods.generateAuthToken = function (rememberMe) {

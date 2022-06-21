@@ -6,33 +6,46 @@ const admin = require("../../middleware/admin");
 const helpers = require("../../middleware/helpers");
 
 router.get("/me", async (req, res) => {
-  const { userId, projectId, admin, name } = req;
+  console.log("***** get/me *****");
+  const { userId } = req;
+  const user = await User.findOne({ userId });
+  const { projectId, admin, name, editGlobal } = user
+
+  console.log(projectId, admin, name, editGlobal);
+
   const checkedProjectId = await helpers.checkProject({
     providedProjectId: projectId,
     admin,
     userId,
   });
   const message = admin
-    ? "Selected project does not exist, please login again"
+    ? "Selected project deleted, project changed"
     : "No project allocated, contact WAX administration";
 
   res.status(200).send({
     name,
     admin,
     projectId: checkedProjectId,
-    message: checkedProjectId ? null : message,
+    message: projectId === checkedProjectId ? null : message,
+    editGlobal,
   });
 });
 
 // individual selecting a project
 router.put("/me", async (req, res) => {
-  const { userId } = req;
+  const { userId, admin } = req;
   const projectId = req.body.projectId;
   const rememberMe = req.rememberMe;
+  const checkedProjectId = await helpers.checkProject({
+    providedProjectId: projectId,
+    admin,
+    userId,
+  });
+  console.log("changing project: " + projectId);
   try {
     const user = await User.findOneAndUpdate(
       { userId },
-      { projectId },
+      { projectId: checkedProjectId },
       { new: true }
     );
     const token = user.generateAuthToken(rememberMe);
@@ -67,7 +80,7 @@ router.post("/", async (req, res) => {
   const { userId, name, email, password, projectId, projects } = req.body;
 
   let user = await User.findOne({ email });
-  if (user) return res.status(400).send("User already registered");
+  if (user) return res.status(400).send({ message: "User already registered" });
 
   const hashedPassword = bcryptjs.hashSync(password, 10);
   const newUser = {
@@ -93,11 +106,12 @@ router.post("/", async (req, res) => {
 
 // admin editing a user
 router.put("/", async (req, res) => {
-  const { userId, name, email, password } = req.body;
+  const { userId, name, email, password, color } = req.body;
   const filter = { userId };
   const hashedPassword = bcryptjs.hashSync(password, 10);
   const updatedUser = {
     name,
+    color,
     email,
     password: hashedPassword,
   };
@@ -114,6 +128,26 @@ router.put("/", async (req, res) => {
     res.status(400).send({ message: ex.message });
   }
 });
+
+// router.put("/color", async (req, res) => {
+//   const { color, userId } = req.body;
+//   const filter = { userId };
+//   const updatedUser = { color };
+//   console.log(updatedUser);
+
+//   try {
+//     const user = await User.findOneAndUpdate(filter, updatedUser, {
+//       new: true,
+//     }).lean();
+//     console.log(user);
+//     res.status(200).send({
+//       message: "Update user successful",
+//       data: { ...user, password: "" },
+//     });
+//   } catch (ex) {
+//     res.status(400).send({ message: ex.message });
+//   }
+// });
 
 // admin updating projects
 router.put("/projects", async (req, res) => {
