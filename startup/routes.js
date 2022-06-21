@@ -26,11 +26,11 @@ const travel = require("../endpoints/travel");
 const email = require("../endpoints/email/mailRouter");
 
 module.exports = function (app) {
-  // var corsOptions = {
-  //   origin: "*",
-  //   optionsSuccessStatus: 200, // some legacy browsers (IE11, various SmartTVs) choke on 204
-  // };
-  app.use(cors());
+  var corsOptions = {
+    origin: "*",
+    optionsSuccessStatus: 200, // some legacy browsers (IE11, various SmartTVs) choke on 204
+  };
+  app.use(cors(corsOptions));
   app.use(function (req, res, next) {
 
     // Website you wish to allow to connect
